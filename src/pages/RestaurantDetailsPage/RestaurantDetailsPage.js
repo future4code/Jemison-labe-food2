@@ -1,13 +1,10 @@
 import React from "react";
+import { Container } from "../../Styled";
 
 export function RestaurantDetailsPage() {
-
-
     return (
-
-        <>
-            
-            <h1> Pagina RestaurantDetailsPage </h1>
-        </>
-    )
+        <Container>
+            <h1>Pagina RestaurantDetailsPage</h1>
+        </Container>
+    );
 }

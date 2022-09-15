@@ -1,12 +1,10 @@
 import React from "react";
+import { Container } from "../../Styled";
 
 export function ProfilePage() {
-
-
     return (
-        <>
-            
-            <h1> Pagina ProfilePage </h1>
-        </>
-    )
+        <Container>
+            <h1>Pagina ProfilePage</h1>
+        </Container>
+    );
 }

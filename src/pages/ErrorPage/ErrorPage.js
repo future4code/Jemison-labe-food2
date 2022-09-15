@@ -1,11 +1,11 @@
 import React from "react";
 
-export function ErrorPage() {
+import { Container } from "../../Styled";
 
-    return(
-        <>
-            
-            <h1> Pagina ErrorPage </h1>
-        </>
-    )
+export function ErrorPage() {
+    return (
+        <Container>
+            <h1>Pagina ErrorPage</h1>
+        </Container>
+    );
 }

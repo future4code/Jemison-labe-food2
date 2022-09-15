@@ -1,11 +1,10 @@
 import React from "react";
+import { Container } from "../../Styled";
 
 export function EditPage() {
-
     return (
-        <>
-            
-            <h1> Pagina EditePage </h1>
-        </>
-    )
+        <Container>
+            <h1>Pagina EditPage</h1>
+        </Container>
+    );
 }

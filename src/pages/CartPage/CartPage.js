@@ -1,13 +1,10 @@
 import React from "react";
+import { Container } from "../../Styled";
 
-
-export function CartPage () {
-
+export function CartPage() {
     return (
-
-        <>
-            
-            <h1> Pagina CartPage </h1>
-        </>
-    )
+        <Container>
+            <h1>Pagina CartPage</h1>
+        </Container>
+    );
 }
