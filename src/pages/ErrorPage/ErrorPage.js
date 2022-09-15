@@ -1,11 +1,8 @@
 import React from "react";
 
+export function ErrorPage() {
 
-export function TelaInicial(){
-
-
-    return (
-
+    return(
         <>
         </>
     )
