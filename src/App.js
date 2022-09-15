@@ -1,11 +1,15 @@
 import React from "react";
 import { GlobalStyles } from "./Styled";
+import {GlobalState} from "./components/GlobalState"
+import { Router } from './routes/Router';
+
+
 
 export default function App() {
     return (
-        <div>
+        <GlobalState>
             <GlobalStyles />
-            <h1>App</h1>
-        </div>
+            <Router/>
+        </GlobalState>
     );
 }
