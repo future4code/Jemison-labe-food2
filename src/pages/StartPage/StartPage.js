@@ -1,11 +1,9 @@
 import React from "react";
 
-export function FeedPage() {
-
-
+export function StartPage() {
     return (
         <>
             <h1> Feed Page</h1>
         </>
-    )
+    );
 }
