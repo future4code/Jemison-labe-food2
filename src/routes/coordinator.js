@@ -11,6 +11,11 @@ export const goToSignUpPage = (navigate) => {
     navigate("/signup");
 };
 
+export const goToFeedPage = (navigate) => {
+    navigate("/feedpage");
+};
+
+
 export const ggoToRestaurantDetailsPage = (navigate) => {
     navigate(`/restaurantdetails/`);
 }

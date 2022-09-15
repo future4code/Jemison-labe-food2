@@ -10,6 +10,7 @@ import { ProfilePage } from "../pages/ProfilePage/ProfilePage";
 import { RestaurantDetailsPage } from "../pages/RestaurantDetailsPage/RestaurantDetailsPage";
 import { SignUpPage } from "../pages/SignUpPage/SignUpPage";
 import { ErrorPage } from "../pages/ErrorPage/ErrorPage";
+import { FeedPage} from "../pages/FeedPage/FeedPage";
 
 export const Router = () => {
     return (
@@ -19,6 +20,7 @@ export const Router = () => {
                 <Route path="login" element={<LoginPage />} />
                 <Route path="signup" element={<SignUpPage />} />
                 <Route path="address" element={<AddressPage />} />
+                <Route path="feedpage" element={<FeedPage />} />
                 <Route path="cart" element={<CartPage />} />
                 <Route path="profile" element={<ProfilePage />} />
                 <Route
