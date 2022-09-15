@@ -54,9 +54,7 @@ export function LoginPage() {
                 <p>
                     Não possui cadastro?
                     <button
-                        onClick={() => {
-                            goToSignUpPage(navigate);
-                        }}>
+                    >
                         Clique aqui
                     </button>
                     .
