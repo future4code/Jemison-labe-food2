@@ -1,29 +1,28 @@
-export const goToFeedPage = (navigate) =>{
-    navigate("/")
-}
+export const goToStartPage = (navigate) => {
+    navigate("/");
+};
 
-export const goToLoginPage = (navigate) =>{
-    navigate("/login")
-}
+export const goToLoginPage = (navigate) => {
+    navigate("/login");
+};
 
-export const goToAddressPage = (navigate) =>{
-    navigate("/address")
-}
+export const goToAddressPage = (navigate) => {
+    navigate("/address");
+};
 
+export const goToCartPage = (navigate) => {
+    navigate("/cart");
+};
 
-export const goToCartPage = (navigate) =>{
-    navigate("/cart")
-}
+export const goToProfilePage = (navigate) => {
+    navigate("/profile");
+};
 
-
-export const goToProfilePage = (navigate) =>{
-    navigate("/profile")
-}
-
-export const ggoToRestaurantDetailsPage = (navigate) =>{
-    navigate(`/restaurantdetails/${id}`)
-}
+export const ggoToRestaurantDetailsPage = (navigate) => {
+    navigate(`/restaurantdetails/`);
+    // quando tiver o id, substituir por: navigate(`/restaurantdetails/${id}`);
+};
 
 export const goToEditPage = (navigate) => {
-    navigate("/edit")
-}
+    navigate("/edit");
+};

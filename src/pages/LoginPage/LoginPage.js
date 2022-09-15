@@ -1,13 +1,13 @@
 import React from "react";
+import { Header } from "../../components/Header/Header";
+import { Registration } from "../../components/Registration/Registration";
+import { Container } from "../../Styled";
 
 export function LoginPage() {
-
-
     return (
-
-        <>
-            
-            <h1> Pagina LoginPage</h1>
-        </>
-    )
+        <Container>
+            <Header />
+            <Registration />
+        </Container>
+    );
 }
