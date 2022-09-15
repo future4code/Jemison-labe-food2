@@ -18,8 +18,8 @@ export const HomeContainer = styled.div`
             content: "";
             background: url(${logoBranca}) no-repeat;
             background-size: contain;
-            width: 200px;
-            height: 65px;
+            width: 7.875rem;
+            height: 4.063rem;
         }
     }
 `;

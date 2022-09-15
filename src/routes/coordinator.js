@@ -2,8 +2,16 @@ export const goToStartPage = (navigate) => {
     navigate("/");
 };
 
+export const goToBackPage = (navigate) => {
+    navigate(-1);
+};
+
 export const goToLoginPage = (navigate) => {
     navigate("/login");
+};
+
+export const goToSignUpPage = (navigate) => {
+    navigate("/signup");
 };
 
 export const goToAddressPage = (navigate) => {

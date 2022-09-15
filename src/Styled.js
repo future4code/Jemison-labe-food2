@@ -25,8 +25,6 @@ export const GlobalStyles = createGlobalStyle`
     font-stretch: normal;
   }
 
-
-
 body {
     display: grid;
     place-items: center;
@@ -39,8 +37,14 @@ body {
     letter-spacing: -0.39px;
 }
 
-button{
+button {
     cursor: pointer;
+    background: none;
+    border: none;
+    font-family: Roboto;
+    font-size: 1rem;
+    color: #000;
+    letter-spacing: -0.39px;
 }
 
 a {
@@ -56,10 +60,16 @@ img {
 ul, li{
     list-style: none;
 }
+
+
 `;
 
 export const Container = styled.div`
+    display: grid;
+    place-items: center;
     background: #fff;
-    width: 22.5rem;
-    height: 40rem;
+    min-width: 22.5rem;
+    min-height: 41.688rem;
+    padding: 1rem 0.625rem 1rem;
+    position: relative;
 `;
