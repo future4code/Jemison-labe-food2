@@ -16,8 +16,8 @@ export const goToFeedPage = (navigate) => {
 };
 
 
-export const ggoToRestaurantDetailsPage = (navigate) => {
-    navigate(`/restaurantdetails/`);
+export const goToRestaurantDetailsPage = (navigate) => {
+    navigate("/restaurantdetails/");
 }
 
 export const goToLoginPage = (navigate) => {
