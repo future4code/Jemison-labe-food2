@@ -66,6 +66,14 @@ export const Input = styled.input`
     }
 `;
 
+export const InputSearch = styled(Input)`
+    border-radius: 2px;
+
+    :focus {
+        border-color: #b8b8b8;
+    }
+`;
+
 export const Botao = styled.button`
     background: #e8222e;
     border: none;

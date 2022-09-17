@@ -60,16 +60,29 @@ img {
 ul, li{
     list-style: none;
 }
-
-
 `;
 
 export const Container = styled.div`
     display: grid;
     place-items: center;
     background: #fff;
-    min-width: 22.5rem;
-    min-height: 41.688rem;
-    padding: 1rem 0.625rem 1rem;
+    width: 22.5rem;
+    min-height: 40rem;
+    max-height: 41.688rem;
+    padding: 1rem;
+    padding-bottom: 0;
     position: relative;
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    ::-webkit-scrollbar {
+        height: 0;
+        width: 0;
+    }
+    ::-webkit-scrollbar-thumb {
+        background: none;
+    }
+    ::-webkit-scrollbar-track {
+        background: none;
+    }
 `;

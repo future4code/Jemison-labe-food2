@@ -24,7 +24,7 @@ import {
     
     Title, 
     Search, 
-    Rectangle, 
+    Card, 
     Text, 
     P1, 
     P2, 
@@ -44,26 +44,26 @@ export function RestaurantDetailsPage() {
                 <Paragrafo>Restaurante</Paragrafo>
             </Search>
         
-            <Rectangle>
+            <Card>
                 <img src={image} width="328" height="120" />
                 <Text>Vinil Butantã</Text>
                 <P1>50 - 60 min</P1>
                 <P2>Frete R$6,00</P2>
-            </Rectangle>
+            </Card>
 
-            <Rectangle>
+            <Card>
                 <img src={image} width="328" height="120" />
                 <Text>Bullguer Eldorado</Text>
                 <P1>30 - 45 min</P1>
                 <P2>Frete R$6,00</P2>
-            </Rectangle>
+            </Card>
 
-            <Rectangle>
+            <Card>
                 <img src={image} width="328" height="120" />
                 <Text>Vinil Butantã</Text>
                 <P1>50 - 60 min</P1>
                 <P2>Frete R$6,00</P2>
-            </Rectangle>
+            </Card>
 
             <Icon>
                 <House>
