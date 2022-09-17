@@ -60,13 +60,12 @@ export const Cards = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 0.5rem;
 `;
 
 export const Card = styled.figure`
     border-radius: 8px;
     border: solid 1px #b8b8b8;
-
+    margin-bottom: 0.5rem;
     img {
         border-radius: 8px;
     }
