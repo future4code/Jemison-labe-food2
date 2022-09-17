@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import search from "../../assets/img/search/search.svg";
 
 export const Title = styled.h3`
     font-size: 1rem;
@@ -28,10 +27,10 @@ export const Search = styled.div`
 `;
 
 export const Categories = styled.ul`
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(4, 5.438rem);
     gap: 0.5rem;
-    width: 22.5rem;
-    overflow-x: auto;
+    overflow-x: scroll;
     padding: 0.75rem 0;
     text-align: center;
     margin: 0.5rem 0;
@@ -49,7 +48,6 @@ export const Categories = styled.ul`
 
     li {
         color: #000;
-        width: 5.438rem;
         height: 1.125rem;
 
         &:hover {
