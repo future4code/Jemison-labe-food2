@@ -17,7 +17,7 @@ export const goToFeedPage = (navigate) => {
 
 
 export const goToRestaurantDetailsPage = (navigate) => {
-    navigate("/restaurantdetails/");
+    navigate(`/restaurantdetails/`);
 }
 
 export const goToLoginPage = (navigate) => {
