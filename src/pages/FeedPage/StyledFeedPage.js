@@ -31,27 +31,38 @@ export const Categories = styled.ul`
     grid-template-columns: repeat(4, 5.438rem);
     gap: 0.5rem;
     overflow-x: scroll;
-    padding: 0.75rem 0;
+    padding-bottom: 0.5rem;
     text-align: center;
     margin: 0.5rem 0;
 
     ::-webkit-scrollbar {
-        height: 0;
-        width: 0;
+        height: 5px;
+        width: 5px;
     }
     ::-webkit-scrollbar-thumb {
-        background: none;
+        background: #b8b8b8;
+        border-radius: 4px;
     }
     ::-webkit-scrollbar-track {
-        background: none;
+        background: #fff;
     }
 
-    li {
+    @media screen and (max-width: 600px) {
+        ::-webkit-scrollbar {
+            height: 0px;
+            width: 0px;
+        }
+    }
+
+    button {
         color: #000;
-        height: 1.125rem;
+        background: #fff;
+        border-radius: 4px;
+        padding: 0.75rem 0;
+        width: 100%;
 
         &:hover {
-            color: #e8222e;
+            background: #f2f2f2;
         }
     }
 `;
@@ -66,6 +77,8 @@ export const Card = styled.figure`
     border-radius: 8px;
     border: solid 1px #b8b8b8;
     margin-bottom: 0.5rem;
+    cursor: pointer;
+
     img {
         border-radius: 8px;
     }
@@ -100,5 +113,9 @@ export const Menu = styled.ul`
 
     button {
         padding: 0.688rem 2.875rem 0.688rem 2.938rem;
+
+        &:hover {
+            background: #f2f2f2;
+        }
     }
 `;
