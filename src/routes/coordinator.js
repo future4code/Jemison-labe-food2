@@ -6,7 +6,6 @@ export const goToBackPage = (navigate) => {
     navigate(-1);
 };
 
-
 export const goToSignUpPage = (navigate) => {
     navigate("/signup");
 };
@@ -15,10 +14,9 @@ export const goToFeedPage = (navigate) => {
     navigate("/feedpage");
 };
 
-
 export const goToRestaurantDetailsPage = (navigate) => {
     navigate(`/restaurantdetails/`);
-}
+};
 
 export const goToLoginPage = (navigate) => {
     navigate("/login");
