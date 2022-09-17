@@ -12,9 +12,16 @@ import { Container } from "../../Styled";
 import logo from "../../assets/img/logo-vermelha.svg";
 import { useNavigate } from "react-router-dom";
 import { goToSignUpPage } from "../../routes/coordinator";
+import { UseForm } from "../../hooks/useForm";
+import { Login } from "../../services/services";
 
 export function LoginPage() {
     const navigate = useNavigate();
+    const [form, handleInputChange, clear] = UseForm({ email: "", password: "" });
+    const onSubmitForm = (e) => {
+        e.preventDefault();
+        Login(form, clear, navigate);
+    };
 
     return (
         <Container>
@@ -25,12 +32,14 @@ export function LoginPage() {
 
                 <p>Entrar</p>
 
-                <Form>
+                <Form onSubmit={onSubmitForm}>
                     <div>
                         <Label>E-mail*</Label>
                         <Input
                             type="email"
                             name="email"
+                            value={form.email}
+                            onChange={handleInputChange}
                             id="email"
                             placeholder="email@email.com"
                             required
@@ -42,6 +51,8 @@ export function LoginPage() {
                         <Input
                             type="password"
                             name="password"
+                            value={form.password}
+                            onChange={handleInputChange}
                             id="password"
                             placeholder="Mínimo 6 caracteres"
                             required
