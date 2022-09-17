@@ -103,7 +103,6 @@ export function SignUpPage() {
                             id="password"
                             placeholder="Mínimo 6 caracteres"
                             required
-                            source={regexPassword}
                         />
                     </div>
 

@@ -18,7 +18,7 @@ const useRequestData = (initialData, path) => {
                     setData(res.data);
                 })
                 .catch((err) => {
-                    alert("Erro de solicitação.");
+                    alert(err.response.data.message);
                 });
         } else {
             setData(initialData);

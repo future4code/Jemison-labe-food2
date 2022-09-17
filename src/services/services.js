@@ -16,16 +16,3 @@ export const getLogin = (body, clear, navigate) => {
         })
         .catch((err) => alert(err.response.data.message));
 };
-
-export const getDataProfile = () => {
-    axios
-        .post(`${BASE_URL}/profile`, {
-            headers: {
-                auth: localStorage.getItem("token"),
-            },
-        })
-        .then((res) => {
-            localStorage.setItem(res.data);
-        })
-        .catch((err) => alert("Erro de solicitação"));
-};

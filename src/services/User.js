@@ -5,6 +5,7 @@ import { goToAddressPage } from "../routes/coordinator";
 // body: todos os textos do inputs da função Login
 // clear: limpar os campos dos inputs
 // navigate: conseguir verificar os caminhos
+// setIsLoading:
 
 export const getSignUp = (body, clear, navigate, setIsLoading) => {
     setIsLoading(true);
