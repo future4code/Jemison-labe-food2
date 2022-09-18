@@ -9,7 +9,7 @@ import {
     Botao,
 } from "../../components/RegistrationPages/StyledRegistrationPages";
 import { Container } from "../../Styled";
-import logo from "../../assets/img/logo-vermelha.svg";
+import logo from "../../assets/img/startPage/logo-vermelha.svg";
 import { useNavigate } from "react-router-dom";
 import { goToSignUpPage } from "../../routes/coordinator";
 import { UseForm } from "../../hooks/useForm";

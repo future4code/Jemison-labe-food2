@@ -45,11 +45,14 @@ button {
     font-size: 1rem;
     color: #000;
     letter-spacing: -0.39px;
+    transition: 0.3s;
 }
 
 a {
     color:inherit;
     text-decoration: none;
+    transition: 0.3s;
+    
 }
 
 img { 

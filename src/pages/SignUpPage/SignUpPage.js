@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import logo from "../../assets/img/logo-vermelha.svg";
+import logo from "../../assets/img/startPage/logo-vermelha.svg";
 import {
     RegistrationContainer,
     Logo,

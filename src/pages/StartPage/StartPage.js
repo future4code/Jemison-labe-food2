@@ -6,12 +6,17 @@ import { goToLoginPage } from "../../routes/coordinator";
 export function StartPage() {
     const navigate = useNavigate();
 
+    setTimeout(() => {
+        goToLoginPage(navigate);
+    }, 2500);
+
     return (
         <HomeContainer>
             <button
                 onClick={() => {
                     goToLoginPage(navigate);
-                }}></button>
+                }}
+            />
         </HomeContainer>
     );
 }
