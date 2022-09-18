@@ -1,22 +1,19 @@
 import axios from "axios";
 import { BASE_URL } from "../constants/BASE_URL";
-import { goToAddressPage } from "../routes/coordinator";
 
 // body: todos os textos do inputs da função Login
 // clear: limpar os campos dos inputs
 // navigate: conseguir verificar os caminhos
-// setIsLoading:
 
-export const getSignUp = (body, clear, navigate, setIsLoading) => {
+export const putUpdateProfile = (body, clear, setIsLoading) => {
     setIsLoading(true);
+    
     axios
-        .post(`${BASE_URL}/signup`, body)
+        .put(`${BASE_URL}/profile`, body)
         .then((res) => {
-            localStorage.setItem("token", res.data.token);
-            alert("Cadastro efetuado com sucesso!");
+            alert("Dados do Perfil atualizado com sucesso");
             clear();
             setIsLoading(false);
-            goToAddressPage(navigate);
         })
         .catch((err) => {
             setIsLoading(false);

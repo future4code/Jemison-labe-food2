@@ -1,5 +1,5 @@
-import React from "react";
-
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import {
     RegistrationContainer,
     Form,
@@ -9,8 +9,29 @@ import {
 } from "../../components/RegistrationPages/StyledRegistrationPages";
 import { Container } from "../../Styled";
 import { Navbar } from "../../components/Navbar/Navbar";
+import { putAddAdress } from "../../services/PutAddAdress";
+import { UseForm } from "../../hooks/useForm";
+import useProtectedPage from "../../hooks/useProtectedPage";
 
 export function AddressPage() {
+    const navigate = useNavigate();
+    const [isLoading, setIsLoading] = useState(false);
+    const [form, handleInputChange, clear] = UseForm({
+        street: "",
+        number: "",
+        neighbourhood: "",
+        city: "",
+        state: "",
+        complement: "",
+    });
+
+    const onSubmitForm = (e) => {
+        e.preventDefault();
+        putAddAdress(form, clear, navigate, setIsLoading);
+    };
+
+    useProtectedPage();
+
     return (
         <Container>
             <Navbar />
@@ -18,13 +39,15 @@ export function AddressPage() {
             <RegistrationContainer>
                 <p>Meu endereço</p>
 
-                <Form>
+                <Form onSubmit={onSubmitForm}>
                     <div>
                         <Label>Logradouro*</Label>
                         <Input
                             type="text"
-                            name="logradouro"
-                            id="logradouro"
+                            name="street"
+                            value={form.street}
+                            onChange={handleInputChange}
+                            id="street"
                             placeholder="Rua / Av."
                             required
                         />
@@ -34,8 +57,10 @@ export function AddressPage() {
                         <Label>Número*</Label>
                         <Input
                             type="number"
-                            name="numero_casa"
-                            id="numero_casa"
+                            name="number"
+                            value={form.number}
+                            onChange={handleInputChange}
+                            id="number"
                             placeholder="Número"
                             required
                         />
@@ -45,8 +70,10 @@ export function AddressPage() {
                         <Label>Complemento</Label>
                         <Input
                             type="text"
-                            name="complemento"
-                            id="complemento"
+                            name="complement"
+                            value={form.complement}
+                            onChange={handleInputChange}
+                            id="complement"
                             placeholder="Apto. / Bloco"
                         />
                     </div>
@@ -55,8 +82,10 @@ export function AddressPage() {
                         <Label>Bairro*</Label>
                         <Input
                             type="text"
-                            name="bairro"
-                            id="bairro"
+                            name="neighbourhood"
+                            value={form.neighbourhood}
+                            onChange={handleInputChange}
+                            id="neighbourhood"
                             placeholder="Bairro"
                             required
                         />
@@ -66,8 +95,10 @@ export function AddressPage() {
                         <Label>Cidade*</Label>
                         <Input
                             type="text"
-                            name="cidade"
-                            id="cidade"
+                            name="city"
+                            value={form.city}
+                            onChange={handleInputChange}
+                            id="city"
                             placeholder="Cidade"
                             required
                         />
@@ -77,14 +108,18 @@ export function AddressPage() {
                         <Label>Estado*</Label>
                         <Input
                             type="text"
-                            name="estado"
-                            id="estado"
+                            name="state"
+                            value={form.state}
+                            onChange={handleInputChange}
+                            id="state"
                             placeholder="Estado"
                             required
                         />
                     </div>
 
-                    <Botao>Salvar</Botao>
+                    <Botao type="submit">
+                        {isLoading ? <>Aguarde...</> : <>Salvar</>}
+                    </Botao>
                 </Form>
             </RegistrationContainer>
         </Container>

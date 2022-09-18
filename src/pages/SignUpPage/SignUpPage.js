@@ -9,36 +9,24 @@ import {
     Botao,
 } from "../../components/RegistrationPages/StyledRegistrationPages";
 import { Container } from "../../Styled";
+import { getSignUp } from "../../services/GetSignUp";
 import { Navbar } from "../../components/Navbar/Navbar";
 import { UseForm } from "../../hooks/useForm";
-import { getSignUp } from "../../services/User";
 import { useNavigate } from "react-router-dom";
 
 export function SignUpPage() {
-    const [form, onChange, clear] = UseForm({
+    const navigate = useNavigate();
+    const [isLoading, setIsLoading] = useState(false);
+    const [showPassword, setShowPassword] = useState(false);
+    const [form, handleInputChange, clear] = UseForm({
         name: "",
         email: "",
         cpf: "",
         password: "",
     });
 
-    const [isLoading, setIsLoading] = useState(false);
-    const [showPassword, setShowPassword] = useState(false);
-
-    const navigate = useNavigate();
-
-    const regexPassword = RegExp(/^\d{3}\.\d{3}\.\d{3}\-\d{2}$/);
-
-    const onClickShowPassword = () => {
-        setShowPassword(!showPassword);
-    };
-
-    const onMouseDownPassword = () => {
-        setShowPassword(!showPassword);
-    };
-
-    const onSubmitForm = (event) => {
-        event.preventDefault();
+    const onSubmitForm = (e) => {
+        e.preventDefault();
         getSignUp(form, clear, navigate, setIsLoading);
     };
 
@@ -60,7 +48,7 @@ export function SignUpPage() {
                             type="text"
                             name="name"
                             value={form.name}
-                            onChange={onChange}
+                            onChange={handleInputChange}
                             id="name"
                             placeholder="Nome e sobrenome"
                             required
@@ -73,7 +61,7 @@ export function SignUpPage() {
                             type="email"
                             name="email"
                             value={form.email}
-                            onChange={onChange}
+                            onChange={handleInputChange}
                             id="email"
                             placeholder="email@email.com"
                             required
@@ -86,7 +74,7 @@ export function SignUpPage() {
                             type="text"
                             name="cpf"
                             value={form.cpf}
-                            onChange={onChange}
+                            onChange={handleInputChange}
                             id="cpf"
                             placeholder="000.000.000-00"
                             required
@@ -99,7 +87,7 @@ export function SignUpPage() {
                             type={showPassword ? "text" : "password"}
                             name="password"
                             value={form.password}
-                            onChange={onChange}
+                            onChange={handleInputChange}
                             id="password"
                             placeholder="Mínimo 6 caracteres"
                             required
@@ -112,7 +100,7 @@ export function SignUpPage() {
                             type={showPassword ? "text" : "password"}
                             name="confirm_password"
                             value={form.password}
-                            onChange={onChange}
+                            onChange={handleInputChange}
                             id="confirm_password"
                             placeholder="Confirme a senha anterior"
                             required

@@ -6,13 +6,21 @@ import { goToFeedPage } from "../routes/coordinator";
 // clear: limpar os campos dos inputs
 // navigate: conseguir verificar os caminhos
 
-export const getLogin = (body, clear, navigate) => {
+export const getLogin = (body, clear, navigate, setIsLoading) => {
+    setIsLoading(true);
+
     axios
         .post(`${BASE_URL}/login`, body)
         .then((res) => {
             localStorage.setItem("token", res.data.token);
             clear();
+            setIsLoading(false);
             goToFeedPage(navigate);
         })
-        .catch((err) => alert(err.response.data.message));
+        .catch((err) => {
+            setIsLoading(false);
+            alert(err.response.data.message);
+        });
 };
+
+// dsdsdddsdsd43434@email.com
