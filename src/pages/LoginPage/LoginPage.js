@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import {
     RegistrationContainer,
@@ -7,6 +7,7 @@ import {
     Label,
     Input,
     Botao,
+    InputEye,
 } from "../../components/RegistrationPages/StyledRegistrationPages";
 import { Container } from "../../Styled";
 import { getLogin } from "../../services/GetLogin";
@@ -14,14 +15,27 @@ import { goToSignUpPage } from "../../routes/coordinator";
 import { UseForm } from "../../hooks/useForm";
 import useProtectedPage from "../../hooks/useProtectedPage";
 import logo from "../../assets/img/startPage/logo-vermelha.svg";
+import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 
 export function LoginPage() {
     const navigate = useNavigate();
+    const inputRef = useRef(null);
+    const [showPassword, setShowPassword] = useState(false);
     const [isLoading, setIsLoading] = useState(false);
     const [form, handleInputChange, clear] = UseForm({
         email: "",
         password: "",
     });
+
+    const toggleShow = () => {
+        if (inputRef.current.type === "password") {
+            setShowPassword(true);
+            inputRef.current.type = "text";
+        } else {
+            setShowPassword(false);
+            inputRef.current.type = "password";
+        }
+    }
 
     const onSubmitForm = (e) => {
         e.preventDefault();
@@ -55,7 +69,9 @@ export function LoginPage() {
 
                     <div>
                         <Label>Senha*</Label>
+                        <InputEye>
                         <Input
+                            ref={inputRef}
                             type="password"
                             name="password"
                             value={form.password}
@@ -63,7 +79,10 @@ export function LoginPage() {
                             id="password"
                             placeholder="Mínimo 6 caracteres"
                             required
-                        />
+                            />
+                        <button type="button" className="btn-password" onClick={toggleShow}>
+                            {showPassword ? <AiFillEyeInvisible /> : <AiFillEye />} </button>
+                        </InputEye>
                     </div>
 
                     <Botao type="submit">

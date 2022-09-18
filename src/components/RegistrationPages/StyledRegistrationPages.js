@@ -89,3 +89,35 @@ export const Botao = styled.button`
     letter-spacing: -0.39px;
     margin-top: 0.75rem;
 `;
+
+// Tela de login e cadastro
+
+export const InputEye = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: auto;
+    cursor: pointer;
+    color: #000;
+    font-size: 20px;
+
+    .btn-password {
+
+        cursor: pointer;
+        padding: 8px;
+        outline: unset;
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: unset;
+        right: 2px;
+    }
+`;
+
+
+
