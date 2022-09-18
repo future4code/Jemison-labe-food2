@@ -35,7 +35,7 @@ export function LoginPage() {
             setShowPassword(false);
             inputRef.current.type = "password";
         }
-    }
+    };
 
     const onSubmitForm = (e) => {
         e.preventDefault();
@@ -70,18 +70,26 @@ export function LoginPage() {
                     <div>
                         <Label>Senha*</Label>
                         <InputEye>
-                        <Input
-                            ref={inputRef}
-                            type="password"
-                            name="password"
-                            value={form.password}
-                            onChange={handleInputChange}
-                            id="password"
-                            placeholder="Mínimo 6 caracteres"
-                            required
+                            <Input
+                                ref={inputRef}
+                                type="password"
+                                name="password"
+                                value={form.password}
+                                onChange={handleInputChange}
+                                id="password"
+                                placeholder="Mínimo 6 caracteres"
+                                required
                             />
-                        <button type="button" className="btn-password" onClick={toggleShow}>
-                            {showPassword ? <AiFillEyeInvisible /> : <AiFillEye />} </button>
+                            <button
+                                type="button"
+                                className="btn-password"
+                                onClick={toggleShow}>
+                                {showPassword ? (
+                                    <AiFillEyeInvisible />
+                                ) : (
+                                    <AiFillEye />
+                                )}{" "}
+                            </button>
                         </InputEye>
                     </div>
 
