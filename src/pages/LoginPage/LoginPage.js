@@ -13,14 +13,17 @@ import logo from "../../assets/img/logo-vermelha.svg";
 import { useNavigate } from "react-router-dom";
 import { goToSignUpPage } from "../../routes/coordinator";
 import { UseForm } from "../../hooks/useForm";
-import { Login } from "../../services/services";
+import { getLogin } from "../../services/services";
 
 export function LoginPage() {
     const navigate = useNavigate();
-    const [form, handleInputChange, clear] = UseForm({ email: "", password: "" });
+    const [form, handleInputChange, clear] = UseForm({
+        email: "",
+        password: "",
+    });
     const onSubmitForm = (e) => {
         e.preventDefault();
-        Login(form, clear, navigate);
+        getLogin(form, clear, navigate);
     };
 
     return (
