@@ -30,8 +30,7 @@ body {
     place-items: center;
     width: 100vw;
     height: 100vh;
-    background: #202023;
-
+    background: #202023; 
     font-family: Roboto;
     font-size: 1rem;
     letter-spacing: -0.39px;
@@ -46,6 +45,7 @@ button {
     color: #000;
     letter-spacing: -0.39px;
     transition: 0.3s;
+
 }
 
 a {
@@ -69,9 +69,8 @@ export const Container = styled.div`
     display: grid;
     place-items: center;
     background: #fff;
-    width: 22.5rem;
-    min-height: 40rem;
-    max-height: 41.688rem;
+    width: 100vw;
+    height: 100vh;
     padding: 1rem;
     padding-bottom: 0;
     position: relative;

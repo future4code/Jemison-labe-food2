@@ -10,7 +10,11 @@ export const Title = styled.h3`
 
 export const Contents = styled.div`
     margin-top: 2.8rem;
-    width: 20.5rem;
+    max-width: 22.5rem;
+
+    @media screen and (max-width: 800px) {
+        max-width: calc(100vw - 2rem);
+    }
 `;
 
 export const Search = styled.div`
@@ -28,7 +32,6 @@ export const Search = styled.div`
 
 export const Categories = styled.ul`
     display: grid;
-    grid-template-columns: repeat(4, 5.438rem);
     gap: 0.5rem;
     overflow-x: scroll;
     padding-bottom: 0.5rem;
@@ -47,11 +50,21 @@ export const Categories = styled.ul`
         background: #fff;
     }
 
-    @media screen and (max-width: 600px) {
+    @media screen and (max-width: 800px) {
+        /* grid-template-columns: repeat(4, 5.438rem); */
+        padding: 0;
+        width: 100vw;
+
         ::-webkit-scrollbar {
             height: 0px;
             width: 0px;
         }
+    }
+
+    li {
+        width: 5.438rem;
+        height: 2.625rem;
+        grid-row: 1/-1;
     }
 
     button {

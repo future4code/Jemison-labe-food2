@@ -54,6 +54,9 @@ export function FeedPage() {
                     <li>
                         <button>Saudável</button>
                     </li>
+                    <li>
+                        <button>Saudável</button>
+                    </li>
                 </Categories>
 
                 <Cards>
