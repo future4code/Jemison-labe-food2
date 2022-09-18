@@ -55,7 +55,7 @@ export const Input = styled.input`
     border: 1px solid #b8b8b8;
     border-radius: 4px;
     height: 3.5rem;
-    width: 20.5rem;
+    min-width: 22.5rem;
     padding: 1rem;
     outline: none;
     ::placeholder {
@@ -63,6 +63,11 @@ export const Input = styled.input`
     }
     :focus {
         border-color: #e02020;
+    }
+
+    @media screen and (max-width: 800px) {
+        min-width: auto;
+        width: calc(100vw - 2rem);
     }
 `;
 

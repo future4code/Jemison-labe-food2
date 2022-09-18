@@ -18,8 +18,11 @@ import {
 import { Container } from "../../Styled";
 import { NavbarContainer } from "../../components/Navbar/StyledNavbar";
 import { InputSearch } from "../../components/RegistrationPages/StyledRegistrationPages";
+import useProtectedPage from "../../hooks/useProtectedPage";
 
 export function FeedPage() {
+    useProtectedPage();
+
     return (
         <Container>
             <NavbarContainer>
@@ -47,6 +50,9 @@ export function FeedPage() {
                     </li>
                     <li>
                         <button>Massas</button>
+                    </li>
+                    <li>
+                        <button>Saudável</button>
                     </li>
                     <li>
                         <button>Saudável</button>

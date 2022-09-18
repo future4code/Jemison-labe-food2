@@ -1,5 +1,5 @@
-import React from "react";
-
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import {
     RegistrationContainer,
     Logo,
@@ -9,22 +9,26 @@ import {
     Botao,
 } from "../../components/RegistrationPages/StyledRegistrationPages";
 import { Container } from "../../Styled";
-import logo from "../../assets/img/startPage/logo-vermelha.svg";
-import { useNavigate } from "react-router-dom";
+import { getLogin } from "../../services/GetLogin";
 import { goToSignUpPage } from "../../routes/coordinator";
 import { UseForm } from "../../hooks/useForm";
-import { getLogin } from "../../services/services";
+import useProtectedPage from "../../hooks/useProtectedPage";
+import logo from "../../assets/img/startPage/logo-vermelha.svg";
 
 export function LoginPage() {
     const navigate = useNavigate();
+    const [isLoading, setIsLoading] = useState(false);
     const [form, handleInputChange, clear] = UseForm({
         email: "",
         password: "",
     });
+
     const onSubmitForm = (e) => {
         e.preventDefault();
-        getLogin(form, clear, navigate);
+        getLogin(form, clear, navigate, setIsLoading);
     };
+
+    useProtectedPage();
 
     return (
         <Container>
@@ -62,7 +66,9 @@ export function LoginPage() {
                         />
                     </div>
 
-                    <Botao>Entrar</Botao>
+                    <Botao type="submit">
+                        {isLoading ? <>Aguarde...</> : <>Entrar</>}
+                    </Botao>
                 </Form>
 
                 <p>

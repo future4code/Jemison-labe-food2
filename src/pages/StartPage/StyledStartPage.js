@@ -6,8 +6,8 @@ export const HomeContainer = styled.div`
     display: grid;
     place-items: center;
     background: #e8222e;
-    width: 22.5rem;
-    height: 40rem;
+    width: 100vw;
+    height: 100vh;
 
     button {
         border: none;
