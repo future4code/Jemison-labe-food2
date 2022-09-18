@@ -7,9 +7,17 @@ import { BASE_URL } from "../constants/BASE_URL";
 
 export const putUpdateProfile = (body, clear, setIsLoading) => {
     setIsLoading(true);
-    
-    axios
-        .put(`${BASE_URL}/profile`, body)
+
+    setIsLoading(true);
+
+    const endpoint = {
+        method: "put",
+        url: `${BASE_URL}/profile`,
+        headers: { auth: localStorage.getItem("token") },
+        data: body,
+    };
+
+    axios(endpoint)
         .then((res) => {
             alert("Dados do Perfil atualizado com sucesso");
             clear();
