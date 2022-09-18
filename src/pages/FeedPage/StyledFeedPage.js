@@ -119,7 +119,7 @@ export const Menu = styled.ul`
     background: #fff;
     box-shadow: 0 -0.5px 0 0 rgba(0, 0, 0, 0.25);
 
-    position: sticky;
+    position: fixed;
     bottom: 0;
     width: calc(100% + 32px);
     z-index: 9999;
