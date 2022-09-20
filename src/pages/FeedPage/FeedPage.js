@@ -19,6 +19,7 @@ import { Container } from "../../Styled";
 import { NavbarContainer } from "../../components/Navbar/StyledNavbar";
 import { InputSearch } from "../../components/RegistrationPages/StyledRegistrationPages";
 import useProtectedPage from "../../hooks/useProtectedPage";
+import { CardResraurants } from "../../components/CardRestaurants/CardRestaurants";
 
 export function FeedPage() {
     useProtectedPage();
@@ -60,44 +61,7 @@ export function FeedPage() {
                 </Categories>
 
                 <Cards>
-                    <Card>
-                        <img src={vinil} />
-
-                        <figcaption>
-                            <h4>Vinil Butantã</h4>
-
-                            <div>
-                                <p>50 - 60 min</p>
-                                <p>Frete R$6,00</p>
-                            </div>
-                        </figcaption>
-                    </Card>
-
-                    <Card>
-                        <img src={eldorado} />
-
-                        <figcaption>
-                            <h4>Bullguer Eldorado</h4>
-
-                            <div>
-                                <p>30 - 45 min</p>
-                                <p>Frete R$6,00</p>
-                            </div>
-                        </figcaption>
-                    </Card>
-
-                    <Card>
-                        <img src={vinil} />
-
-                        <figcaption>
-                            <h4>Vinil Butantã</h4>
-
-                            <div>
-                                <p>50 - 60 min</p>
-                                <p>Frete R$6,00</p>
-                            </div>
-                        </figcaption>
-                    </Card>
+                   <CardResraurants />
                 </Cards>
             </Contents>
 
