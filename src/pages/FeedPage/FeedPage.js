@@ -1,6 +1,4 @@
-import React from "react";
-import vinil from "../../assets/img/card/vinil.jpg";
-import eldorado from "../../assets/img/card/eldorado.png";
+import React, { useContext, useEffect } from "react";
 import house from "../../assets/img/icon/house.svg";
 import car from "../../assets/img/icon/car.svg";
 import avatar from "../../assets/img/icon/avatar.svg";
@@ -20,9 +18,17 @@ import { NavbarContainer } from "../../components/Navbar/StyledNavbar";
 import { InputSearch } from "../../components/RegistrationPages/StyledRegistrationPages";
 import useProtectedPage from "../../hooks/useProtectedPage";
 import { CardResraurants } from "../../components/CardRestaurants/CardRestaurants";
+import { GlobalContext } from "../../components/GlobalContext";
 
 export function FeedPage() {
     useProtectedPage();
+    const {requisicoesGlobais} = useContext(GlobalContext)
+    
+
+    useEffect(() => {
+        requisicoesGlobais.buscaRestaurants()
+      }, [])
+    
 
     return (
         <Container>
@@ -61,7 +67,7 @@ export function FeedPage() {
                 </Categories>
 
                 <Cards>
-                   <CardResraurants />
+                   <CardResraurants  />
                 </Cards>
             </Contents>
 
