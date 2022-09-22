@@ -27,19 +27,13 @@ export function LoginPage() {
         password: "",
     });
 
-    const toggleShow = () => {
-        if (inputRef.current.type === "password") {
-            setShowPassword(true);
-            inputRef.current.type = "text";
-        } else {
-            setShowPassword(false);
-            inputRef.current.type = "password";
-        }
-    };
-
     const onSubmitForm = (e) => {
         e.preventDefault();
         getLogin(form, clear, navigate, setIsLoading);
+    };
+
+    const onClickShowPassword = () => {
+        setShowPassword(!showPassword);
     };
 
     useProtectedPage();
@@ -72,7 +66,7 @@ export function LoginPage() {
                         <InputEye>
                             <Input
                                 ref={inputRef}
-                                type="password"
+                                type={showPassword ? "text" : "password"}
                                 name="password"
                                 value={form.password}
                                 onChange={handleInputChange}
@@ -83,7 +77,7 @@ export function LoginPage() {
                             <button
                                 type="button"
                                 className="btn-password"
-                                onClick={toggleShow}>
+                                onClick={onClickShowPassword}>
                                 {showPassword ? (
                                     <AiFillEyeInvisible />
                                 ) : (

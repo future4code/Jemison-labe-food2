@@ -43,6 +43,10 @@ export function FeedPage() {
 
                 <Categories>
                     <li>
+                        <button>Todos</button>
+                    </li>
+
+                    <li>
                         <button>Burger</button>
                     </li>
                     <li>

@@ -12,13 +12,9 @@ export const RegistrationContainer = styled.div`
         text-align: center;
 
         &:first-child {
-            margin-bottom: 0.5rem;
-        }
-
-        &:last-child {
-            button {
-                margin-left: 5px;
-            }
+            padding: 0;
+            margin: 1rem 0 0.5rem;
+            text-align: left;
         }
     }
 `;
@@ -64,6 +60,9 @@ export const Input = styled.input`
     :focus {
         border-color: #e02020;
     }
+    ::-ms-reveal {
+        display: none;
+    }
 
     @media screen and (max-width: 800px) {
         min-width: auto;
@@ -106,7 +105,6 @@ export const InputEye = styled.div`
     font-size: 20px;
 
     .btn-password {
-
         cursor: pointer;
         padding: 8px;
         outline: unset;
@@ -119,5 +117,10 @@ export const InputEye = styled.div`
     }
 `;
 
+export const Highlight = styled.li`
+    color: #df6661;
 
-
+    &.deu-certo {
+        color: #00a878;
+    }
+`;
