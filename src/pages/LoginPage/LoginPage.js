@@ -16,6 +16,7 @@ import { UseForm } from "../../hooks/useForm";
 import useProtectedPage from "../../hooks/useProtectedPage";
 import logo from "../../assets/img/startPage/logo-vermelha.svg";
 import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
+import { CircularProgress } from "@mui/material";
 
 export function LoginPage() {
     const navigate = useNavigate();
@@ -88,7 +89,7 @@ export function LoginPage() {
                     </div>
 
                     <Botao type="submit">
-                        {isLoading ? <>Aguarde...</> : <>Entrar</>}
+                        {isLoading ? <CircularProgress size={16} color={"inherit"}/> : <>Entrar</>}
                     </Botao>
                 </Form>
 

@@ -1,6 +1,11 @@
 import React, { useState, useRef } from "react";
 import logo from "../../assets/img/startPage/logo-vermelha.svg";
-import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
+import {
+    AiFillEye,
+    AiFillEyeInvisible,
+    AiOutlineLoading,
+    AiOutlineLoading3Quarters,
+} from "react-icons/ai";
 import {
     RegistrationContainer,
     Logo,
@@ -19,9 +24,10 @@ import { useNavigate } from "react-router-dom";
 import useProtectedPage from "../../hooks/useProtectedPage";
 import { PasswordValidator } from "../../components/Passwords/PasswordValidator";
 
-const isNumberRegx = /\d/;
+import { CircularProgress } from "@mui/material";
+
+const numberRegx = /\d/;
 const specialCharRegx = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/;
-const isSame = "";
 
 export function SignUpPage() {
     const navigate = useNavigate();
@@ -49,6 +55,7 @@ export function SignUpPage() {
         specialChar: null,
     });
     const [showPassword, setShowPassword] = useState(false);
+
     const onClickShowPassword = () => {
         setShowPassword(!showPassword);
     };
@@ -57,29 +64,19 @@ export function SignUpPage() {
 
         setPasswordValidity({
             minChar: password.length >= 6 ? true : false,
-            number: isNumberRegx.test(password) ? true : false,
+            number: numberRegx.test(password) ? true : false,
             specialChar: specialCharRegx.test(password) ? true : false,
         });
     };
 
     // Lógica para  confirmar a senha
-    // const isSame = onChangePassword === onChangeConfirmPassword;
-
-    const [confirmPasswordFocused, setConfirmPasswordFocused] = useState(false);
     const [confirmPassword, setConfirmPassword] = useState("");
-    const [confirmPasswordValidity, setConfirmPasswordValidity] = useState({
-        samePasswords: null,
-    });
     const [showConfirmPassword, setShowConfirmPassword] = useState(false);
     const onClickShowConfirmPassword = () => {
         setShowConfirmPassword(!showConfirmPassword);
     };
     const onChangeConfirmPassword = (password) => {
         setConfirmPassword(password);
-
-        setConfirmPasswordValidity({
-            samePasswords: isSame.test(password) ? true : false,
-        });
     };
 
     useProtectedPage();
@@ -139,7 +136,9 @@ export function SignUpPage() {
                                 ref={inputRef}
                                 type={showPassword ? "text" : "password"}
                                 name="password"
+                                // O valor anterior era: value={form.password}, integrando com a API
                                 value={password}
+                                // O valor anterior era: onChange={handleInputChange}, integrando com os hooks
                                 onChange={(e) =>
                                     onChangePassword(e.target.value)
                                 }
@@ -167,11 +166,12 @@ export function SignUpPage() {
                                 ref={inputReff}
                                 type={showConfirmPassword ? "text" : "password"}
                                 name="confirm_password"
+                                // O valor anterior era: value={form.confirm_password}, integrando com a API
                                 value={confirmPassword}
+                                // O valor anterior era: onChange={handleInputChange}, integrando com os hooks
                                 onChange={(e) =>
                                     onChangeConfirmPassword(e.target.value)
                                 }
-                                onFocus={() => setConfirmPasswordFocused(false)}
                                 placeholder="Confirme a senha anterior"
                                 required
                             />
@@ -192,23 +192,19 @@ export function SignUpPage() {
                         )}
 
                         {confirmPassword !== password ? (
-                            <Highlight>- As senhas não são iguais</Highlight>
+                            <Highlight>- As senhas são iguais</Highlight>
                         ) : null}
 
                         {confirmPassword !== "" &&
                         confirmPassword === password ? (
                             <Highlight className="deu-certo">
-                                - As senhas não são iguais
+                                - As senhas são iguais
                             </Highlight>
                         ) : null}
-
-                        {/*    {confirmPassword === "" ? (
-                            <Highlight>- As senhas são iguais</Highlight>
-                        ) : null} */}
                     </div>
 
                     <Botao type="submit">
-                        {isLoading ? <>Aguarde...</> : <>Criar</>}
+                        {isLoading ? <CircularProgress size={16} color={"inherit"}/> : <>Criar</>}
                     </Botao>
                 </Form>
             </RegistrationContainer>
