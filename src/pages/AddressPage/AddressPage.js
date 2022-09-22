@@ -12,6 +12,7 @@ import { Navbar } from "../../components/Navbar/Navbar";
 import { putAddAdress } from "../../services/PutAddAdress";
 import { UseForm } from "../../hooks/useForm";
 import useProtectedPage from "../../hooks/useProtectedPage";
+import { CircularProgress } from "@mui/material";
 
 export function AddressPage() {
     const navigate = useNavigate();
@@ -118,7 +119,11 @@ export function AddressPage() {
                     </div>
 
                     <Botao type="submit">
-                        {isLoading ? <>Aguarde...</> : <>Salvar</>}
+                        {isLoading ? (
+                            <CircularProgress size={16} color={"inherit"} />
+                        ) : (
+                            <>Salvar</>
+                        )}
                     </Botao>
                 </Form>
             </RegistrationContainer>

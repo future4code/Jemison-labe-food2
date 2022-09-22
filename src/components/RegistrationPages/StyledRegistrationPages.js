@@ -12,12 +12,15 @@ export const RegistrationContainer = styled.div`
         text-align: center;
 
         &:first-child {
-            margin-bottom: 0.5rem;
+            padding: 0;
+            margin: 1rem 0 0.5rem;
+            text-align: left;
         }
 
-        &:last-child {
-            button {
-                margin-left: 5px;
+        &:last-child button {
+            margin-left: 0.25rem;
+            &:hover {
+                text-decoration: underline;
             }
         }
     }
@@ -64,6 +67,9 @@ export const Input = styled.input`
     :focus {
         border-color: #e02020;
     }
+    ::-ms-reveal {
+        display: none;
+    }
 
     @media screen and (max-width: 800px) {
         min-width: auto;
@@ -91,7 +97,6 @@ export const Botao = styled.button`
 `;
 
 // Tela de login e cadastro
-
 export const InputEye = styled.div`
     display: flex;
     align-items: center;
@@ -101,12 +106,10 @@ export const InputEye = styled.div`
     top: 0;
     bottom: 0;
     width: auto;
-    cursor: pointer;
     color: #000;
     font-size: 20px;
 
     .btn-password {
-
         cursor: pointer;
         padding: 8px;
         outline: unset;
@@ -119,5 +122,10 @@ export const InputEye = styled.div`
     }
 `;
 
+export const Highlight = styled.li`
+    color: #df6661;
 
-
+    &.deu-certo {
+        color: #00a878;
+    }
+`;
