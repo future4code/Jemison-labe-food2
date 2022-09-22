@@ -16,6 +16,13 @@ export const RegistrationContainer = styled.div`
             margin: 1rem 0 0.5rem;
             text-align: left;
         }
+
+        &:last-child button {
+            margin-left: 0.25rem;
+            &:hover {
+                text-decoration: underline;
+            }
+        }
     }
 `;
 
@@ -90,7 +97,6 @@ export const Botao = styled.button`
 `;
 
 // Tela de login e cadastro
-
 export const InputEye = styled.div`
     display: flex;
     align-items: center;
@@ -100,7 +106,6 @@ export const InputEye = styled.div`
     top: 0;
     bottom: 0;
     width: auto;
-    cursor: pointer;
     color: #000;
     font-size: 20px;
 
