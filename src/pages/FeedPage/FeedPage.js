@@ -3,11 +3,9 @@ import house from "../../assets/img/icon/house.svg";
 import car from "../../assets/img/icon/car.svg";
 import avatar from "../../assets/img/icon/avatar.svg";
 import search from "../../assets/img/search/search.svg";
-
 import {
     Title,
     Categories,
-    Card,
     Menu,
     Contents,
     Cards,
@@ -17,25 +15,21 @@ import { Container } from "../../Styled";
 import { NavbarContainer } from "../../components/Navbar/StyledNavbar";
 import { InputSearch } from "../../components/RegistrationPages/StyledRegistrationPages";
 import useProtectedPage from "../../hooks/useProtectedPage";
-import { CardResraurants } from "../../components/CardRestaurants/CardRestaurants";
+import { CardRestaurants } from "../../components/CardRestaurants/CardRestaurants";
 import { GlobalContext } from "../../components/GlobalContext";
 
 export function FeedPage() {
     useProtectedPage();
     const { requisicoesGlobais } = useContext(GlobalContext);
-
     const [categorias, setCategorias] = useState("Todos");
     const [inputSearch, setInputSearch] = useState("");
-
     const onChangeCategorias = (value) => {
         setCategorias(value);
     };
-
-    const onChangeinputSearch = (e) => {
+    const onChangeInputSearch = (e) => {
         // e.preventdefault()
         setInputSearch(e.target.value);
     };
-
     useEffect(() => {
         requisicoesGlobais.buscaRestaurants();
     }, []);
@@ -54,7 +48,7 @@ export function FeedPage() {
                         type="search"
                         name="search"
                         id="search"
-                        onChange={onChangeinputSearch}
+                        onChange={onChangeInputSearch}
                         placeholder="Restaurante"
                     />
                 </Search>
@@ -139,7 +133,7 @@ export function FeedPage() {
                 </Categories>
 
                 <Cards>
-                    <CardResraurants
+                    <CardRestaurants
                         categorias={categorias}
                         inputSearch={inputSearch}
                     />

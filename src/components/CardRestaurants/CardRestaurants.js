@@ -4,19 +4,18 @@ import { Card } from "./StyledCardRestaurants";
 import { goToRestaurantDetailsPage } from "../../routes/coordinator";
 import { useNavigate } from "react-router-dom";
 
-export function CardResraurants({ categorias, inputSearch }) {
+export function CardRestaurants({ categorias, inputSearch }) {
     const navigate = useNavigate();
     const { stateGlobais } = useContext(GlobalContext);
 
     return (
         <div>
             {stateGlobais.listaDeRestaurantes
-
-                .filter((cateroria) => {
+                .filter((categoria) => {
                     if (categorias === "Todos") {
                         return true;
                     } else {
-                        return cateroria.category === categorias;
+                        return categoria.category === categorias;
                     }
                 })
 
