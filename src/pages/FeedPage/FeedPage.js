@@ -26,6 +26,7 @@ export function FeedPage() {
     const {requisicoesGlobais} = useContext(GlobalContext)
 
     const [categorias, setCategorias] = useState("Todos")
+
     const onChangeCategorias = (value) => {
         setCategorias(value)
     } 
@@ -76,7 +77,7 @@ export function FeedPage() {
                         <button value="Asiática" categorias={categorias} onClick={() => onChangeCategorias("Asiática")}>Asiática</button>
                     </li>
                     <li>
-                        <button value="Mexicano" categorias={categorias} onClick={() => onChangeCategorias("Mexicano")}>Mexicano</button>
+                        <button value="Mexicana" categorias={categorias} onClick={() => onChangeCategorias("Mexicana")}>Mexicano</button>
                     </li>
                     <li>
                         <button value="Italiana" categorias={categorias} onClick={() => onChangeCategorias("Italiana")}>Italiana</button>

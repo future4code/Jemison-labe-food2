@@ -5,9 +5,12 @@ import {goToRestaurantDetailsPage} from "../../routes/coordinator"
 import { useNavigate } from "react-router-dom";
 
 
-export function CardResraurants() {
+export function CardResraurants({categorias}) {
     const navigate = useNavigate()
     const {stateGlobais} = useContext(GlobalContext);
+
+    
+
 
 
 
@@ -16,6 +19,14 @@ export function CardResraurants() {
         <div>
             {stateGlobais.listaDeRestaurantes
             
+            .filter(elemento => {
+                if (categorias === "Todos") {
+                  return true
+                } else {
+                  return elemento.category === categorias
+                }
+              })
+
             .map((restaurant) =>{
                 return (
                     <Card 

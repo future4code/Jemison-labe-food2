@@ -23,8 +23,8 @@ import { UseForm } from "../../hooks/useForm";
 import { useNavigate } from "react-router-dom";
 import useProtectedPage from "../../hooks/useProtectedPage";
 import { PasswordValidator } from "../../components/Passwords/PasswordValidator";
-
 import { CircularProgress } from "@mui/material";
+
 
 const numberRegx = /\d/;
 const specialCharRegx = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/;

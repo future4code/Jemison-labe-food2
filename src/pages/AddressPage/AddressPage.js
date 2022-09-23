@@ -40,7 +40,7 @@ export function AddressPage() {
             <RegistrationContainer>
                 <p>Meu endereço</p>
 
-                <Form onSubmit={onSubmitForm}>
+                <form onSubmit={onSubmitForm}>
                     <div>
                         <Label>Logradouro*</Label>
                         <Input
@@ -125,7 +125,7 @@ export function AddressPage() {
                             <>Salvar</>
                         )}
                     </Botao>
-                </Form>
+                </form>
             </RegistrationContainer>
         </Container>
     );
