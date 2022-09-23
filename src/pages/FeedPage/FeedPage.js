@@ -26,11 +26,17 @@ export function FeedPage() {
     const {requisicoesGlobais} = useContext(GlobalContext)
 
     const [categorias, setCategorias] = useState("Todos")
+    const [enputBusca, setEnputBusca] = useState("")
+
 
     const onChangeCategorias = (value) => {
         setCategorias(value)
     } 
 
+    const onChangeEnputBusca = (e) => {
+        // e.preventdefault()
+        setEnputBusca(e.target.value)
+    } 
     
 
 
@@ -61,6 +67,7 @@ export function FeedPage() {
                         type="search"
                         name="search"
                         id="search"
+                        onChange ={onChangeEnputBusca}
                         placeholder="Restaurante"
                     />
                 </Search>
@@ -101,7 +108,10 @@ export function FeedPage() {
                 </Categories>
 
                 <Cards>
-                   <CardResraurants categorias={categorias}  />
+                   <CardResraurants 
+                        categorias={categorias}  
+                        enputBusca = {enputBusca}
+                    />
                 </Cards>
             </Contents>
 
