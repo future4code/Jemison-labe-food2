@@ -17,6 +17,8 @@ export const Contents = styled.div`
     }
 `;
 
+export const ContentsHeader = styled.div``;
+
 export const Search = styled.div`
     position: relative;
     img {
@@ -37,6 +39,7 @@ export const Categories = styled.ul`
     padding-bottom: 0.5rem;
     text-align: center;
     margin: 0.5rem 0;
+    cursor: pointer;
 
     ::-webkit-scrollbar {
         height: 5px;

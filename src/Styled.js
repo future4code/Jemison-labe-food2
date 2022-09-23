@@ -67,7 +67,7 @@ ul, li{
 
 export const Container = styled.div`
     display: grid;
-    place-items: center;
+    justify-items: center;
     background: #fff;
     width: 100vw;
     height: 100vh;
