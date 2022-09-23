@@ -8,7 +8,7 @@ export function StartPage() {
 
     setTimeout(() => {
         goToLoginPage(navigate);
-    }, 3000);
+    }, 2500);
 
     return (
         <HomeContainer>

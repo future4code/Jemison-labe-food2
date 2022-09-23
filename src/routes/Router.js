@@ -10,7 +10,7 @@ import { ProfilePage } from "../pages/ProfilePage/ProfilePage";
 import { RestaurantDetailsPage } from "../pages/RestaurantDetailsPage/RestaurantDetailsPage";
 import { SignUpPage } from "../pages/SignUpPage/SignUpPage";
 import { ErrorPage } from "../pages/ErrorPage/ErrorPage";
-import { FeedPage} from "../pages/FeedPage/FeedPage";
+import { FeedPage } from "../pages/FeedPage/FeedPage";
 
 export const Router = () => {
     return (

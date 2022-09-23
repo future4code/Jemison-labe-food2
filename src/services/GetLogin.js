@@ -22,5 +22,3 @@ export const getLogin = (body, clear, navigate, setIsLoading) => {
             alert(err.response.data.message);
         });
 };
-
-// dsdsdddsdsd43434@email.com

@@ -3,8 +3,7 @@ import { useParams } from "react-router-dom";
 import { Container } from "../../Styled";
 
 export function RestaurantDetailsPage() {
-    
-    const id = useParams
+    const id = useParams;
 
     return (
         <Container>
@@ -12,4 +11,3 @@ export function RestaurantDetailsPage() {
         </Container>
     );
 }
-

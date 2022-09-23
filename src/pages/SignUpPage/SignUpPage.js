@@ -1,11 +1,6 @@
 import React, { useState, useRef } from "react";
 import logo from "../../assets/img/startPage/logo-vermelha.svg";
-import {
-    AiFillEye,
-    AiFillEyeInvisible,
-    AiOutlineLoading,
-    AiOutlineLoading3Quarters,
-} from "react-icons/ai";
+import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 import {
     RegistrationContainer,
     Logo,
@@ -24,7 +19,6 @@ import { useNavigate } from "react-router-dom";
 import useProtectedPage from "../../hooks/useProtectedPage";
 import { PasswordValidator } from "../../components/Passwords/PasswordValidator";
 import { CircularProgress } from "@mui/material";
-
 
 const numberRegx = /\d/;
 const specialCharRegx = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/;
@@ -204,7 +198,11 @@ export function SignUpPage() {
                     </div>
 
                     <Botao type="submit">
-                        {isLoading ? <CircularProgress size={16} color={"inherit"}/> : <>Criar</>}
+                        {isLoading ? (
+                            <CircularProgress size={16} color={"inherit"} />
+                        ) : (
+                            <>Criar</>
+                        )}
                     </Botao>
                 </Form>
             </RegistrationContainer>

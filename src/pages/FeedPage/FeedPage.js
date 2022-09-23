@@ -20,38 +20,25 @@ import useProtectedPage from "../../hooks/useProtectedPage";
 import { CardResraurants } from "../../components/CardRestaurants/CardRestaurants";
 import { GlobalContext } from "../../components/GlobalContext";
 
-
 export function FeedPage() {
     useProtectedPage();
-    const {requisicoesGlobais} = useContext(GlobalContext)
+    const { requisicoesGlobais } = useContext(GlobalContext);
 
-    const [categorias, setCategorias] = useState("Todos")
-    const [enputBusca, setEnputBusca] = useState("")
-
+    const [categorias, setCategorias] = useState("Todos");
+    const [inputSearch, setInputSearch] = useState("");
 
     const onChangeCategorias = (value) => {
-        setCategorias(value)
-    } 
+        setCategorias(value);
+    };
 
-    const onChangeEnputBusca = (e) => {
+    const onChangeinputSearch = (e) => {
         // e.preventdefault()
-        setEnputBusca(e.target.value)
-    } 
-    
-
-
-
-
-
-
-
-
-
+        setInputSearch(e.target.value);
+    };
 
     useEffect(() => {
-        requisicoesGlobais.buscaRestaurants()
-      }, [])
-    
+        requisicoesGlobais.buscaRestaurants();
+    }, []);
 
     return (
         <Container>
@@ -67,50 +54,94 @@ export function FeedPage() {
                         type="search"
                         name="search"
                         id="search"
-                        onChange ={onChangeEnputBusca}
+                        onChange={onChangeinputSearch}
                         placeholder="Restaurante"
                     />
                 </Search>
 
                 <Categories>
                     <li>
-                        <button value="Todos" categorias={categorias} onClick={() => onChangeCategorias("Todos")}>Todos</button>
-                    </li> 
-
-                    <li>
-                        <button value="Hamburguer" categorias={categorias} onClick={() => onChangeCategorias("Hamburguer")}>Burger</button>
-                    </li>
-                    <li>
-                        <button value="Asiática" categorias={categorias} onClick={() => onChangeCategorias("Asiática")}>Asiática</button>
-                    </li>
-                    <li>
-                        <button value="Mexicana" categorias={categorias} onClick={() => onChangeCategorias("Mexicana")}>Mexicano</button>
-                    </li>
-                    <li>
-                        <button value="Italiana" categorias={categorias} onClick={() => onChangeCategorias("Italiana")}>Italiana</button>
-                    </li>
-                    <li>
-                        <button value="Sorvetes" categorias={categorias} onClick={() => onChangeCategorias("Sorvetes")}>Sorvetes</button>
+                        <button
+                            value="Todos"
+                            categorias={categorias}
+                            onClick={() => onChangeCategorias("Todos")}>
+                            Todos
+                        </button>
                     </li>
 
                     <li>
-                        <button value="Carnes" categorias={categorias} onClick={() => onChangeCategorias("Carnes")}>Carnes</button>
+                        <button
+                            value="Hamburguer"
+                            categorias={categorias}
+                            onClick={() => onChangeCategorias("Hamburguer")}>
+                            Burger
+                        </button>
+                    </li>
+                    <li>
+                        <button
+                            value="Asiática"
+                            categorias={categorias}
+                            onClick={() => onChangeCategorias("Asiática")}>
+                            Asiática
+                        </button>
+                    </li>
+                    <li>
+                        <button
+                            value="Mexicana"
+                            categorias={categorias}
+                            onClick={() => onChangeCategorias("Mexicana")}>
+                            Mexicano
+                        </button>
+                    </li>
+                    <li>
+                        <button
+                            value="Italiana"
+                            categorias={categorias}
+                            onClick={() => onChangeCategorias("Italiana")}>
+                            Italiana
+                        </button>
+                    </li>
+                    <li>
+                        <button
+                            value="Sorvetes"
+                            categorias={categorias}
+                            onClick={() => onChangeCategorias("Sorvetes")}>
+                            Sorvetes
+                        </button>
                     </li>
 
                     <li>
-                        <button value="Baiana" categorias={categorias} onClick={() => onChangeCategorias("Baiana")}>Baiana</button>
+                        <button
+                            value="Carnes"
+                            categorias={categorias}
+                            onClick={() => onChangeCategorias("Carnes")}>
+                            Carnes
+                        </button>
                     </li>
 
                     <li>
-                        <button value="Petiscos" categorias={categorias} onClick={() => onChangeCategorias("Petiscos")}>Petiscos</button>
+                        <button
+                            value="Baiana"
+                            categorias={categorias}
+                            onClick={() => onChangeCategorias("Baiana")}>
+                            Baiana
+                        </button>
                     </li>
 
+                    <li>
+                        <button
+                            value="Petiscos"
+                            categorias={categorias}
+                            onClick={() => onChangeCategorias("Petiscos")}>
+                            Petiscos
+                        </button>
+                    </li>
                 </Categories>
 
                 <Cards>
-                   <CardResraurants 
-                        categorias={categorias}  
-                        enputBusca = {enputBusca}
+                    <CardResraurants
+                        categorias={categorias}
+                        inputSearch={inputSearch}
                     />
                 </Cards>
             </Contents>

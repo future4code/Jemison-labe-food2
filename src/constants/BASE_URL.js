@@ -1,3 +1,2 @@
-export const BASE_URL= "https://us-central1-missao-newton.cloudfunctions.net/fourFoodA"
-
-
+export const BASE_URL =
+    "https://us-central1-missao-newton.cloudfunctions.net/fourFoodA";

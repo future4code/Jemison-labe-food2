@@ -89,7 +89,11 @@ export function LoginPage() {
                     </div>
 
                     <Botao type="submit">
-                        {isLoading ? <CircularProgress size={16} color={"inherit"}/> : <>Entrar</>}
+                        {isLoading ? (
+                            <CircularProgress size={16} color={"inherit"} />
+                        ) : (
+                            <>Entrar</>
+                        )}
                     </Botao>
                 </Form>
 
