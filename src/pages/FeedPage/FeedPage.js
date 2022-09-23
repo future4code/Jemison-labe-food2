@@ -10,6 +10,7 @@ import {
     Contents,
     Cards,
     Search,
+    ContentsHeader,
 } from "./StyledFeedPage";
 import { Container } from "../../Styled";
 import { NavbarContainer } from "../../components/Navbar/StyledNavbar";
@@ -20,19 +21,58 @@ import { GlobalContext } from "../../components/GlobalContext";
 
 export function FeedPage() {
     useProtectedPage();
-    const { requisicoesGlobais } = useContext(GlobalContext);
-    const [categorias, setCategorias] = useState("Todos");
+    const { GlobalRequests } = useContext(GlobalContext);
+    const [categories, setCategories] = useState("Todos");
     const [inputSearch, setInputSearch] = useState("");
-    const onChangeCategorias = (value) => {
-        setCategorias(value);
+    const onChangeCategories = (value) => {
+        setCategories(value);
     };
     const onChangeInputSearch = (e) => {
-        // e.preventdefault()
+        // e.preventdefault();
         setInputSearch(e.target.value);
     };
+
     useEffect(() => {
-        requisicoesGlobais.buscaRestaurants();
+        GlobalRequests.searchRestaurants();
     }, []);
+
+    // Lógica das cores
+    const getColorTodos = (categories) => {
+        if (categories === "Todos") return "#e21";
+        else return "inherit";
+    };
+    const getColorHamburguer = (categories) => {
+        if (categories === "Hamburguer") return "#e21";
+        else return "inherit";
+    };
+    const getColorAsiatica = (categories) => {
+        if (categories === "Asiática") return "#e21";
+        else return "inherit";
+    };
+    const getColorMexicana = (categories) => {
+        if (categories === "Mexicana") return "#e21";
+        else return "inherit";
+    };
+    const getColorItaliana = (categories) => {
+        if (categories === "Italiana") return "#e21";
+        else return "inherit";
+    };
+    const getColorSorvetes = (categories) => {
+        if (categories === "Sorvetes") return "#e21";
+        else return "inherit";
+    };
+    const getColorCarnes = (categories) => {
+        if (categories === "Carnes") return "#e21";
+        else return "inherit";
+    };
+    const getColorBaiana = (categories) => {
+        if (categories === "Baiana") return "#e21";
+        else return "inherit";
+    };
+    const getColorPetiscos = (categories) => {
+        if (categories === "Petiscos") return "#e21";
+        else return "inherit";
+    };
 
     return (
         <Container>
@@ -41,100 +81,107 @@ export function FeedPage() {
             </NavbarContainer>
 
             <Contents>
-                <Search>
-                    <img src={search} />
-
-                    <InputSearch
-                        type="search"
-                        name="search"
-                        id="search"
-                        onChange={onChangeInputSearch}
-                        placeholder="Restaurante"
-                    />
-                </Search>
-
-                <Categories>
-                    <li>
-                        <button
-                            value="Todos"
-                            categorias={categorias}
-                            onClick={() => onChangeCategorias("Todos")}>
-                            Todos
-                        </button>
-                    </li>
-
-                    <li>
-                        <button
-                            value="Hamburguer"
-                            categorias={categorias}
-                            onClick={() => onChangeCategorias("Hamburguer")}>
-                            Burger
-                        </button>
-                    </li>
-                    <li>
-                        <button
-                            value="Asiática"
-                            categorias={categorias}
-                            onClick={() => onChangeCategorias("Asiática")}>
-                            Asiática
-                        </button>
-                    </li>
-                    <li>
-                        <button
-                            value="Mexicana"
-                            categorias={categorias}
-                            onClick={() => onChangeCategorias("Mexicana")}>
-                            Mexicano
-                        </button>
-                    </li>
-                    <li>
-                        <button
-                            value="Italiana"
-                            categorias={categorias}
-                            onClick={() => onChangeCategorias("Italiana")}>
-                            Italiana
-                        </button>
-                    </li>
-                    <li>
-                        <button
-                            value="Sorvetes"
-                            categorias={categorias}
-                            onClick={() => onChangeCategorias("Sorvetes")}>
-                            Sorvetes
-                        </button>
-                    </li>
-
-                    <li>
-                        <button
-                            value="Carnes"
-                            categorias={categorias}
-                            onClick={() => onChangeCategorias("Carnes")}>
-                            Carnes
-                        </button>
-                    </li>
-
-                    <li>
-                        <button
-                            value="Baiana"
-                            categorias={categorias}
-                            onClick={() => onChangeCategorias("Baiana")}>
-                            Baiana
-                        </button>
-                    </li>
-
-                    <li>
-                        <button
-                            value="Petiscos"
-                            categorias={categorias}
-                            onClick={() => onChangeCategorias("Petiscos")}>
-                            Petiscos
-                        </button>
-                    </li>
-                </Categories>
+                <ContentsHeader>
+                    <Search>
+                        <img src={search} />
+                        <InputSearch
+                            type="search"
+                            name="search"
+                            id="search"
+                            onChange={onChangeInputSearch}
+                            placeholder="Restaurante"
+                        />
+                    </Search>
+                    <Categories>
+                        <li>
+                            <button
+                                value="Todos"
+                                categories={categories}
+                                onClick={() => onChangeCategories("Todos")}
+                                style={{ color: getColorTodos(categories) }}>
+                                Todos
+                            </button>
+                        </li>
+                        <li>
+                            <button
+                                value="Hamburguer"
+                                categories={categories}
+                                onClick={() => onChangeCategories("Hamburguer")}
+                                style={{
+                                    color: getColorHamburguer(categories),
+                                }}>
+                                Burger
+                            </button>
+                        </li>
+                        <li>
+                            <button
+                                value="Asiática"
+                                categories={categories}
+                                onClick={() => onChangeCategories("Asiática")}
+                                style={{ color: getColorAsiatica(categories) }}>
+                                Asiática
+                            </button>
+                        </li>
+                        <li>
+                            <button
+                                value="Mexicana"
+                                categories={categories}
+                                onClick={() => onChangeCategories("Mexicana")}
+                                style={{ color: getColorMexicana(categories) }}>
+                                Mexicano
+                            </button>
+                        </li>
+                        <li>
+                            <button
+                                value="Italiana"
+                                categories={categories}
+                                onClick={() => onChangeCategories("Italiana")}
+                                style={{ color: getColorItaliana(categories) }}>
+                                Italiana
+                            </button>
+                        </li>
+                        <li>
+                            <button
+                                value="Sorvetes"
+                                categories={categories}
+                                onClick={() => onChangeCategories("Sorvetes")}
+                                style={{ color: getColorSorvetes(categories) }}>
+                                Sorvetes
+                            </button>
+                        </li>
+                        <li>
+                            <button
+                                value="Carnes"
+                                categories={categories}
+                                onClick={() => onChangeCategories("Carnes")}
+                                style={{ color: getColorCarnes(categories) }}>
+                                Carnes
+                            </button>
+                        </li>
+                        <li>
+                            <button
+                                value="Baiana"
+                                categories={categories}
+                                onClick={() => onChangeCategories("Baiana")}
+                                style={{ color: getColorBaiana(categories) }}>
+                                Baiana
+                            </button>
+                        </li>
+                        <li>
+                            <button
+                                value="Petiscos"
+                                categories={categories}
+                                onClick={() => onChangeCategories("Petiscos")}
+                                style={{ color: getColorPetiscos(categories) }}>
+                                Petiscos
+                            </button>
+                        </li>
+                    </Categories>
+                </ContentsHeader>
 
                 <Cards>
                     <CardRestaurants
-                        categorias={categorias}
+                        categories={categories}
                         inputSearch={inputSearch}
                     />
                 </Cards>

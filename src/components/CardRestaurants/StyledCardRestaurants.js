@@ -7,7 +7,9 @@ export const Card = styled.figure`
     cursor: pointer;
 
     img {
-        border-radius: 8px;
+        object-fit: cover;
+        border-radius: 8px 8px 0 0;
+        width: 100vw;
     }
 
     figcaption {
