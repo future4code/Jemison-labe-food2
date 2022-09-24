@@ -5,6 +5,9 @@ import { BASE_URL } from "../constants/BASE_URL";
 
 export function GlobalState(props) {
     const [restaurantList, setRestaurantList] = useState([]);
+    const [restaurantDetail, setRestaurantDetail] = useState({})
+
+
     // Requisição - Restaurantes
     const searchRestaurants = () => {
         const token = localStorage.getItem("token");
@@ -28,15 +31,15 @@ export function GlobalState(props) {
         axios
             .get(`${BASE_URL}/restaurants/:${id}`, headers)
             .then((res) => {
-                setRestaurantList(res.data);
+                setRestaurantDetail(res.data);
             })
             .catch((err) => {
                 alert(err.response.data.message);
             });
     };
 
-    const GlobalStates = { restaurantList };
-    const GlobalRequests = { searchRestaurants, searchRestaurantDetails };
+    const GlobalStates = { restaurantList ,restaurantDetail };
+    const GlobalRequests = { searchRestaurants, searchRestaurantDetails,  };
 
     const Provider = GlobalContext.Provider;
     return (
