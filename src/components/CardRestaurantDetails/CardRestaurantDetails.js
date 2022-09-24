@@ -1,31 +1,56 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect} from "react";
+import { useParams } from "react-router-dom";
 import { GlobalContext } from "../../global/GlobalContext";
 import { MainCard } from "./StyledCardRestaurantsDetails";
-import vinil from "../../assets/img/card/eldorado.png";
+
 
 export function CardRestaurantDetails() {
+    
     const { GlobalStates } = useContext(GlobalContext);
 
+    
+
+
+
+
+
+
+
+
+    
     return (
         <div>
-            <MainCard>
-                <img src={vinil} height={120} />
+             <MainCard>
+                <img 
+                    src={GlobalStates.restaurantDetail.logoUrl} 
+                    height={120} 
+                />
 
                 <figcaption>
-                    <h4>Bullguer Vila Madalena</h4>
+                    <h4>{GlobalStates.restaurantDetail.name}</h4>
 
                     <ul>
-                        <li>Burger</li>
+                        <li>{GlobalStates.restaurantDetail.category}</li>
 
                         <li>
-                            <p>50 - 60 min</p>
-                            <p>Frete R$ 6,00</p>
+                            <p>
+                                {GlobalStates.restaurantDetail.deliveryTime} -{" "}
+                                    {Math.round(
+                                            GlobalStates.restaurantDetail.deliveryTime * 0.25
+                                    ) + GlobalStates.restaurantDetail.deliveryTime}{" "}
+                                        min
+                            </p>
+
+
+                            <p>
+                              Frete R$:{GlobalStates.restaurantDetail.shipping}
+                            </p>
                         </li>
 
-                        <li>R. Fradique Coutinho, 1136 - Vila Madalena</li>
+                        <li>{GlobalStates.restaurantDetail.address}</li>
                     </ul>
                 </figcaption>
-            </MainCard>
+            </MainCard>              
         </div>
     );
 }
