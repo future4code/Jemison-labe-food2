@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext, useEffect, useLayoutEffect } from "react";
 import { Contents } from "../FeedPage/StyledFeedPage";
 import { Container } from "../../Styled";
 import useProtectedPage from "../../hooks/useProtectedPage";
@@ -10,10 +10,29 @@ import {
     SecondaryCard,
     SecondaryCards,
 } from "../../components/CardRestaurantDetails/StyledCardRestaurantsDetails";
+import { GlobalContext } from "../../global/GlobalContext";
+import { useParams } from "react-router-dom";
 
 export function RestaurantDetailsPage() {
     useProtectedPage();
+    const id = useParams()
 
+    const { GlobalRequests} = useContext(GlobalContext);
+
+
+    useEffect(() => {
+        GlobalRequests.getRestaurantDetails(id.id);
+    }, []);
+
+
+
+
+
+
+
+
+    
+   
     return (
         <Container>
             <Navbar text="Restaurante" />
