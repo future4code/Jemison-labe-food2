@@ -10,7 +10,7 @@ import {
     InputEye,
 } from "../../components/RegistrationPages/StyledRegistrationPages";
 import { Container } from "../../Styled";
-import { getLogin } from "../../services/GetLogin";
+import { postLogin } from "../../services/User";
 import { goToSignUpPage } from "../../routes/coordinator";
 import { UseForm } from "../../hooks/useForm";
 import useProtectedPage from "../../hooks/useProtectedPage";
@@ -30,7 +30,7 @@ export function LoginPage() {
 
     const onSubmitForm = (e) => {
         e.preventDefault();
-        getLogin(form, clear, navigate, setIsLoading);
+        postLogin(form, clear, navigate, setIsLoading);
     };
 
     const onClickShowPassword = () => {

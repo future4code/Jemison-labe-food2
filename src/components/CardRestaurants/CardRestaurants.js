@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { GlobalContext } from "../GlobalContext";
+import { GlobalContext } from "../../global/GlobalContext";
 import { Card } from "./StyledCardRestaurants";
 import { goToRestaurantDetailsPage } from "../../routes/coordinator";
 import { useNavigate } from "react-router-dom";
@@ -38,8 +38,23 @@ export function CardRestaurants({ categories, inputSearch }) {
                             <figcaption>
                                 <h4>{restaurant.name}</h4>
                                 <div>
-                                    <p>{restaurant.deliveryTime} min</p>
-                                    <p>Frete R${restaurant.shipping},00</p>
+                                    <p>
+                                        {restaurant.deliveryTime} -{" "}
+                                        {Math.round(
+                                            restaurant.deliveryTime * 0.25
+                                        ) + restaurant.deliveryTime}{" "}
+                                        min
+                                    </p>
+                                    <p>
+                                        Frete{" "}
+                                        {restaurant.shipping.toLocaleString(
+                                            "pt-br",
+                                            {
+                                                style: "currency",
+                                                currency: "BRL",
+                                            }
+                                        )}
+                                    </p>
                                 </div>
                             </figcaption>
                         </Card>

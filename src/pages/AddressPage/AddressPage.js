@@ -9,7 +9,7 @@ import {
 } from "../../components/RegistrationPages/StyledRegistrationPages";
 import { Container } from "../../Styled";
 import { Navbar } from "../../components/Navbar/Navbar";
-import { putAddAdress } from "../../services/PutAddAdress";
+import { putAddAdress } from "../../services/User";
 import { UseForm } from "../../hooks/useForm";
 import useProtectedPage from "../../hooks/useProtectedPage";
 import { CircularProgress } from "@mui/material";

@@ -18,6 +18,7 @@ export const Card = styled.figure`
         h4 {
             color: #e8222e;
             margin-bottom: 0.25rem;
+            font-weight: normal;
         }
 
         div {

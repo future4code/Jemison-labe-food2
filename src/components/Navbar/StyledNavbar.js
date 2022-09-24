@@ -1,6 +1,9 @@
 import styled from "styled-components";
 
 export const NavbarContainer = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: center;
     position: absolute;
     top: 0;
     left: 0;
@@ -10,6 +13,17 @@ export const NavbarContainer = styled.div`
     height: 2.75rem;
 
     button {
+        position: absolute;
+        left: 0;
         padding: 0.675rem;
+
+        &:hover {
+            background: #f2f2f2;
+        }
+    }
+
+    p {
+        position: absolute;
+        left: 50;
     }
 `;

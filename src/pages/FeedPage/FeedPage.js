@@ -17,7 +17,7 @@ import { NavbarContainer } from "../../components/Navbar/StyledNavbar";
 import { InputSearch } from "../../components/RegistrationPages/StyledRegistrationPages";
 import useProtectedPage from "../../hooks/useProtectedPage";
 import { CardRestaurants } from "../../components/CardRestaurants/CardRestaurants";
-import { GlobalContext } from "../../components/GlobalContext";
+import { GlobalContext } from "../../global/GlobalContext";
 
 export function FeedPage() {
     useProtectedPage();
@@ -33,7 +33,7 @@ export function FeedPage() {
     };
 
     useEffect(() => {
-        GlobalRequests.searchRestaurants();
+        GlobalRequests.getRestaurants();
     }, []);
 
     // Lógica das cores
@@ -92,6 +92,7 @@ export function FeedPage() {
                             placeholder="Restaurante"
                         />
                     </Search>
+
                     <Categories>
                         <li>
                             <button

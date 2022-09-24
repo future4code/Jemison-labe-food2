@@ -5,16 +5,16 @@ import { BASE_URL } from "../constants/BASE_URL";
 
 export function GlobalState(props) {
     const [restaurantList, setRestaurantList] = useState([]);
-    const [restaurantDetail, setRestaurantDetail] = useState({})
 
+    // Este endpoint retorna uma lista de todos os restaurantes.
+    const getRestaurants = () => {
+        const endpoint = {
+            method: "get",
+            url: `${BASE_URL}/restaurants`,
+            headers: { auth: localStorage.getItem("token") },
+        };
 
-    // Requisição - Restaurantes
-    const searchRestaurants = () => {
-        const token = localStorage.getItem("token");
-        const headers = { headers: { auth: token } };
-
-        axios
-            .get(`${BASE_URL}/restaurants`, headers)
+        axios(endpoint)
             .then((res) => {
                 setRestaurantList(res.data.restaurants);
             })
@@ -23,25 +23,27 @@ export function GlobalState(props) {
             });
     };
 
-    // Requisição - Detalhes de cada Restaurantes
-    const searchRestaurantDetails = (id) => {
-        const token = localStorage.getItem("token");
-        const headers = { headers: { auth: token } };
+    //Este endpoint retorna os detalhes de um restaurante, e uma lista dos produtos dele.
+    const getRestaurantDetail = (id) => {
+        const endpoint = {
+            method: "get",
+            url: `${BASE_URL}/restaurants/${id}`,
+            headers: { auth: localStorage.getItem("token") },
+        };
 
-        axios
-            .get(`${BASE_URL}/restaurants/:${id}`, headers)
+        axios(endpoint)
             .then((res) => {
-                setRestaurantDetail(res.data);
+                setRestaurantList(res.data.restaurant);
             })
             .catch((err) => {
                 alert(err.response.data.message);
             });
     };
 
-    const GlobalStates = { restaurantList ,restaurantDetail };
-    const GlobalRequests = { searchRestaurants, searchRestaurantDetails,  };
-
+    const GlobalStates = { restaurantList };
+    const GlobalRequests = { getRestaurants, getRestaurantDetail };
     const Provider = GlobalContext.Provider;
+
     return (
         <Provider value={{ GlobalStates, GlobalRequests }}>
             {props.children}

@@ -2,8 +2,8 @@ export const goToStartPage = (navigate) => {
     navigate("/");
 };
 
-export const goToBackPage = (navigate) => {
-    navigate(-1);
+export const goToLoginPage = (navigate) => {
+    navigate("/login");
 };
 
 export const goToSignUpPage = (navigate) => {
@@ -15,11 +15,7 @@ export const goToFeedPage = (navigate) => {
 };
 
 export const goToRestaurantDetailsPage = (navigate, id) => {
-    navigate(`/restaurantdetails/${id}`);
-};
-
-export const goToLoginPage = (navigate) => {
-    navigate("/login");
+    navigate(`/restaurants/${id}`);
 };
 
 export const goToAddressPage = (navigate) => {
@@ -36,4 +32,8 @@ export const goToProfilePage = (navigate) => {
 
 export const goToEditPage = (navigate) => {
     navigate("/edit");
+};
+
+export const goToBackPage = (navigate) => {
+    navigate(-1);
 };
