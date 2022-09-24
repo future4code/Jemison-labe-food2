@@ -92,6 +92,7 @@ export function FeedPage() {
                             placeholder="Restaurante"
                         />
                     </Search>
+                    
                     <Categories>
                         <li>
                             <button

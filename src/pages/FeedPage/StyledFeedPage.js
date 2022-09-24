@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 export const Title = styled.h3`
-    font-size: 1rem;
     font-weight: normal;
     letter-spacing: -0.39px;
     padding: 0.675rem;
@@ -76,10 +75,6 @@ export const Categories = styled.ul`
         border-radius: 4px;
         padding: 0.75rem 0;
         width: 100%;
-
-        &:hover {
-            background: #f2f2f2;
-        }
     }
 `;
 
