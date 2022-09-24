@@ -3,7 +3,6 @@ import { Contents } from "../FeedPage/StyledFeedPage";
 import { Container } from "../../Styled";
 import useProtectedPage from "../../hooks/useProtectedPage";
 import { Navbar } from "../../components/Navbar/Navbar";
-import { useParams } from "react-router-dom";
 import { CardRestaurantDetails } from "../../components/CardRestaurantDetails/CardRestaurantDetails";
 import imagem from "../../assets/img/restaurants_details/mao-santa-burguer.png";
 import {
@@ -14,7 +13,6 @@ import {
 
 export function RestaurantDetailsPage() {
     useProtectedPage();
-    const id = useParams;
 
     return (
         <Container>

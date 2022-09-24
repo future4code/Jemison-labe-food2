@@ -1,12 +1,9 @@
 import React, { useContext } from "react";
-import { GlobalContext } from "../GlobalContext";
+import { GlobalContext } from "../../global/GlobalContext";
 import { MainCard } from "./StyledCardRestaurantsDetails";
-import { useParams } from "react-router-dom";
 import vinil from "../../assets/img/card/eldorado.png";
 
 export function CardRestaurantDetails() {
-    const id = useParams;
-
     const { GlobalStates } = useContext(GlobalContext);
 
     return (
@@ -21,8 +18,8 @@ export function CardRestaurantDetails() {
                         <li>Burger</li>
 
                         <li>
-                            <p>60 min</p>
-                            <p>Frete R$6,00</p>
+                            <p>50 - 60 min</p>
+                            <p>Frete R$ 6,00</p>
                         </li>
 
                         <li>R. Fradique Coutinho, 1136 - Vila Madalena</li>

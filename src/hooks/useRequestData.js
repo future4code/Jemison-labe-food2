@@ -5,7 +5,7 @@ import { BASE_URL } from "../constants/BASE_URL";
 const useRequestData = (initialData, path) => {
     const [data, setData] = useState(initialData);
 
-    const config = {
+    const endpoint = {
         method: "get",
         url: BASE_URL + path,
         headers: { auth: localStorage.getItem("token") },
@@ -13,7 +13,7 @@ const useRequestData = (initialData, path) => {
 
     useEffect(() => {
         if (localStorage.getItem("token")) {
-            axios(config)
+            axios(endpoint)
                 .then((res) => {
                     setData(res.data);
                 })

@@ -12,7 +12,7 @@ import {
     Highlight,
 } from "../../components/RegistrationPages/StyledRegistrationPages";
 import { Container } from "../../Styled";
-import { getSignUp } from "../../services/GetSignUp";
+import { postSignUp } from "../../services/User";
 import { Navbar } from "../../components/Navbar/Navbar";
 import { UseForm } from "../../hooks/useForm";
 import { useNavigate } from "react-router-dom";
@@ -37,7 +37,7 @@ export function SignUpPage() {
     });
     const onSubmitForm = (e) => {
         e.preventDefault();
-        getSignUp(form, clear, navigate, setIsLoading);
+        postSignUp(form, clear, navigate, setIsLoading);
     };
 
     // Lógica para a senha
