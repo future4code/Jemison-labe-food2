@@ -2,17 +2,17 @@ import React, { useContext } from "react";
 import { GlobalContext } from "../../global/GlobalContext";
 import { SecondaryCard } from "../CardRestaurantDetails/StyledCardRestaurantsDetails";
 
-export function CardProductDetails({ produto }) {
+export function CardProductDetails({ product, category }) {
     return (
         <div>
-            <h3>{produto.category}</h3>
+            <h3>{category}</h3>
             <SecondaryCard>
-                <img src={produto.photoUrl} />
+                <img src={product.photoUrl} />
                 <figcaption>
-                    <p>{produto.name}</p>
-                    <p>{produto.description}</p>
+                    <p>{product.name}</p>
+                    <p>{product.description}</p>
                     <p>
-                        {produto.price.toLocaleString("pt-br", {
+                        {product.price.toLocaleString("pt-br", {
                             style: "currency",
                             currency: "BRL",
                         })}

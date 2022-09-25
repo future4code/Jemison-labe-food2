@@ -105,7 +105,7 @@ export const putUpdateProfile = (body, clear, setIsLoading) => {
         });
 };
 
-// Este endpoint realiza um pedido. Ele recebe um array de products, que devem conter somente o id de um produto e quantidade que será pedida. Além disso, o método de pagamento deve ser informado.
+// Este endpoint realiza um pedido. Ele recebe um array de products, que devem conter somente o id de um product e quantidade que será pedida. Além disso, o método de pagamento deve ser informado.
 export const postPlaceOrder = async (body, id) => {
     const endpoint = {
         method: "post",

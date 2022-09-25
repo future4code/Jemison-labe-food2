@@ -18,10 +18,12 @@ import { InputSearch } from "../../components/RegistrationPages/StyledRegistrati
 import useProtectedPage from "../../hooks/useProtectedPage";
 import { CardRestaurants } from "../../components/CardRestaurants/CardRestaurants";
 import { GlobalContext } from "../../global/GlobalContext";
+import { CircularProgress } from "@mui/material";
 
 export function FeedPage() {
     useProtectedPage();
     const { GlobalRequests } = useContext(GlobalContext);
+    const [isLoading, setIsLoading] = useState(false);
     const [categories, setCategories] = useState("Todos");
     const [inputSearch, setInputSearch] = useState("");
     const onChangeCategories = (value) => {
@@ -99,7 +101,9 @@ export function FeedPage() {
                                 value="Todos"
                                 categories={categories}
                                 onClick={() => onChangeCategories("Todos")}
-                                style={{ color: getColorTodos(categories) }}>
+                                style={{
+                                    color: getColorTodos(categories),
+                                }}>
                                 Todos
                             </button>
                         </li>
@@ -119,7 +123,9 @@ export function FeedPage() {
                                 value="Asiática"
                                 categories={categories}
                                 onClick={() => onChangeCategories("Asiática")}
-                                style={{ color: getColorAsiatica(categories) }}>
+                                style={{
+                                    color: getColorAsiatica(categories),
+                                }}>
                                 Asiática
                             </button>
                         </li>
@@ -128,7 +134,9 @@ export function FeedPage() {
                                 value="Mexicana"
                                 categories={categories}
                                 onClick={() => onChangeCategories("Mexicana")}
-                                style={{ color: getColorMexicana(categories) }}>
+                                style={{
+                                    color: getColorMexicana(categories),
+                                }}>
                                 Mexicano
                             </button>
                         </li>
@@ -137,7 +145,9 @@ export function FeedPage() {
                                 value="Italiana"
                                 categories={categories}
                                 onClick={() => onChangeCategories("Italiana")}
-                                style={{ color: getColorItaliana(categories) }}>
+                                style={{
+                                    color: getColorItaliana(categories),
+                                }}>
                                 Italiana
                             </button>
                         </li>
@@ -146,7 +156,9 @@ export function FeedPage() {
                                 value="Sorvetes"
                                 categories={categories}
                                 onClick={() => onChangeCategories("Sorvetes")}
-                                style={{ color: getColorSorvetes(categories) }}>
+                                style={{
+                                    color: getColorSorvetes(categories),
+                                }}>
                                 Sorvetes
                             </button>
                         </li>
@@ -155,7 +167,9 @@ export function FeedPage() {
                                 value="Carnes"
                                 categories={categories}
                                 onClick={() => onChangeCategories("Carnes")}
-                                style={{ color: getColorCarnes(categories) }}>
+                                style={{
+                                    color: getColorCarnes(categories),
+                                }}>
                                 Carnes
                             </button>
                         </li>
@@ -164,7 +178,9 @@ export function FeedPage() {
                                 value="Baiana"
                                 categories={categories}
                                 onClick={() => onChangeCategories("Baiana")}
-                                style={{ color: getColorBaiana(categories) }}>
+                                style={{
+                                    color: getColorBaiana(categories),
+                                }}>
                                 Baiana
                             </button>
                         </li>
@@ -173,7 +189,9 @@ export function FeedPage() {
                                 value="Petiscos"
                                 categories={categories}
                                 onClick={() => onChangeCategories("Petiscos")}
-                                style={{ color: getColorPetiscos(categories) }}>
+                                style={{
+                                    color: getColorPetiscos(categories),
+                                }}>
                                 Petiscos
                             </button>
                         </li>

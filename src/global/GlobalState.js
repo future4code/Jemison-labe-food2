@@ -37,7 +37,7 @@ export function GlobalState(props) {
             .then((res) => {
                 setRestaurantDetail(res.data.restaurant);
                 setProducts(res.data.restaurant.products);
-                console.log(res.data.restaurant.products);
+                // console.log(res.data.restaurant.products);
             })
             .catch((err) => {
                 alert(err.response.data.message);
