@@ -3,8 +3,6 @@ import { GlobalContext } from "../../global/GlobalContext";
 import { SecondaryCard } from "../CardRestaurantDetails/StyledCardRestaurantsDetails";
 
 export function CardProductDetails({ produto }) {
-    const { GlobalRequests, GlobalStates } = useContext(GlobalContext);
-
     return (
         <div>
             <h3>{produto.category}</h3>
