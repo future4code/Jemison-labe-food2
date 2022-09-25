@@ -9,7 +9,7 @@ export function CardRestaurantDetails() {
     const { GlobalStates } = useContext(GlobalContext);
 
     
-
+   
 
 
 
