@@ -5,8 +5,8 @@ import { BASE_URL } from "../constants/BASE_URL";
 
 export function GlobalState(props) {
     const [restaurantList, setRestaurantList] = useState([]);
-    const [restaurantDetail, setRestaurantDetail] = useState({})
-    const [produtos, setProdutos] = useState([])
+    const [restaurantDetail, setRestaurantDetail] = useState({});
+    const [products, setProducts] = useState([]);
 
     // Este endpoint retorna uma lista de todos os restaurantes.
     const getRestaurants = () => {
@@ -19,15 +19,13 @@ export function GlobalState(props) {
         axios(endpoint)
             .then((res) => {
                 setRestaurantList(res.data.restaurants);
-                
-                
             })
             .catch((err) => {
                 alert(err.response.data.message);
             });
     };
 
-    //Este endpoint retorna os detalhes de um restaurante, e uma lista dos produtos dele.
+    //Este endpoint retorna os detalhes de um restaurante, e uma lista dos products dele.
     const getRestaurantDetails = (id) => {
         const endpoint = {
             method: "get",
@@ -38,15 +36,15 @@ export function GlobalState(props) {
         axios(endpoint)
             .then((res) => {
                 setRestaurantDetail(res.data.restaurant);
-                setProdutos(res.data.restaurant.products)
-                
+                setProducts(res.data.restaurant.products);
+                console.log(res.data.restaurant.products);
             })
             .catch((err) => {
                 alert(err.response.data.message);
             });
     };
 
-    const GlobalStates = { restaurantList, restaurantDetail, produtos };
+    const GlobalStates = { restaurantList, restaurantDetail, products };
     const GlobalRequests = { getRestaurants, getRestaurantDetails };
     const Provider = GlobalContext.Provider;
 

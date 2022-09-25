@@ -33,31 +33,6 @@ export const MainCard = styled.figure`
     }
 `;
 
-export const RestaurantDetailsSections = styled.div`
-    h3 {
-        font-size: 1rem;
-        font-weight: normal;
-        letter-spacing: -0.39px;
-        color: #000;
-        margin-bottom: 0.5rem;
-
-        &:after {
-            display: block;
-            content: "";
-            background: #000;
-            width: 100%;
-            height: 0.063rem;
-            margin-top: 0.5rem;
-        }
-    }
-`;
-
-export const SecondaryCards = styled.div`
-    display: grid;
-    gap: 0.5rem;
-    margin-bottom: 1rem;
-`;
-
 export const SecondaryCard = styled.figure`
     display: flex;
     align-items: center;
@@ -66,6 +41,14 @@ export const SecondaryCard = styled.figure`
     height: 7rem;
     width: 100%;
     position: relative;
+    margin-bottom: 0.5rem;
+
+    img {
+        width: 6rem;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 8px 0 0 8px;
+    }
 
     figcaption {
         display: flex;
@@ -98,8 +81,8 @@ export const SecondaryCard = styled.figure`
 
         button {
             position: absolute;
-            right: 0;
-            bottom: 0;
+            right: -1px;
+            bottom: -1px;
             padding: 0.5rem 1.281rem 0.563rem 1.344rem;
             border-radius: 8px 0;
             border: solid 1px #000;
