@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useLayoutEffect } from "react";
+import React, { useContext, useEffect} from "react";
 import { Contents } from "../FeedPage/StyledFeedPage";
 import { Container } from "../../Styled";
 import useProtectedPage from "../../hooks/useProtectedPage";
@@ -12,13 +12,18 @@ import {
 } from "../../components/CardRestaurantDetails/StyledCardRestaurantsDetails";
 import { GlobalContext } from "../../global/GlobalContext";
 import { useParams } from "react-router-dom";
+import { CardProdutos } from "../../components/CardProdutos/CardProdutos";
+
 
 export function RestaurantDetailsPage() {
     useProtectedPage();
     const id = useParams()
 
-    const { GlobalRequests} = useContext(GlobalContext);
+    const { GlobalRequests, GlobalStates} = useContext(GlobalContext);
 
+    
+    
+   
 
     useEffect(() => {
         GlobalRequests.getRestaurantDetails(id.id);
@@ -35,69 +40,33 @@ export function RestaurantDetailsPage() {
    
     return (
         <Container>
-            <Navbar text="Restaurante" />
+        <Navbar text="Restaurante" />
 
+
+        {GlobalStates.produtos && GlobalStates.produtos.length > 0 ? 
+        
             <Contents>
-                <CardRestaurantDetails />
+                <CardRestaurantDetails/>
 
-                <div>
-                    <RestaurantDetailsSections>
-                        <h3>Principais</h3>
+                {GlobalStates.produtos.map((item)=>{
+                    return ( 
+                        <CardProdutos
+                           key={item.id} 
+                           name={item.name}
+                           photoUrl={item.photoUrl}
+                           price={item.price}
+                           description={item.description}
+                        />
+                    )
+                    })}
+           </Contents>
+           
+        
+           :<> carregando....</>} 
+         
 
-                        <SecondaryCards>
-                            <SecondaryCard>
-                                <img src={imagem} />
-                                <figcaption>
-                                    <p>Bullguer</p>
-                                    <p>Pão, carne. queijo, picles e molho.</p>
-                                    <p>R$20,00</p>
-                                    <button>adicionar</button>
-                                </figcaption>
-                            </SecondaryCard>
-                            <SecondaryCard>
-                                <img src={imagem} />
-                                <figcaption>
-                                    <p>Stencil</p>
-                                    <p>
-                                        Pão, carne, queijo, cebola roxa, tomate,
-                                        alface e molho.
-                                    </p>
-                                    <p>R$23,00</p>
-                                    <button>adicionar</button>
-                                </figcaption>
-                            </SecondaryCard>
-                        </SecondaryCards>
-                    </RestaurantDetailsSections>
-
-                    <RestaurantDetailsSections>
-                        <h3>Acompanhamentos</h3>
-
-                        <SecondaryCards>
-                            <SecondaryCard>
-                                <img src={imagem} />
-                                <figcaption>
-                                    <p>Cheese Fries</p>
-                                    <p>
-                                        Porção de fritas temperada com páprica e
-                                        queijo derretido.
-                                    </p>
-                                    <p>R$15,00</p>
-                                    <button>adicionar</button>
-                                </figcaption>
-                            </SecondaryCard>
-                            <SecondaryCard>
-                                <img src={imagem} />
-                                <figcaption>
-                                    <p>Onion Rings</p>
-                                    <p>Porção de cebolas empanadas.</p>
-                                    <p>R$12,00</p>
-                                    <button>adicionar</button>
-                                </figcaption>
-                            </SecondaryCard>
-                        </SecondaryCards>
-                    </RestaurantDetailsSections>
-                </div>
-            </Contents>
-        </Container>
+    </Container>
+    
     );
+    
 }

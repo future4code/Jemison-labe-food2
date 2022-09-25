@@ -6,10 +6,7 @@ import { BASE_URL } from "../constants/BASE_URL";
 export function GlobalState(props) {
     const [restaurantList, setRestaurantList] = useState([]);
     const [restaurantDetail, setRestaurantDetail] = useState({})
-
-
-
-
+    const [produtos, setProdutos] = useState([])
 
     // Este endpoint retorna uma lista de todos os restaurantes.
     const getRestaurants = () => {
@@ -22,6 +19,8 @@ export function GlobalState(props) {
         axios(endpoint)
             .then((res) => {
                 setRestaurantList(res.data.restaurants);
+                
+                
             })
             .catch((err) => {
                 alert(err.response.data.message);
@@ -39,13 +38,15 @@ export function GlobalState(props) {
         axios(endpoint)
             .then((res) => {
                 setRestaurantDetail(res.data.restaurant);
+                setProdutos(res.data.restaurant.products)
+                
             })
             .catch((err) => {
                 alert(err.response.data.message);
             });
     };
 
-    const GlobalStates = { restaurantList, restaurantDetail };
+    const GlobalStates = { restaurantList, restaurantDetail, produtos };
     const GlobalRequests = { getRestaurants, getRestaurantDetails };
     const Provider = GlobalContext.Provider;
 
