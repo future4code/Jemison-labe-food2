@@ -34,6 +34,11 @@ body {
     font-family: Roboto;
     font-size: 1rem;
     letter-spacing: -0.39px;
+
+    .CircularProgress{
+        position: absolute;
+        top: 50vh;
+    }
 }
 
 button {
@@ -88,3 +93,4 @@ export const Container = styled.div`
         background: none;
     }
 `;
+
