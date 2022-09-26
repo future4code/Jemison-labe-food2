@@ -28,7 +28,8 @@ export const postLogin = (body, clear, navigate, setIsLoading) => {
         })
         .catch((err) => {
             setIsLoading(false);
-            alert(err.response.data.message);
+            // alert(err.response.data.message);
+            alert("Faça o login para acessa")
         });
 };
 

@@ -13,7 +13,7 @@ import { Container } from "../../Styled";
 import { postLogin } from "../../services/User";
 import { goToSignUpPage } from "../../routes/coordinator";
 import { UseForm } from "../../hooks/useForm";
-import useProtectedPage from "../../hooks/useProtectedPage";
+import { useProtectedPage } from "../../hooks/useProtectedPage";
 import logo from "../../assets/img/startPage/logo-vermelha.svg";
 import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 import { CircularProgress } from "@mui/material";
