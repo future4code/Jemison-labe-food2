@@ -15,7 +15,7 @@ import {
 import { Container } from "../../Styled";
 import { NavbarContainer } from "../../components/Navbar/StyledNavbar";
 import { InputSearch } from "../../components/RegistrationPages/StyledRegistrationPages";
-import useProtectedPage from "../../hooks/useProtectedPage";
+import { useProtectedPage } from "../../hooks/useProtectedPage";
 import { CardRestaurants } from "../../components/CardRestaurants/CardRestaurants";
 import { GlobalContext } from "../../global/GlobalContext";
 import { CircularProgress } from "@mui/material";

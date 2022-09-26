@@ -21,7 +21,8 @@ export function GlobalState(props) {
                 setRestaurantList(res.data.restaurants);
             })
             .catch((err) => {
-                alert(err.response.data.message);
+                // alert(err.response.data.message);
+                alert('faça login para acessar')
             });
     };
 
@@ -40,7 +41,8 @@ export function GlobalState(props) {
                 // console.log(res.data.restaurant.products);
             })
             .catch((err) => {
-                alert(err.response.data.message);
+                // alert(err.response.data.message);
+                alert('faça login para acessar')
             });
     };
 

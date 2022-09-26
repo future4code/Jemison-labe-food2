@@ -11,10 +11,17 @@ import { Container } from "../../Styled";
 import { Navbar } from "../../components/Navbar/Navbar";
 import { putAddAdress } from "../../services/User";
 import { UseForm } from "../../hooks/useForm";
-import useProtectedPage from "../../hooks/useProtectedPage";
+
 import { CircularProgress } from "@mui/material";
+import { useProtectedPage } from "../../hooks/useProtectedPage";
 
 export function AddressPage() {
+    useProtectedPage()
+
+
+
+
+
     const navigate = useNavigate();
     const [isLoading, setIsLoading] = useState(false);
     const [form, handleInputChange, clear] = UseForm({
@@ -31,7 +38,7 @@ export function AddressPage() {
         putAddAdress(form, clear, navigate, setIsLoading);
     };
 
-    useProtectedPage();
+    
 
     return (
         <Container>

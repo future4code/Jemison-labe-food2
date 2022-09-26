@@ -5,7 +5,7 @@ import { Navbar } from "../../components/Navbar/Navbar";
 import { CardRestaurantDetails } from "../../components/CardRestaurantDetails/CardRestaurantDetails";
 import { GlobalContext } from "../../global/GlobalContext";
 import { useParams } from "react-router-dom";
-import useProtectedPage from "../../hooks/useProtectedPage";
+import { useProtectedPage } from "../../hooks/useProtectedPage";
 import { CardProductDetails } from "../../components/CardProductDetails/CardProductDetails";
 import { CircularProgress } from "@mui/material";
 
