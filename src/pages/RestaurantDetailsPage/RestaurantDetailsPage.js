@@ -17,17 +17,13 @@ export function RestaurantDetailsPage() {
     const products = GlobalStates.products;
 
     const productsCondition = products && products.length > 0;
-    const categorys = [];
-    const handleCategorys = () => {
-        products &&
-            products.map((product) => {
-                categorys.push(product.category);
-            });
-    };
-    handleCategorys();
-    const categorysNoRepeat = [...new Set(categorys)];
-    // console.log(categorys); // Categorias totais
-    console.log(categorysNoRepeat); // Categorias únicas
+    
+    const categorias = products && products.map((item)=>{
+        return item.category
+    })
+
+    const unicaCategoria = [...new Set(categorias)]
+
 
     useEffect(() => {
         GlobalRequests.getRestaurantDetails(id.id);
@@ -46,19 +42,23 @@ export function RestaurantDetailsPage() {
             ) : (
                 <Contents>
                     <CardRestaurantDetails />
-
-                    {products &&
-                        products.map((product, index) => {
-                            console.log(products[0]);
-
-                            return (
-                                <CardProductDetails
-                                    key={index}
-                                    product={product}
-                                    category={categorys[index]}
-                                />
-                            );
-                        })}
+                    {unicaCategoria.map((item)=>{
+                        const produtos = products && products.filter((produto)=>{
+                            return produto.category === item
+                        })
+                        return (
+                            <>
+                                 <p>{item}</p>
+                                {produtos && produtos.map((produto) =>{
+                                    return <CardProductDetails
+                                            key={produto.id}
+                                            produto={produto}
+                                            />
+                                })}
+                            </>                
+                        ) 
+                    })}
+                    
                 </Contents>
             )}
         </Container>
