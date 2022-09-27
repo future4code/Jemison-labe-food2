@@ -91,6 +91,22 @@ export const SecondaryCard = styled.figure`
                 color: #000;
                 font-size: 1rem;
             }
+
+            &.null {
+                display: none;
+            }
+
+            &.view {
+                background: #fff;
+                color: #e8222e;
+                border-radius: 0 8px;
+                border: solid 1px currentColor;
+                width: max-content;
+                padding: 0.438rem 0.75rem;
+                position: absolute;
+                top: -1px;
+                right: -1px;
+            }
         }
 
         button {

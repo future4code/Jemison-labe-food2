@@ -4,10 +4,13 @@ import {
     SecondaryCard,
 } from "../CardRestaurantDetails/StyledCardRestaurantsDetails";
 import Modal from "@mui/material/Modal";
+import styled from "styled-components";
 
 export function CardProductDetails({ produto }) {
-    // Lógica Modal
     const [open, setOpen] = useState(false);
+    const [valor, setValor] = useState(0);
+
+    // Lógica Modal
     const handleOpen = () => {
         setOpen(true);
     };
@@ -16,7 +19,6 @@ export function CardProductDetails({ produto }) {
     };
 
     // Lógica Form Modal
-    const [valor, setValor] = useState(1);
     const onChangevalor = (e) => {
         setValor(Number(e.target.value));
     };
@@ -34,6 +36,8 @@ export function CardProductDetails({ produto }) {
                             currency: "BRL",
                         })}
                     </p>
+                    {valor > 0 ? <p className="view">{valor}</p> : <p className="null">{null}</p>}
+
                     <button onClick={handleOpen}>adicionar</button>
                 </figcaption>
 
