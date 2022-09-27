@@ -7,7 +7,13 @@ import { GlobalContext } from "../../global/GlobalContext";
 import { useParams } from "react-router-dom";
 import { useProtectedPage } from "../../hooks/useProtectedPage";
 import { CardProductDetails } from "../../components/CardProductDetails/CardProductDetails";
-import { CircularProgress } from "@mui/material";
+import {
+    Box,
+    Button,
+    CircularProgress,
+    Modal,
+    Typography,
+} from "@mui/material";
 import { TitleCard } from "../../components/CardRestaurantDetails/StyledCardRestaurantsDetails";
 
 export function RestaurantDetailsPage() {
