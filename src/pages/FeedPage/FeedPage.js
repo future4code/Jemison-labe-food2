@@ -23,7 +23,6 @@ import { CircularProgress } from "@mui/material";
 export function FeedPage() {
     useProtectedPage();
     const { GlobalRequests } = useContext(GlobalContext);
-    const [isLoading, setIsLoading] = useState(false);
     const [categories, setCategories] = useState("Todos");
     const [inputSearch, setInputSearch] = useState("");
     const onChangeCategories = (value) => {

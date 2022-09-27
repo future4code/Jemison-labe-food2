@@ -1,5 +1,4 @@
-import React, { useContext, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import React, { useContext } from "react";
 import { GlobalContext } from "../../global/GlobalContext";
 import { MainCard } from "./StyledCardRestaurantsDetails";
 

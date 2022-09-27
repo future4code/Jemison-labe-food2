@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect } from "react";
 import { Contents } from "../FeedPage/StyledFeedPage";
 import { Container } from "../../Styled";
 import { Navbar } from "../../components/Navbar/Navbar";
@@ -8,22 +8,21 @@ import { useParams } from "react-router-dom";
 import { useProtectedPage } from "../../hooks/useProtectedPage";
 import { CardProductDetails } from "../../components/CardProductDetails/CardProductDetails";
 import { CircularProgress } from "@mui/material";
+import { TitleCard } from "../../components/CardRestaurantDetails/StyledCardRestaurantsDetails";
 
 export function RestaurantDetailsPage() {
     useProtectedPage();
     const id = useParams();
-    const [isLoading, setIsLoading] = useState(false);
     const { GlobalRequests, GlobalStates } = useContext(GlobalContext);
-    const products = GlobalStates.products;
+    const productList = GlobalStates.products;
+    const productCondition = productList && productList.length > 0;
+    const categorys =
+        productList &&
+        productList.map((productInformation) => {
+            return productInformation.category;
+        });
 
-    const productsCondition = products && products.length > 0;
-    
-    const categorias = products && products.map((item)=>{
-        return item.category
-    })
-
-    const unicaCategoria = [...new Set(categorias)]
-
+    const categorysNoRepeat = [...new Set(categorys)];
 
     useEffect(() => {
         GlobalRequests.getRestaurantDetails(id.id);
@@ -33,7 +32,7 @@ export function RestaurantDetailsPage() {
         <Container>
             <Navbar text="Restaurante" />
 
-            {!productsCondition ? (
+            {!productCondition ? (
                 <CircularProgress
                     size={64}
                     color={"inherit"}
@@ -42,23 +41,29 @@ export function RestaurantDetailsPage() {
             ) : (
                 <Contents>
                     <CardRestaurantDetails />
-                    {unicaCategoria.map((item)=>{
-                        const produtos = products && products.filter((produto)=>{
-                            return produto.category === item
-                        })
+
+                    {categorysNoRepeat.map((category) => {
+                        const products =
+                            productList &&
+                            productList.filter((product) => {
+                                return product.category === category;
+                            });
                         return (
                             <>
-                                 <p>{item}</p>
-                                {produtos && produtos.map((produto) =>{
-                                    return <CardProductDetails
-                                            key={produto.id}
-                                            produto={produto}
+                                <TitleCard>{category}</TitleCard>
+
+                                {products &&
+                                    products.map((product) => {
+                                        return (
+                                            <CardProductDetails
+                                                key={product.id}
+                                                produto={product}
                                             />
-                                })}
-                            </>                
-                        ) 
+                                        );
+                                    })}
+                            </>
+                        );
                     })}
-                    
                 </Contents>
             )}
         </Container>
