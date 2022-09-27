@@ -7,7 +7,6 @@ export function GlobalState(props) {
     const [restaurantList, setRestaurantList] = useState([]);
     const [restaurantDetail, setRestaurantDetail] = useState({});
     const [products, setProducts] = useState([]);
-    
 
     // Este endpoint retorna uma lista de todos os restaurantes.
     const getRestaurants = () => {
@@ -23,7 +22,7 @@ export function GlobalState(props) {
             })
             .catch((err) => {
                 // alert(err.response.data.message);
-                alert('faça login para acessar')
+                alert("faça login para acessar");
             });
     };
 
@@ -39,20 +38,28 @@ export function GlobalState(props) {
             .then((res) => {
                 setRestaurantDetail(res.data.restaurant);
                 setProducts(res.data.restaurant.products);
-                
             })
             .catch((err) => {
                 // alert(err.response.data.message);
-                alert('faça login para acessar')
+                alert("faça login para acessar");
             });
     };
 
-    const GlobalStates = { restaurantList, restaurantDetail, products };
+    const GlobalStates = {
+        restaurantList,
+        restaurantDetail,
+        products,
+    };
+    const GlobalSetStates = {
+        setRestaurantList,
+        setRestaurantDetail,
+        setProducts,
+    };
     const GlobalRequests = { getRestaurants, getRestaurantDetails };
     const Provider = GlobalContext.Provider;
 
     return (
-        <Provider value={{ GlobalStates, GlobalRequests }}>
+        <Provider value={{ GlobalStates, GlobalSetStates, GlobalRequests }}>
             {props.children}
         </Provider>
     );

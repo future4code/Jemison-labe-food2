@@ -113,13 +113,19 @@ export const SecondaryCard = styled.figure`
             position: absolute;
             right: -1px;
             bottom: -1px;
+            color: #000;
             padding: 0.5rem 1.281rem 0.563rem 1.344rem;
             border-radius: 8px 0;
-            border: solid 1px #000;
+            border: solid 1px currentColor;
             font-size: 0.75rem;
+            width: 5.625rem;
 
             &:hover {
                 background: #f2f2f2;
+            }
+
+            &.btn-remove {
+                color: #e8222e;
             }
         }
     }

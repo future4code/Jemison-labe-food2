@@ -4,11 +4,10 @@ import {
     SecondaryCard,
 } from "../CardRestaurantDetails/StyledCardRestaurantsDetails";
 import Modal from "@mui/material/Modal";
-import styled from "styled-components";
 
-export function CardProductDetails({ produto }) {
+export function CardProductDetails({ product }) {
     const [open, setOpen] = useState(false);
-    const [valor, setValor] = useState(0);
+    const [value, setValue] = useState(0);
 
     // Lógica Modal
     const handleOpen = () => {
@@ -19,26 +18,41 @@ export function CardProductDetails({ produto }) {
     };
 
     // Lógica Form Modal
-    const onChangevalor = (e) => {
-        setValor(Number(e.target.value));
+    const onChangeValue = (e) => {
+        setValue(Number(e.target.value));
+    };
+
+    // Lógica adicionar produto ao carrinho
+
+    // Lógica remover produto do carrinho
+    const teste = () => {
+        const newValue = value * 0;
     };
 
     return (
         <div>
             <SecondaryCard>
-                <img src={produto.photoUrl} />
+                <img src={product.photoUrl} />
                 <figcaption>
-                    <p>{produto.name}</p>
-                    <p>{produto.description}</p>
+                    <p>{product.name}</p>
+                    <p>{product.description}</p>
                     <p>
-                        {produto.price.toLocaleString("pt-br", {
+                        {product.price.toLocaleString("pt-br", {
                             style: "currency",
                             currency: "BRL",
                         })}
                     </p>
-                    {valor > 0 ? <p className="view">{valor}</p> : <p className="null">{null}</p>}
+                    {value > 0 ? (
+                        <p className="view">{value}</p>
+                    ) : (
+                        <p className="null">{null}</p>
+                    )}
 
-                    <button onClick={handleOpen}>adicionar</button>
+                    {value > 0 ? (
+                        <button className="btn-remove">remover</button>
+                    ) : (
+                        <button onClick={handleOpen}>adicionar</button>
+                    )}
                 </figcaption>
 
                 <Modal
@@ -52,8 +66,8 @@ export function CardProductDetails({ produto }) {
                         </h2>
                         <select
                             id="parent-modal-description"
-                            value={valor}
-                            onChange={onChangevalor}>
+                            value={value}
+                            onChange={onChangeValue}>
                             <option value={1}>1</option>
                             <option value={2}>2</option>
                             <option value={3}>3</option>

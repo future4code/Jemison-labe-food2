@@ -16,11 +16,7 @@ import { CircularProgress } from "@mui/material";
 import { useProtectedPage } from "../../hooks/useProtectedPage";
 
 export function AddressPage() {
-    useProtectedPage()
-
-
-
-
+    useProtectedPage();
 
     const navigate = useNavigate();
     const [isLoading, setIsLoading] = useState(false);
@@ -37,8 +33,6 @@ export function AddressPage() {
         e.preventDefault();
         putAddAdress(form, clear, navigate, setIsLoading);
     };
-
-    
 
     return (
         <Container>
