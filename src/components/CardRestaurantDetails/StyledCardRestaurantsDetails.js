@@ -108,3 +108,41 @@ export const SecondaryCard = styled.figure`
         }
     }
 `;
+
+// 7f7f7f
+
+export const Modal = styled.div`
+    background: red;
+`;
+
+export const Box = styled.form`
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 20.5rem;
+    background: #fff;
+    padding: 2.688rem 1rem 1.313rem 1rem;
+
+    h2 {
+        font-size: 1rem;
+        font-weight: normal;
+        text-align: center;
+        margin-bottom: 1.188rem;
+    }
+
+    select {
+        width: 100%;
+        padding: 1.188rem 1rem;
+        border-radius: 4px;
+        border: solid 1px #b8b8b8;
+        margin-bottom: 1.75rem;
+    }
+
+    button {
+        text-align: right;
+        text-transform: uppercase;
+        color: #4f81a8;
+        width: 100%;
+    }
+`;
