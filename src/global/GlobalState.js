@@ -7,6 +7,7 @@ export function GlobalState(props) {
     const [restaurantList, setRestaurantList] = useState([]);
     const [restaurantDetail, setRestaurantDetail] = useState({});
     const [products, setProducts] = useState([]);
+    
 
     // Este endpoint retorna uma lista de todos os restaurantes.
     const getRestaurants = () => {
@@ -37,7 +38,7 @@ export function GlobalState(props) {
             .then((res) => {
                 setRestaurantDetail(res.data.restaurant);
                 setProducts(res.data.restaurant.products);
-                // console.log(res.data.restaurant.products);
+                
             })
             .catch((err) => {
                 alert(err.response.data.message);
