@@ -12,6 +12,7 @@ import { SignUpPage } from "../pages/SignUpPage/SignUpPage";
 import { ErrorPage } from "../pages/ErrorPage/ErrorPage";
 import { FeedPage } from "../pages/FeedPage/FeedPage";
 
+
 export const Router = () => {
     return (
         <BrowserRouter>
@@ -25,11 +26,7 @@ export const Router = () => {
                 <Route path="cart" element={<CartPage />} />
                 <Route path="profile" element={<ProfilePage />} />
                 <Route path="profile/edit-page" element={<ProfileEditPage />} />
-
-                <Route
-                    path="restaurants/:id"
-                    element={<RestaurantDetailsPage />}
-                />
+                <Route path="restaurants/:id" element={<RestaurantDetailsPage />} />
                 <Route path="*" element={<ErrorPage />} />
             </Routes>
         </BrowserRouter>

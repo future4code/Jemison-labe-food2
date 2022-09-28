@@ -42,6 +42,7 @@ export function ProfilePage() {
                     </EditIcon>
                 </UserInfo>
 
+
                 <Address>
                     <div>
                         <p>Endereço cadastrado</p>
@@ -51,6 +52,7 @@ export function ProfilePage() {
                         <img src={edit} />
                     </EditIcon>
                 </Address>
+
 
                 <OrderHistory>
                     <TitleCard>Histórico de pedidos</TitleCard>
@@ -78,8 +80,7 @@ export function ProfilePage() {
             <Menu>
                 <button
                     onClick={() => {
-                        goToFeedPage(navigate);
-                    }}>
+                        goToFeedPage(navigate)}}>
                     <img src={house1} width="27" height="27" />
                 </button>
 
