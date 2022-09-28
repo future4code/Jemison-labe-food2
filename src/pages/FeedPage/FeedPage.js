@@ -1,27 +1,26 @@
 import React, { useContext, useEffect, useState } from "react";
-import house from "../../assets/img/icon/house.svg";
-import car from "../../assets/img/icon/car.svg";
-import avatar from "../../assets/img/icon/avatar.svg";
 import search from "../../assets/img/search/search.svg";
-import {
-    Title,
-    Categories,
-    Menu,
-    Contents,
-    Cards,
-    Search,
-    ContentsHeader,
-} from "./StyledFeedPage";
-import { Container } from "../../Styled";
+import { Categories, Cards, Search, ContentsHeader } from "./StyledFeedPage";
+import { Container, Contents, Menu, Title } from "../../Styled";
 import { NavbarContainer } from "../../components/Navbar/StyledNavbar";
 import { InputSearch } from "../../components/RegistrationPages/StyledRegistrationPages";
 import { useProtectedPage } from "../../hooks/useProtectedPage";
 import { CardRestaurants } from "../../components/CardRestaurants/CardRestaurants";
 import { GlobalContext } from "../../global/GlobalContext";
-import { CircularProgress } from "@mui/material";
+import { useNavigate } from "react-router-dom";
+import {
+    goToCartPage,
+    goToFeedPage,
+    goToProfilePage,
+} from "../../routes/coordinator";
+import house2 from "../../assets/img/icon/house2.svg";
+import cart1 from "../../assets/img/icon/cart1.svg";
+import avatar1 from "../../assets/img/icon/avatar1.svg";
 
 export function FeedPage() {
     useProtectedPage();
+    const navigate = useNavigate();
+
     const { GlobalRequests } = useContext(GlobalContext);
     const [categories, setCategories] = useState("Todos");
     const [inputSearch, setInputSearch] = useState("");
@@ -206,14 +205,25 @@ export function FeedPage() {
             </Contents>
 
             <Menu>
-                <button>
-                    <img src={house} width="27" height="27" />
+                <button
+                    onClick={() => {
+                        goToFeedPage(navigate);
+                    }}>
+                    <img src={house2} width="27" height="27" />
                 </button>
-                <button>
-                    <img src={car} width="27" height="27" />
+
+                <button
+                    onClick={() => {
+                        goToCartPage(navigate);
+                    }}>
+                    <img src={cart1} width="27" height="27" />
                 </button>
-                <button>
-                    <img src={avatar} width="27" height="27" />
+
+                <button
+                    onClick={() => {
+                        goToProfilePage(navigate);
+                    }}>
+                    <img src={avatar1} width="27" height="27" />
                 </button>
             </Menu>
         </Container>

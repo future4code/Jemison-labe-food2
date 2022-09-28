@@ -1,152 +1,68 @@
 import styled from "styled-components";
 
-export const Title = styled.h3`
-    font-weight: normal;
-    letter-spacing: -0.39px;
-    padding: 0.675rem;
-    text-align: center;
+export const UserInfo = styled.div`
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 1rem;
+    width: 100%;
+
+    div p {
+        &:nth-child(1),
+        &:nth-child(2) {
+            margin-bottom: 0.5rem;
+        }
+    }
 `;
 
-export const Info = styled.div`
-   width: 23.5rem;
+export const EditIcon = styled.button``;
 
-   margin: 1rem 1rem 0.5rem;
-   font-family: Roboto;
-   font-size: 1rem;
-   font-weight: normal;
-   letter-spacing: -0.40px;
-   padding: 2rem 0;
-   
+export const Address = styled(UserInfo)`
+    background: #eeeeee;
 
-        p{
-            &:nth-of-type(1){
-            width: 18.5rem;
-            height: 1.125rem;
-            margin: 0.163rem 0;
-            font-family: Roboto;
-            font-size: 1rem;
-            font-weight: normal;
-            letter-spacing: -0.39px;
-            color: #000;
-            height: 1.5rem;
-  }
- 
-            &:nth-of-type(2){
-            width: 18.5rem;
-            height: 1.125rem;
-            margin: 0.150rem 0;
-            font-family: Roboto;
-            font-size: 1rem;
-            font-weight: normal;
-            letter-spacing: -0.49px;
-            color: #000;
-            height: 1.5rem;
-        
-  }
-
-            &:nth-of-type(3){
-            width: 18.5rem;
-            height: 1.125rem;
-            margin: 0.163rem 0;
-            font-family: Roboto;
-            font-size: 1rem;
-            font-weight: normal;
-            letter-spacing: -0.39px;
-            color: #000;
-}
-  }
-`
-
-export const Endereco = styled.p`
-    width: 25.5rem;
-    height: 4.75rem;
-    margin: 0.2rem 0;
-    padding: 1rem;
-    background-color: #eee;
-    letter-spacing: -0.39px;
-    margin-top: -25px;
-
-    p{
-        &:nth-of-type(1){
-            width: 18.5rem;
-            height: 1.5rem;
-            margin: 0.163rem 0;
-            font-family: Roboto;
-            font-size: 1rem;
-            letter-spacing: -0.39px;
-            color: #b8b8b8;     
+    div p {
+        &:nth-child(1) {
+            color: #b8b8b8;
+        }
+        &:nth-child(2) {
+            margin-bottom: 0;
+        }
     }
-}
-`
-export const Edit = styled.div`
-    width: 1.5rem;
-    height: 1.5rem;
-    margin: 1rem 1rem 0.125rem 20rem;
-    object-fit: contain;
+`;
 
-  img{
-   margin-top: -40px;
-  }
-`
+export const OrderHistory = styled.div`
+    padding: 1rem 0;
 
-export const Discricao = styled.div`
- 
-`
+    h3 {
+        font-size: 1rem;
+        font-weight: normal;
+        margin-bottom: 0.5rem;
+    }
+`;
 
-export const Card = styled.div`
-  width: 25.5rem;
-  height: 6.375rem;
-  margin: 0.5rem 0 0;
-  padding: 0 0 1rem;
-  border-radius: 8px;
-  border: solid 1px #b8b8b8;
+export const OrderItem = styled.div`
+    border-radius: 8px;
+    border: solid 1px #b8b8b8;
+    margin-bottom: 0.5rem;
+    padding: 1rem;
+    width: 100%;
 
-  div {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        padding: 1rem;
-        border-radius: 0 8px 8px 0;
-        height: 100%;
-        width: 100%;
-       
-         p{
-            &:nth-of-type(1){
-            width: 18.5rem;
-            height: 1.125rem;
-            margin: 0 0 0.563rem;
-            font-family: Roboto;
-            font-size: 1rem;
-            letter-spacing: -0.39px;
+    p {
+        &:nth-child(1) {
             color: #e8222e;
-  }
- 
-            &:nth-of-type(2){
-            width: 18.5rem;
-            height: 1.125rem;
-            margin: 0.163rem 0 0.438rem;
-            font-family: Roboto;
-            font-size: 0.75rem;
-            font-weight: normal;
-            
-            letter-spacing: -0.29px;
-            color: #000;
-  }
+            margin-bottom: 0.563rem;
+        }
 
-        &:nth-of-type(3){
-            width: 18.5rem;
-            height: 1.125rem;
-            margin: 0.438rem 0 0;
-            font-family: Roboto;
-            font-size: 1rem;
+        &:nth-child(2) {
+            font-size: 0.75rem;
+            margin-bottom: 0.438rem;
+        }
+
+        &:nth-child(3) {
             font-weight: bold;
-            
-            letter-spacing: -0.39px;
-            color: #000;
-}
-  }
-}
-`
+        }
+    }
+`;
 
 export const Menu = styled.ul`
     display: flex;

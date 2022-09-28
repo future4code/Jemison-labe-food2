@@ -1,6 +1,5 @@
-import React, { useContext, useEffect, useState } from "react";
-import { Contents } from "../FeedPage/StyledFeedPage";
-import { Container } from "../../Styled";
+import React, { useContext, useEffect } from "react";
+import { Container, Contents, TitleCard } from "../../Styled";
 import { Navbar } from "../../components/Navbar/Navbar";
 import { CardRestaurantDetails } from "../../components/CardRestaurantDetails/CardRestaurantDetails";
 import { GlobalContext } from "../../global/GlobalContext";
@@ -8,7 +7,6 @@ import { useParams } from "react-router-dom";
 import { useProtectedPage } from "../../hooks/useProtectedPage";
 import { CardProductDetails } from "../../components/CardProductDetails/CardProductDetails";
 import { CircularProgress } from "@mui/material";
-import { TitleCard } from "../../components/CardRestaurantDetails/StyledCardRestaurantsDetails";
 
 export function RestaurantDetailsPage() {
     useProtectedPage();
