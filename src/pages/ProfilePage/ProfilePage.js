@@ -3,7 +3,8 @@ import house from "../../assets/img/icon/house.svg";
 import car from "../../assets/img/icon/car.svg";
 import avatar from "../../assets/img/icon/avatar.svg";
 import edit from "../../assets/img/edit/edit.svg";
-
+import { goToEditPageProfile, goToEditPageAddress, goToFeedPage } from "../../routes/coordinator";
+import { useNavigate } from "react-router-dom"; 
 import {
     Title,
     Menu,
@@ -18,6 +19,7 @@ import { Container } from "../../Styled";
 import { NavbarContainer } from "../../components/Navbar/StyledNavbar";
 
 export function ProfilePage({}) {
+    const navigate = useNavigate();
     return (
         <Container>
             <NavbarContainer>
@@ -26,7 +28,11 @@ export function ProfilePage({}) {
 
             <Info>
                 <p>Bruna Oliveira</p>
-                <Edit>
+                <Edit
+                    onClick={() => {
+                        goToEditPageProfile(navigate);
+                    }}
+                >
                     <img src={edit} />
                 </Edit>
                 <p>bruna_o@gmail.com</p>
@@ -39,7 +45,11 @@ export function ProfilePage({}) {
 
             <Endereco>
                 <p>Endereço cadastrado</p>
-                <Edit>
+                <Edit
+                    onClick={() => {
+                        goToEditPageAddress(navigate);
+                    }}
+                >
                     <img src={edit} />
                 </Edit>
                 <p>Rua Alessandra Vieira, 42 - Santana</p>
@@ -75,7 +85,11 @@ export function ProfilePage({}) {
             </Card>
 
             <Menu>
-                <button>
+                <button
+                    onClick={() => {
+                        goToFeedPage(navigate);
+                    }}
+                >
                     <img src={house} width="27" height="27" />
                 </button>
                 <button>

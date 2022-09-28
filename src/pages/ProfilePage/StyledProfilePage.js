@@ -78,11 +78,12 @@ export const Endereco = styled.p`
     }
 }
 `
-export const Edit = styled.div`
+export const Edit = styled.button`
     width: 1.5rem;
     height: 1.5rem;
     margin: 1rem 1rem 0.125rem 20rem;
     object-fit: contain;
+    position: absolute;
 
   img{
    margin-top: -40px;

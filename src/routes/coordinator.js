@@ -30,8 +30,12 @@ export const goToProfilePage = (navigate) => {
     navigate("/profile");
 };
 
-export const goToEditPage = (navigate) => {
-    navigate("/edit");
+export const goToEditPageProfile = (navigate) => {
+    navigate("/editprofile");
+};
+
+export const goToEditPageAddress = (navigate) => {
+    navigate("/editaddress");
 };
 
 export const goToBackPage = (navigate) => {

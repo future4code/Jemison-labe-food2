@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import house from "../../assets/img/icon/house.svg";
 import car from "../../assets/img/icon/car.svg";
 import avatar from "../../assets/img/icon/avatar.svg";
@@ -19,9 +20,12 @@ import { useProtectedPage } from "../../hooks/useProtectedPage";
 import { CardRestaurants } from "../../components/CardRestaurants/CardRestaurants";
 import { GlobalContext } from "../../global/GlobalContext";
 import { CircularProgress } from "@mui/material";
+import { goToProfilePage } from "../../routes/coordinator";
+
 
 export function FeedPage() {
     useProtectedPage();
+    const navigate = useNavigate();
     const { GlobalRequests } = useContext(GlobalContext);
     const [categories, setCategories] = useState("Todos");
     const [inputSearch, setInputSearch] = useState("");
@@ -212,7 +216,10 @@ export function FeedPage() {
                 <button>
                     <img src={car} width="27" height="27" />
                 </button>
-                <button>
+                <button
+                    onClick={() => {
+                        goToProfilePage(navigate);
+                    }}>
                     <img src={avatar} width="27" height="27" />
                 </button>
             </Menu>
