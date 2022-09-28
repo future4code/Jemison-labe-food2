@@ -94,3 +94,52 @@ export const Container = styled.div`
     }
 `;
 
+export const Contents = styled.div`
+    margin-top: 2.8rem;
+    width: 22.5rem;
+
+    @media screen and (max-width: 800px) {
+        max-width: calc(100vw - 2rem);
+    }
+`;
+
+export const Menu = styled.div`
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    background: #fff;
+    box-shadow: 0 -0.5px 0 0 rgba(0, 0, 0, 0.25);
+    position: fixed;
+    bottom: 0;
+    width: calc(100% + 32px);
+    justify-items: center;
+    z-index: 9999;
+
+    button {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        padding: 0.688rem 2.875rem 0.688rem 2.938rem;
+    }
+`;
+
+export const Title = styled.h3`
+    font-weight: normal;
+    letter-spacing: -0.39px;
+    padding: 0.675rem;
+    text-align: center;
+`;
+
+export const TitleCard = styled.h3`
+    font-size: 1rem;
+    font-weight: normal;
+    letter-spacing: -0.39px;
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+
+    &::after {
+        display: block;
+        content: "";
+        border-bottom: 2px solid #000;
+        margin-top: 0.5rem;
+    }
+`;

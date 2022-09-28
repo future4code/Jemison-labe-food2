@@ -1,21 +1,5 @@
 import styled from "styled-components";
 
-export const Title = styled.h3`
-    font-weight: normal;
-    letter-spacing: -0.39px;
-    padding: 0.675rem;
-    text-align: center;
-`;
-
-export const Contents = styled.div`
-    margin-top: 2.8rem;
-    max-width: 22.5rem;
-
-    @media screen and (max-width: 800px) {
-        max-width: calc(100vw - 2rem);
-    }
-`;
-
 export const ContentsHeader = styled.div``;
 
 export const Search = styled.div`
@@ -106,27 +90,6 @@ export const Card = styled.figure`
             display: flex;
             justify-content: space-between;
             color: #b8b8b8;
-        }
-    }
-`;
-
-export const Menu = styled.ul`
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    background: #fff;
-    box-shadow: 0 -0.5px 0 0 rgba(0, 0, 0, 0.25);
-
-    position: fixed;
-    bottom: 0;
-    width: calc(100% + 32px);
-    z-index: 9999;
-
-    button {
-        padding: 0.688rem 2.875rem 0.688rem 2.938rem;
-
-        &:hover {
-            background: #f2f2f2;
         }
     }
 `;
