@@ -15,12 +15,12 @@ import { CircularProgress } from "@mui/material";
 import { useProtectedPage } from "../../hooks/useProtectedPage";
 import { goToProfilePage } from "../../routes/coordinator";
 
-export function AddressPage() {
+export function ProfileEditAddress() {
     useProtectedPage();
 
     const navigate = useNavigate();
     const [isLoading, setIsLoading] = useState(false);
-    const [form, handleInputChange, clear] = UseForm({
+    const [form, handleInputChange] = UseForm({
         street: "",
         number: "",
         neighbourhood: "",
@@ -31,17 +31,15 @@ export function AddressPage() {
 
     const onSubmitForm = (e) => {
         e.preventDefault();
-        putAddAddress(form, clear, navigate, setIsLoading);
+        putAddAddress(form, navigate, setIsLoading);
     };
 
     return (
         <Container>
-            <Navbar />
+            <Navbar text={"Endereço"} />
 
             <RegistrationContainer>
                 <Form onSubmit={onSubmitForm}>
-                    <legend>Meu endereço</legend>
-
                     <div>
                         <Label>Logradouro*</Label>
                         <Input
@@ -119,7 +117,7 @@ export function AddressPage() {
                         />
                     </div>
 
-                    <Botao type="submit" onClick={goToProfilePage}>
+                    <Botao type="submit">
                         {isLoading ? (
                             <CircularProgress size={16} color={"inherit"} />
                         ) : (

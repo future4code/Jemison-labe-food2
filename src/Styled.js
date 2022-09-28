@@ -96,6 +96,7 @@ export const Container = styled.div`
 
 export const Contents = styled.div`
     margin-top: 2.8rem;
+    margin-bottom: 3.063rem;
     width: 22.5rem;
 
     @media screen and (max-width: 800px) {
@@ -110,7 +111,7 @@ export const Menu = styled.div`
     box-shadow: 0 -0.5px 0 0 rgba(0, 0, 0, 0.25);
     position: fixed;
     bottom: 0;
-    width: calc(100% + 32px);
+    width: calc(100% + 2rem);
     justify-items: center;
     z-index: 9999;
 

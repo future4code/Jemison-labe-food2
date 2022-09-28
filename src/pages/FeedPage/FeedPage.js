@@ -7,6 +7,15 @@ import { InputSearch } from "../../components/RegistrationPages/StyledRegistrati
 import { useProtectedPage } from "../../hooks/useProtectedPage";
 import { CardRestaurants } from "../../components/CardRestaurants/CardRestaurants";
 import { GlobalContext } from "../../global/GlobalContext";
+import { useNavigate } from "react-router-dom";
+import {
+    goToCartPage,
+    goToFeedPage,
+    goToProfilePage,
+} from "../../routes/coordinator";
+import house2 from "../../assets/img/icon/house2.svg";
+import cart1 from "../../assets/img/icon/cart1.svg";
+import avatar1 from "../../assets/img/icon/avatar1.svg";
 
 export function FeedPage() {
     useProtectedPage();
@@ -208,7 +217,7 @@ export function FeedPage() {
                     }}>
                     <img src={cart1} width="27" height="27" />
                 </button>
-                
+
                 <button
                     onClick={() => {
                         goToProfilePage(navigate);

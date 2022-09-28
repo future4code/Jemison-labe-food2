@@ -11,11 +11,11 @@ import { Container, Contents, Menu, Title, TitleCard } from "../../Styled";
 import { NavbarContainer } from "../../components/Navbar/StyledNavbar";
 import { useNavigate } from "react-router-dom";
 import {
-    goToAddressEditPage,
     goToCartPage,
     goToFeedPage,
-    goToProfileEditPage,
     goToProfilePage,
+    goToProfileEditUser,
+    goToProfileEditAddress,
 } from "../../routes/coordinator";
 import house1 from "../../assets/img/icon/house1.svg";
 import cart1 from "../../assets/img/icon/cart1.svg";
@@ -37,22 +37,20 @@ export function ProfilePage() {
                         <p>bruna_o@gmail.com</p>
                         <p>333.333.333-33</p>
                     </div>
-                    <EditIcon onClick={() => goToProfileEditPage(navigate)}>
+                    <EditIcon onClick={() => goToProfileEditUser(navigate)}>
                         <img src={edit} />
                     </EditIcon>
                 </UserInfo>
-
 
                 <Address>
                     <div>
                         <p>Endereço cadastrado</p>
                         <p>Rua Alessandra Vieira, 42 - Santana</p>
                     </div>
-                    <EditIcon onClick={() => goToAddressEditPage(navigate)}>
+                    <EditIcon onClick={() => goToProfileEditAddress(navigate)}>
                         <img src={edit} />
                     </EditIcon>
                 </Address>
-
 
                 <OrderHistory>
                     <TitleCard>Histórico de pedidos</TitleCard>
@@ -80,7 +78,8 @@ export function ProfilePage() {
             <Menu>
                 <button
                     onClick={() => {
-                        goToFeedPage(navigate)}}>
+                        goToFeedPage(navigate);
+                    }}>
                     <img src={house1} width="27" height="27" />
                 </button>
 

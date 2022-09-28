@@ -59,7 +59,7 @@ export const postSignUp = (body, clear, navigate, setIsLoading) => {
 };
 
 // Este endpoint realiza o cadastro ou a edição do endereço de um usuário.
-export const putAddAdress = (body, clear, navigate, setIsLoading) => {
+export const putAddAddress = (body, clear, navigate, setIsLoading) => {
     setIsLoading(true);
 
     const endpoint = {

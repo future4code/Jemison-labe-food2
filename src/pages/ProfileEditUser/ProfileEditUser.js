@@ -1,10 +1,10 @@
 import React from "react";
 import { Container } from "../../Styled";
 
-export const AddressEditPage = () => {
+export function ProfileEditUser() {
     return (
         <Container>
-            <h1>Página AddressEditPage</h1>
+            <h1>Pagina ProfileEditUser</h1>
         </Container>
     );
-};
+}
