@@ -46,9 +46,9 @@ export function LoginPage() {
                     <img src={logo} width="104" />
                 </Logo>
 
-                <p>Entrar</p>
-
                 <Form onSubmit={onSubmitForm}>
+                    <legend>Entrar</legend>
+                    
                     <div>
                         <Label>E-mail*</Label>
                         <Input

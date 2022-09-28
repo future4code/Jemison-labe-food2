@@ -49,7 +49,6 @@ export function SignUpPage() {
         specialChar: null,
     });
     const [showPassword, setShowPassword] = useState(false);
-
     const onClickShowPassword = () => {
         setShowPassword(!showPassword);
     };
@@ -84,9 +83,9 @@ export function SignUpPage() {
                     <img src={logo} width="104" />
                 </Logo>
 
-                <p>Cadastrar</p>
-
                 <Form onSubmit={onSubmitForm}>
+                    <legend>Cadastrar</legend>
+
                     <div>
                         <Label>Nome*</Label>
                         <Input

@@ -5,24 +5,12 @@ export const RegistrationContainer = styled.div`
     place-items: center;
     position: absolute;
     top: 4.25rem;
+    color: #b8b8b8;
+    font-family: Roboto;
+    letter-spacing: -0.29px;
 
-    p {
-        padding: 0.75rem 2rem;
-        width: 100%;
-        text-align: center;
-
-        &:first-child {
-            padding: 0;
-            margin: 1rem 0 0.5rem;
-            text-align: left;
-        }
-
-        &:last-child button {
-            margin-left: 0.25rem;
-            &:hover {
-                text-decoration: underline;
-            }
-        }
+    p button {
+        margin-left: 0.5rem;
     }
 `;
 
@@ -37,12 +25,13 @@ export const Logo = styled.div`
 
 export const Form = styled.form`
     display: grid;
-    gap: 0.25rem;
-    color: #b8b8b8;
-    font-family: Roboto;
-    font-size: 0.75rem;
-    letter-spacing: -0.29px;
-    margin-bottom: 1rem;
+    gap: 0.313rem;
+
+    legend {
+        text-align: center;
+        margin-bottom: 0.25rem;
+        color: #000;
+    }
 `;
 
 export const Label = styled.label`
@@ -50,6 +39,7 @@ export const Label = styled.label`
     padding: 0 2rem 0.5rem 0.5rem;
     margin-left: 10px;
     position: relative;
+    font-size: 0.75rem;
 `;
 
 export const Input = styled.input`
@@ -58,6 +48,7 @@ export const Input = styled.input`
     border: 1px solid #b8b8b8;
     border-radius: 4px;
     height: 3.5rem;
+    font-size: 1rem;
     min-width: 22.5rem;
     padding: 1rem;
     outline: none;
@@ -90,10 +81,10 @@ export const Botao = styled.button`
     border: none;
     border-radius: 2px;
     padding: 0.75rem 1rem;
-    font-family: Roboto;
-    font-size: 1rem;
     letter-spacing: -0.39px;
-    margin-top: 0.75rem;
+    margin-top: 0.688rem;
+    margin-bottom: 1.75rem;
+    width: 100%;
 `;
 
 // Tela de login e cadastro
