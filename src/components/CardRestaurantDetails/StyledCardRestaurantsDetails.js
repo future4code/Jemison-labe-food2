@@ -33,20 +33,6 @@ export const MainCard = styled.figure`
     }
 `;
 
-export const TitleCard = styled.h3`
-    font-size: 1rem;
-    margin-top: 1rem;
-    margin-bottom: 0.5rem;
-    font-weight: normal;
-
-    &::after {
-        display: block;
-        content: "";
-        border-bottom: 2px solid #000;
-        margin-top: 0.5rem;
-    }
-`;
-
 export const SecondaryCard = styled.figure`
     display: flex;
     align-items: center;
@@ -130,8 +116,6 @@ export const SecondaryCard = styled.figure`
         }
     }
 `;
-
-// 7f7f7f
 
 export const Modal = styled.div`
     background: red;

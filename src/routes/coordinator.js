@@ -22,6 +22,10 @@ export const goToAddressPage = (navigate) => {
     navigate("/address");
 };
 
+export const goToAddressEditPage = (navigate) => {
+    navigate("/address/edit-page");
+};
+
 export const goToCartPage = (navigate) => {
     navigate("/cart");
 };
@@ -30,8 +34,8 @@ export const goToProfilePage = (navigate) => {
     navigate("/profile");
 };
 
-export const goToEditPage = (navigate) => {
-    navigate("/edit");
+export const goToProfileEditPage = (navigate) => {
+    navigate("/profile/edit-page");
 };
 
 export const goToBackPage = (navigate) => {

@@ -1,10 +1,10 @@
 import React from "react";
 import { Container } from "../../Styled";
 
-export function EditPage() {
+export const AddressEditPage = () => {
     return (
         <Container>
-            <h1>Pagina EditPage</h1>
+            <h1>Página AddressEditPage</h1>
         </Container>
     );
-}
+};

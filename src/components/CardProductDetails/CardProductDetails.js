@@ -25,12 +25,8 @@ export function CardProductDetails({ product }) {
     // Lógica adicionar produto ao carrinho
 
     // Lógica remover produto do carrinho
-    const teste = () => {
-        const newValue = value * 0;
-    };
 
     return (
-        <div>
             <SecondaryCard>
                 <img src={product.photoUrl} />
                 <figcaption>
@@ -86,6 +82,5 @@ export function CardProductDetails({ product }) {
                     </Box>
                 </Modal>
             </SecondaryCard>
-        </div>
     );
 }
