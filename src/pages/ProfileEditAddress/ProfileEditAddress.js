@@ -13,7 +13,6 @@ import { putAddAddress } from "../../services/User";
 import { UseForm } from "../../hooks/useForm";
 import { CircularProgress } from "@mui/material";
 import { useProtectedPage } from "../../hooks/useProtectedPage";
-import { goToProfilePage } from "../../routes/coordinator";
 
 export function ProfileEditAddress() {
     useProtectedPage();

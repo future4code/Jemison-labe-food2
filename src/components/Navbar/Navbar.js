@@ -1,7 +1,7 @@
 import React from "react";
 import voltar from "../../assets/img/navbar/back.svg";
 import { useNavigate } from "react-router-dom";
-import { goToFeedPage } from "../../routes/coordinator";
+import { goToBackPage } from "../../routes/coordinator";
 import { NavbarContainer } from "./StyledNavbar";
 
 export const Navbar = (props) => {
@@ -11,7 +11,7 @@ export const Navbar = (props) => {
         <NavbarContainer>
             <button
                 onClick={() => {
-                    goToFeedPage(navigate);
+                    goToBackPage(navigate);
                 }}>
                 <img src={voltar} width="23.04" height="24" />
             </button>
