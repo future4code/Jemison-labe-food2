@@ -1,6 +1,6 @@
 import axios from "axios";
 import { BASE_URL } from "../constants/BASE_URL";
-import { goToFeedPage } from "../routes/coordinator";
+import { goToFeedPage, goToProfilePage } from "../routes/coordinator";
 import { goToAddressPage } from "../routes/coordinator";
 
 // body: todos os textos do inputs da função Login
@@ -76,6 +76,31 @@ export const putAddAddress = (body, clear, navigate, setIsLoading) => {
             clear();
             setIsLoading(false);
             goToFeedPage(navigate);
+        })
+        .catch((err) => {
+            setIsLoading(false);
+            alert(err.response.data.message);
+        });
+};
+
+// Este endpoint realiza o cadastro ou a edição do endereço de um usuário.
+export const getFullAddress = (body, clear, navigate, setIsLoading) => {
+    setIsLoading(true);
+
+    const endpoint = {
+        method: "get",
+        url: `${BASE_URL}/profile/address`,
+        headers: { auth: localStorage.getItem("token") },
+        data: body,
+    };
+
+    axios(endpoint)
+        .then((res) => {
+            localStorage.setItem("token", res.data.token);
+            alert("Seu endereço foi salvo!");
+            clear();
+            setIsLoading(false);
+            goToProfilePage(navigate);
         })
         .catch((err) => {
             setIsLoading(false);
