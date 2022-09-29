@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect } from "react";
 import edit from "../../assets/img/edit/edit.svg";
 import {
     UserInfo,
@@ -24,23 +24,14 @@ import { GlobalContext } from "../../global/GlobalContext";
 
 export function ProfilePage() {
     const navigate = useNavigate();
-    const token = localStorage.getItem('token')
+    const token = localStorage.getItem("token");
     const { GlobalRequests, GlobalStates } = useContext(GlobalContext);
 
-    const user = GlobalStates.perfil
+    const user = GlobalStates.perfil;
 
-
-
-
-
-
-
-
-
-
-    useEffect(()=>{
+    useEffect(() => {
         GlobalRequests.getProfile();
-    }, [token])
+    }, [token]);
 
     return (
         <Container>
@@ -56,7 +47,7 @@ export function ProfilePage() {
                         <p>{user.cpf}</p>
                     </div>
                     <EditIcon onClick={() => goToProfileEditUser(navigate)}>
-                        <img src={edit} />
+                        <img src={edit} width="24" />
                     </EditIcon>
                 </UserInfo>
 
@@ -66,7 +57,7 @@ export function ProfilePage() {
                         <p>{user.address}</p>
                     </div>
                     <EditIcon onClick={() => goToProfileEditAddress(navigate)}>
-                        <img src={edit} />
+                        <img src={edit} width="24" />
                     </EditIcon>
                 </Address>
 
@@ -119,7 +110,3 @@ export function ProfilePage() {
         </Container>
     );
 }
-
-
-
-

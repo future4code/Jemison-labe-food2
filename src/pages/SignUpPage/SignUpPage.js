@@ -129,13 +129,13 @@ export function SignUpPage() {
                                 ref={inputRef}
                                 type={showPassword ? "text" : "password"}
                                 name="password"
-                                // O valor anterior era: value={form.password}, integrando com a API
-                                value={password}
-                                // O valor anterior era: onChange={handleInputChange}, integrando com os hooks
-                                onChange={(e) =>
-                                    onChangePassword(e.target.value)
-                                }
-                                onFocus={() => setPasswordFocused(true)}
+                                // Para validar a senha use value={password}
+                                // Para não validar a senha use value={form.password}
+                                value={form.password}
+                                // Para validar a senha use onChange={(e) => onChangePassword(e.target.value)}
+                                // Para não validar a senha use onChange={handleInputChange}
+                                onChange={handleInputChange}
+                                // onFocus={() => setPasswordFocused(true)}
                                 placeholder="Mínimo 6 caracteres"
                                 required
                             />
@@ -159,12 +159,12 @@ export function SignUpPage() {
                                 ref={inputReff}
                                 type={showConfirmPassword ? "text" : "password"}
                                 name="confirm_password"
-                                // O valor anterior era: value={form.confirm_password}, integrando com a API
-                                value={confirmPassword}
-                                // O valor anterior era: onChange={handleInputChange}, integrando com os hooks
-                                onChange={(e) =>
-                                    onChangeConfirmPassword(e.target.value)
-                                }
+                                // Para validar a senha use value={confirm_password}
+                                // Para não validar a senha use value={form.confirm_password}
+                                value={form.confirm_password}
+                                // Para validar a senha use onChange={(e) => onChangeConfirmPassword(e.target.value)}
+                                // Para não validar a senha use onChange={handleInputChange}
+                                onChange={handleInputChange}
                                 placeholder="Confirme a senha anterior"
                                 required
                             />

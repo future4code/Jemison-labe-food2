@@ -15,7 +15,12 @@ export const UserInfo = styled.div`
     }
 `;
 
-export const EditIcon = styled.button``;
+export const EditIcon = styled.button`
+    img {
+        min-width: 1.5rem;
+        width: 1.5rem;
+    }
+`;
 
 export const Address = styled(UserInfo)`
     background: #eeeeee;
@@ -84,4 +89,3 @@ export const Menu = styled.ul`
         }
     }
 `;
-
