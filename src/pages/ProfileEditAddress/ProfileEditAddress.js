@@ -19,7 +19,7 @@ export function ProfileEditAddress() {
 
     const navigate = useNavigate();
     const [isLoading, setIsLoading] = useState(false);
-    const [form, handleInputChange] = UseForm({
+    const [form, handleInputChange, clear] = UseForm({
         street: "",
         number: "",
         neighbourhood: "",
@@ -30,7 +30,7 @@ export function ProfileEditAddress() {
 
     const onSubmitForm = (e) => {
         e.preventDefault();
-        putAddAddress(form, navigate, setIsLoading);
+        putAddAddress(form, clear, navigate, setIsLoading);
     };
 
     return (

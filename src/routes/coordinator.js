@@ -35,7 +35,7 @@ export const goToProfileEditUser = (navigate) => {
 };
 
 export const goToProfileEditAddress = (navigate) => {
-    navigate("/profile/edit/address");
+    navigate("/profile/address");
 };
 
 export const goToBackPage = (navigate) => {

@@ -25,7 +25,7 @@ export const Router = () => {
                 <Route path="profile" element={<ProfilePage />} />
                 <Route path="profile/edit/user" element={<ProfileEditUser />} />
                 <Route
-                    path="profile/edit/address"
+                    path="profile/address"
                     element={<ProfileEditAddress />}
                 />
                 <Route
