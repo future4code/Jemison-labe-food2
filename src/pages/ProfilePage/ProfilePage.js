@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext, useEffect, useState } from "react";
 import edit from "../../assets/img/edit/edit.svg";
 import {
     UserInfo,
@@ -20,9 +20,27 @@ import {
 import house1 from "../../assets/img/icon/house1.svg";
 import cart1 from "../../assets/img/icon/cart1.svg";
 import avatar2 from "../../assets/img/icon/avatar2.svg";
+import { GlobalContext } from "../../global/GlobalContext";
 
 export function ProfilePage() {
     const navigate = useNavigate();
+    const token = localStorage.getItem('token')
+    const { GlobalRequests, GlobalStates } = useContext(GlobalContext);
+
+    const user = GlobalStates.perfil
+
+
+
+
+
+
+
+
+
+
+    useEffect(()=>{
+        GlobalRequests.getProfile();
+    }, [token])
 
     return (
         <Container>
@@ -33,9 +51,9 @@ export function ProfilePage() {
             <Contents>
                 <UserInfo>
                     <div>
-                        <p>Bruna Oliveira</p>
-                        <p>bruna_o@gmail.com</p>
-                        <p>333.333.333-33</p>
+                        <p>{user.name}</p>
+                        <p>{user.email}</p>
+                        <p>{user.cpf}</p>
                     </div>
                     <EditIcon onClick={() => goToProfileEditUser(navigate)}>
                         <img src={edit} />
@@ -44,14 +62,15 @@ export function ProfilePage() {
 
                 <Address>
                     <div>
-                        <p>Endereço cadastrado</p>
-                        <p>Rua Alessandra Vieira, 42 - Santana</p>
+                        <p>Endereço Cadastrado</p>
+                        <p>{user.address}</p>
                     </div>
                     <EditIcon onClick={() => goToProfileEditAddress(navigate)}>
                         <img src={edit} />
                     </EditIcon>
                 </Address>
 
+                {/* Aqui usar o mapeamendo de ordem */}
                 <OrderHistory>
                     <TitleCard>Histórico de pedidos</TitleCard>
 
