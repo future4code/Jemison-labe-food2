@@ -6,7 +6,7 @@ import {
     Form,
     Label,
     Input,
-    Botao,
+    Button,
     InputEye,
 } from "../../components/RegistrationPages/StyledRegistrationPages";
 import { Container } from "../../Styled";
@@ -88,13 +88,13 @@ export function LoginPage() {
                         </InputEye>
                     </div>
 
-                    <Botao type="submit">
+                    <Button type="submit">
                         {isLoading ? (
                             <CircularProgress size={16} color={"inherit"} />
                         ) : (
                             <>Entrar</>
                         )}
-                    </Botao>
+                    </Button>
                 </Form>
 
                 <p>

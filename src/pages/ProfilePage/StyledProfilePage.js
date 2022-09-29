@@ -33,6 +33,12 @@ export const Address = styled(UserInfo)`
             margin-bottom: 0;
         }
     }
+
+    @media screen and (max-width: 420px) {
+        position: absolute;
+        left: 0;
+        width: 100vw;
+    }
 `;
 
 export const OrderHistory = styled.div`

@@ -5,7 +5,7 @@ import {
     Form,
     Label,
     Input,
-    Botao,
+    Button,
 } from "../../components/RegistrationPages/StyledRegistrationPages";
 import { Container } from "../../Styled";
 import { Navbar } from "../../components/Navbar/Navbar";
@@ -119,13 +119,13 @@ export function AddressPage() {
                         />
                     </div>
 
-                    <Botao type="submit" onClick={goToProfilePage}>
+                    <Button type="submit" onClick={goToProfilePage}>
                         {isLoading ? (
                             <CircularProgress size={16} color={"inherit"} />
                         ) : (
                             <>Salvar</>
                         )}
-                    </Botao>
+                    </Button>
                 </Form>
             </RegistrationContainer>
         </Container>
