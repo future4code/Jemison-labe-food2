@@ -76,7 +76,7 @@ export const InputSearch = styled(Input)`
     }
 `;
 
-export const Botao = styled.button`
+export const Button = styled.button`
     background: #e8222e;
     border: none;
     border-radius: 2px;

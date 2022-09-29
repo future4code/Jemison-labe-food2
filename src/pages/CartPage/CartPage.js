@@ -1,38 +1,37 @@
-import React from "react";
+import React, { useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import house1 from "../../assets/img/icon/house1.svg";
 import cart2 from "../../assets/img/icon/cart2.svg";
 import avatar1 from "../../assets/img/icon/avatar1.svg";
 import {
-    UserInfo,
-    EditIcon,
-    Address,
-    OrderHistory,
-    MainCard,
-    Pag,
-    RadioButton,
-    Button,
-    OrderItem,
+    Address2,
+    MainCard2,
+    SecondaryCard2,
+    Shipping,
+    Subtotal,
+    Form,
 } from "./StyledCartPage";
 import { Container, Contents, Menu, Title, TitleCard } from "../../Styled";
 import { NavbarContainer } from "../../components/Navbar/StyledNavbar";
-
-//import { GlobalContext } from "../../global/GlobalContext";
-//import { MainCard } from "./StyledCardRestaurantsDetails";
 import {
     goToCartPage,
     goToFeedPage,
     goToProfilePage,
-    goToProfileEditUser,
-    goToProfileEditAddress,
 } from "../../routes/coordinator";
 import food from "../../assets/img/restaurants_details/mao-santa-burguer.png";
-import radio from "../../assets/img/radio/radio.svg";
-import checked from "../../assets/img/radio/checked.svg";
+import { Button } from "../../components/RegistrationPages/StyledRegistrationPages";
+import { GlobalContext } from "../../global/GlobalContext";
 
 export function CartPage() {
     const navigate = useNavigate();
-    //const { GlobalStates } = useContext(GlobalContext);
+    const token = localStorage.getItem("token");
+    const { GlobalRequests, GlobalStates } = useContext(GlobalContext);
+
+    const user = GlobalStates.perfil;
+
+    useEffect(() => {
+        GlobalRequests.getProfile();
+    }, [token]);
 
     return (
         <Container>
@@ -41,20 +40,24 @@ export function CartPage() {
             </NavbarContainer>
 
             <Contents>
-                <Address>
+                <Address2>
                     <div>
                         <p>Endereço de entrega</p>
-                        <p>Rua Alessandra Vieira, 42</p>
+                        <p>{user.address}</p>
                     </div>
-                </Address>
+                </Address2>
 
-                <OrderHistory>
-                    <p>Bullguer Vila Madalena</p>
-                    <p>R.fradique Coutinho, 1136 - Vila Madalena</p>
-                    <p>30 - 45 min</p>
-                </OrderHistory>
+                <MainCard2>
+                    <figcaption>
+                        <h4>Bullguer Vila Madalena</h4>
+                        <ul>
+                            <li>R.fradique Coutinho, 1136 - Vila Madalena</li>
+                            <li>30 - 45 min</li>
+                        </ul>
+                    </figcaption>
+                </MainCard2>
 
-                <MainCard>
+                <SecondaryCard2>
                     <img src={food} />
                     <figcaption>
                         <p>Stencil</p>
@@ -63,11 +66,12 @@ export function CartPage() {
                             molho.
                         </p>
                         <p>R$46,00</p>
-                        <button>remover</button>
+                        <p className="view">2</p>
+                        <button className="btn-remove">remover</button>
                     </figcaption>
-                </MainCard>
+                </SecondaryCard2>
 
-                <MainCard>
+                <SecondaryCard2>
                     <img src={food} />
                     <figcaption>
                         <p>Cheese Fries</p>
@@ -76,25 +80,41 @@ export function CartPage() {
                             derretido.
                         </p>
                         <p>R$15,00</p>
-                        <button>remover</button>
+                        <p className="view">1</p>
+                        <button className="btn-remove">remover</button>
                     </figcaption>
-                </MainCard>
+                </SecondaryCard2>
 
-                <Pag>
-                    <p>Frete R$6,00</p>
-                    <p>SUBTOTAL R$67,00</p>
-                </Pag>
-                <TitleCard>Forma de pagamento</TitleCard>
+                <Shipping>Frete R$6,00</Shipping>
 
-                <RadioButton>
-                    <img src={radio} />
-                    <p>Dinheiro</p>
-                </RadioButton>
+                <Subtotal>
+                    <p>Subtotal</p>
+                    <p>R$67,00</p>
+                </Subtotal>
 
-                <RadioButton>
-                    <img src={checked} />
-                    <p>Cartão de crédito</p>
-                </RadioButton>
+                <Form>
+                    <legend>
+                        <TitleCard>Forma de pagamento</TitleCard>
+                    </legend>
+
+                    <div>
+                        <input
+                            type="radio"
+                            name="forma_pagamento"
+                            id="dinheiro"
+                        />
+                        <label htmlFor="dinheiro">Dinheiro</label>
+                    </div>
+
+                    <div>
+                        <input
+                            type="radio"
+                            name="forma_pagamento"
+                            id="credito"
+                        />
+                        <label htmlFor="credito">Cartão de crédito</label>
+                    </div>
+                </Form>
 
                 <Button>
                     <button>Confirmar</button>
