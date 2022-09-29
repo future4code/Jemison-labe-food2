@@ -11,6 +11,7 @@ import { RestaurantDetailsPage } from "../pages/RestaurantDetailsPage/Restaurant
 import { SignUpPage } from "../pages/SignUpPage/SignUpPage";
 import { ErrorPage } from "../pages/ErrorPage/ErrorPage";
 import { FeedPage } from "../pages/FeedPage/FeedPage";
+import { CarrinhoPage } from "../pages/CarrinhoPage/CarrinhoPage";
 
 export const Router = () => {
     return (
@@ -32,6 +33,9 @@ export const Router = () => {
                     path="restaurants/:id"
                     element={<RestaurantDetailsPage />}
                 />
+
+               <Route path="car" element={<CarrinhoPage />} />
+
                 <Route path="*" element={<ErrorPage />} />
             </Routes>
         </BrowserRouter>

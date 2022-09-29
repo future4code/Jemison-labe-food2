@@ -18,6 +18,12 @@ export const goToRestaurantDetailsPage = (navigate, id) => {
     navigate(`/restaurants/${id}`);
 };
 
+
+export const goToCarrinhoPage = (navigate) => {
+    navigate("/car");
+}
+
+
 export const goToAddressPage = (navigate) => {
     navigate("/address");
 };
