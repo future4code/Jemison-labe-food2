@@ -15,7 +15,50 @@ export function CardProductDetails({ product }) {
     const setCarrinho = GlobalSetStates.setCarrinho;
 
     const produtos = GlobalStates.produtos;
+    // const listProdutos = produtos && produtos
     const setProdutos = GlobalSetStates.setProdutos;
+
+    const productList = GlobalStates.products;
+
+     console.log(carrinho)
+
+    const adicionaCarrinho = (id) => {
+        
+        const itemNoCarrinho = carrinho.find(item => id === item.id)
+        if (itemNoCarrinho) {
+            setProdutos(produtos.map(item => {
+                if (id === item.id) {
+                    return {
+                        ...item,
+                        'quantity': item.quantity + parseInt(form.quantity)
+                    }
+                }
+                return item
+            }))
+            setCarrinho(carrinho.map(item => {
+                if (id === item.id) {
+                    return {
+                        ...item,
+                        'quantity': item.quantity + parseInt(form.quantity)
+                    }
+                }
+                return item
+            }))
+        } else {
+
+            const itemAdicionado = productList && productList.find(item => id === item.id)
+            const novosItensCarrinho = [...carrinho, { ...itemAdicionado, 'quantity': parseInt(form.quantity) }]
+            setCarrinho(novosItensCarrinho)
+
+            const novosItem = [...produtos, { id: id, 'quantity': parseInt(form.quantity) }]
+            setProdutos(novosItem)
+        }
+
+        handleClose()
+    }
+
+
+
 
 
 
@@ -66,13 +109,13 @@ export function CardProductDetails({ product }) {
                         currency: "BRL",
                     })}
                 </p>
-                {value > 0 ? (
-                    <p className="view">{value}</p>
+                {produtos > 0 ? (
+                    <p className="view">{produtos}</p>
                 ) : (
                     <p className="null">{null}</p>
                 )}
 
-                {value > 0 ? (
+                {produtos > 0 ? (
                     <button className="btn-remove">remover</button>
                 ) : (
                     <button onClick={handleOpen}>adicionar</button>
@@ -105,7 +148,7 @@ export function CardProductDetails({ product }) {
                         
                     </select>
 
-                    <button onClick={handleClose}>Adicionar ao carrinho</button>
+                    <button onClick={()=>adicionaCarrinho(product.id)}>Adicionar ao carrinho</button>
                 </Box>
             </Modal>
         </SecondaryCard>
