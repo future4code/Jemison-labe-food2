@@ -146,9 +146,14 @@ Inicie o servidor
 
 <div>
 
-  Home | Página de login | Feed
-  --- | --- | ---
-<img src="https://user-images.githubusercontent.com/70871620/192125337-1c294b66-7768-40ae-b8e6-864a738d6253.png" width="300px" title="Página inicial"/> | <img src="https://user-images.githubusercontent.com/70871620/192125396-465d97d9-3887-4a45-b9bb-5f1cc1ce1888.png" width="300px" title="Página de login"/> | <img src="https://user-images.githubusercontent.com/70871620/192125484-7a53f48d-6069-42b2-9606-a51a59807a6b.png" width="300px" title="Feed"/>
+Home | Página de login | Cadastro usuário | Cadastro endereço 
+--- | --- | --- | --- 
+<img src="https://user-images.githubusercontent.com/70871620/192125337-1c294b66-7768-40ae-b8e6-864a738d6253.png" width="300px" title="Página inicial"/> | <img src="https://user-images.githubusercontent.com/70871620/192125396-465d97d9-3887-4a45-b9bb-5f1cc1ce1888.png" width="300px" title="Página de login"/> | <img src="https://user-images.githubusercontent.com/70871620/193394748-9c115a65-9b8a-4ae7-8584-b08f29591442.png" width="300px" title="Cadastro usuário"/> | <img src="https://user-images.githubusercontent.com/70871620/193394770-e111057e-5799-41cb-aa82-2e91f29741e2.png" width="300px" title="Cadastro endereço"/> 
+
+Feed | Restaurante  | Carrinho | Perfil
+--- | --- | --- | --- 
+<img src="https://user-images.githubusercontent.com/70871620/192125484-7a53f48d-6069-42b2-9606-a51a59807a6b.png" width="300px" title="Feed"/> | <img src="https://user-images.githubusercontent.com/70871620/193394784-36f42aa4-885c-4022-adda-00d57786359e.png" width="300px" title="Restaurante"/> | <img src="https://user-images.githubusercontent.com/70871620/193394841-e37092ba-6365-42a1-a846-3e1a1b8fc686.png" width="300px" title="Carrinho"/> | <img src="https://user-images.githubusercontent.com/70871620/193394847-04a43e53-3da7-4c47-8648-2595ce82867c.png" width="300px" title="Perfil"/>   
+
 </div>
   
 </details>  
