@@ -27,7 +27,6 @@ export function CartPage() {
    const navigate = useNavigate();
    const token = localStorage.getItem("token");
    const user = GlobalStates.profile;
-
    const cart = GlobalStates.cart;
    const setCart = GlobalSetStates.setCart;
    const cartProducts = GlobalStates.cartProducts;
@@ -78,6 +77,7 @@ export function CartPage() {
                      </ul>
                   </figcaption>
                </MainCard2>
+
                <SecondaryCard2 key={prod.id}>
                   <img src={prod.photoUrl} />
                   <figcaption>
@@ -102,7 +102,11 @@ export function CartPage() {
       });
 
    const checkCart =
-      cart.length !== 0 ? <div>{mapCart}</div> : <p>Carrinho vazio</p>;
+      cart.length !== 0 ? (
+         <div>{mapCart}</div>
+      ) : (
+         <p className="emptyCart">Carrinho vazio</p>
+      );
 
    useEffect(() => {
       GlobalRequests.getProfile();
