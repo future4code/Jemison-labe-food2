@@ -1,12 +1,26 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import {
     Box,
     SecondaryCard,
 } from "../CardRestaurantDetails/StyledCardRestaurantsDetails";
 import Modal from "@mui/material/Modal";
 import { UseForm } from "../../hooks/useForm";
+import { GlobalContext } from "../../global/GlobalContext";
 
 export function CardProductDetails({ product }) {
+    const { GlobalStates, GlobalSetStates } = useContext(GlobalContext);
+
+    //Desestruturação das variaveis e funções dos estados: carrinho e produto
+    const carrinho = GlobalStates.carrinho;
+    const setCarrinho = GlobalSetStates.setCarrinho;
+
+    const produtos = GlobalStates.produtos;
+    const setProdutos = GlobalSetStates.setProdutos;
+
+
+
+
+
     const [open, setOpen] = useState(false);
     const [value, setValue] = useState(0);
 
