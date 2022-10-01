@@ -33,16 +33,25 @@ export function CartPage() {
     
     console.log(carrinho)
 
-    // const renderizarCart = carrinho.map((item)=>{
-    //     return (
-    //         <div>
-    //             <p>{item.name}</p>
-    //         </div>
-    //     )
-    // })
+    const mapCarrinho = carrinho && carrinho.map((prod)=>{
+        return (
+            <SecondaryCard2 key = {prod.id}>
+                    <img src={prod.photoUrl} />
+                    <figcaption>
+                        <p>{prod.name}</p>
+                        <p>{prod.description}</p>
+                        <p>{prod.price}</p>
+                        <p className="view">{prod.quantify}</p>
+                        <button className="btn-remove">remover</button>
+                    </figcaption>
+                   
+                </SecondaryCard2>
+        )
+    })
+    
+    const verificaCarrinho = (carrinho.length > 0) ? (<div>{mapCarrinho}</div>) : (<p>Carrinho Vazio</p>)
 
-
-
+    
 
 
 
@@ -85,24 +94,9 @@ export function CartPage() {
 
                     
                 </MainCard2>
-
-                {carrinho > 0 ? <p> carrinho fazio</p>: <>{carrinho.name}</>}
-                <SecondaryCard2>
-                    {/* <img src={food} />
-                    <figcaption>
-                        <p>Stencil</p>
-                        <p>
-                            Pão, carne, queijo, cebola roxa, tomate, alface e
-                            molho.
-                        </p>
-                        <p>R$46,00</p>
-                        <p className="view">2</p>
-                        <button className="btn-remove">remover</button>
-                    </figcaption> */}
-                    
-                </SecondaryCard2>
-
-               
+                {/* Mapeamento Carrinho */}
+                    {verificaCarrinho}
+                {/* Mapeamento Carrinho */}
 
                 <Shipping>Frete R$6,00</Shipping>
 

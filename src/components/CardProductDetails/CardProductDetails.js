@@ -14,11 +14,11 @@ export function CardProductDetails({ product }) {
     const carrinho = GlobalStates.carrinho;
     const setCarrinho = GlobalSetStates.setCarrinho;
 
-    const Quacarrinho = carrinho && carrinho;
+    // const Quacarrinho = carrinho && carrinho;
     
     const produtos = GlobalStates.produtos;
 
-    const quantidadeProdutos = produtos && produtos
+    // const quantidadeProdutos = produtos && produtos
 
     // const listProdutos = produtos && produtos
     const setProdutos = GlobalSetStates.setProdutos;
@@ -26,7 +26,7 @@ export function CardProductDetails({ product }) {
     const productList = GlobalStates.products;
 
     //  console.log(quantidadeProdutos)
-     console.log(carrinho)
+    //  console.log(carrinho)
 
     const adicionaCarrinho = (id) => {
         
@@ -56,8 +56,11 @@ export function CardProductDetails({ product }) {
             const novosItensCarrinho = [...carrinho, { ...itemAdicionado, 'quantity': parseInt(form.quantity) }]
             setCarrinho(novosItensCarrinho)
 
-            const novosItem = [...produtos, { id: id, 'quantity': parseInt(form.quantity) }]
+            const novosItem = [...produtos, { id: id, 'quantity': parseInt(Number(form.quantity)) }]
             setProdutos(novosItem)
+
+            
+            
         }
 
         handleClose()
@@ -71,7 +74,7 @@ export function CardProductDetails({ product }) {
 
 
     const [open, setOpen] = useState(false);
-    const [value, setValue] = useState(0);
+    // const [value, setValue] = useState(0);
 
     const [form, handleInputChange] = UseForm({
         'quantity': ''
@@ -95,9 +98,9 @@ export function CardProductDetails({ product }) {
     };
 
     // Lógica Form Modal
-    const onChangeValue = (e) => {
-        setValue(Number(e.target.value));
-    }; //mudar ára uma variavel com consigamos ver o carrinho
+    // const onChangeValue = (e) => {
+    //     setValue(Number(e.target.value));
+    // }; //mudar ára uma variavel com consigamos ver o carrinho
 
     // Lógica adicionar produto ao carrinho
 
@@ -115,14 +118,13 @@ export function CardProductDetails({ product }) {
                         currency: "BRL",
                     })}
                 </p>
-                {Quacarrinho  > 0 ? (
-                    <p className="view">{Quacarrinho.length
-                    }</p>
+                {carrinho  > 0 ? (
+                    <p className="view">{carrinho.quantity}</p>
                 ) : (
                     <p className="null">{null}</p>
                 )}
 
-                {Quacarrinho > 0 ? (
+                {carrinho > 0 ? (
                     <button className="btn-remove">remover</button>
                 ) : (
                     <button onClick={handleOpen}>adicionar</button>
