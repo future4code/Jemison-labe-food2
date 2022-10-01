@@ -9,6 +9,16 @@ export function GlobalState(props) {
     const [products, setProducts] = useState([]);
     const [perfil, setPerfil] = useState([]); // para o getProfile
 
+
+    const [carrinho, setCarrinho] = useState([])
+    const [produtos, setProdutos] = useState([{
+        id: '',
+        quantity: ''
+    }])
+
+
+
+
     // Este endpoint retorna uma lista de todos os restaurantes.
     const getRestaurants = () => {
         const endpoint = {
@@ -72,12 +82,16 @@ export function GlobalState(props) {
         restaurantDetail,
         products,
         perfil,
+        carrinho,
+        produtos,
     };
     const GlobalSetStates = {
         setRestaurantList,
         setRestaurantDetail,
         setProducts,
         setPerfil,
+        setCarrinho,
+        setProdutos,
     };
     const GlobalRequests = { getRestaurants, getRestaurantDetails, getProfile };
     const Provider = GlobalContext.Provider;

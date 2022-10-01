@@ -4,10 +4,24 @@ import {
     SecondaryCard,
 } from "../CardRestaurantDetails/StyledCardRestaurantsDetails";
 import Modal from "@mui/material/Modal";
+import { UseForm } from "../../hooks/useForm";
 
 export function CardProductDetails({ product }) {
     const [open, setOpen] = useState(false);
     const [value, setValue] = useState(0);
+
+    const [form, handleInputChange] = UseForm({
+        'quantity': ''
+    });
+
+    const limpaCampo = (e) =>{
+        e.preventDefailt()
+    }
+
+
+
+
+
 
     // Lógica Modal
     const handleOpen = () => {
@@ -20,7 +34,7 @@ export function CardProductDetails({ product }) {
     // Lógica Form Modal
     const onChangeValue = (e) => {
         setValue(Number(e.target.value));
-    };
+    }; //mudar ára uma variavel com consigamos ver o carrinho
 
     // Lógica adicionar produto ao carrinho
 
@@ -53,27 +67,28 @@ export function CardProductDetails({ product }) {
 
             <Modal
                 open={open}
-                onClose={handleClose}
+                // onClose={handleClose}
                 aria-labelledby="parent-modal-title"
                 aria-describedby="parent-modal-description">
-                <Box>
+                <Box onSubmit={limpaCampo}>
                     <h2 id="parent-modal-title">
                         Selecione a quantidade desejada
                     </h2>
                     <select
                         id="parent-modal-description"
-                        value={value}
-                        onChange={onChangeValue}>
-                        <option value={1}>1</option>
-                        <option value={2}>2</option>
-                        <option value={3}>3</option>
-                        <option value={4}>4</option>
-                        <option value={5}>5</option>
-                        <option value={6}>6</option>
-                        <option value={7}>7</option>
-                        <option value={8}>8</option>
-                        <option value={9}>9</option>
-                        <option value={10}>10</option>
+                        name='quantity'
+                        onChange={handleInputChange}>
+                        <option name='quantity'>1</option>
+                        <option name='quantity'>2</option>
+                        <option name='quantity'>3</option>
+                        <option name='quantity'>4</option>
+                        <option name='quantity'>5</option>
+                        <option name='quantity'>6</option>
+                        <option name='quantity'>7</option>
+                        <option name='quantity'>8</option>
+                        <option name='quantity'>9</option>
+                        <option name='quantity'>10</option>
+                        
                     </select>
 
                     <button onClick={handleClose}>Adicionar ao carrinho</button>
