@@ -32,7 +32,35 @@ export function CartPage() {
    const cartProducts = GlobalStates.cartProducts;
    const setCartProducts = GlobalSetStates.setCartProducts;
 
-   
+   const removeItem = (idProduto, quantidade) => {
+
+      if (quantidade > 0) {
+          setCart(cart.map(item => {
+              if (idProduto === item.id) {
+                  return {
+                      ...item,
+                      'quantity': item.quantity -1
+                  }
+              }
+              return item
+          }))
+
+          setCartProducts(cartProducts.map(item => {
+              if (idProduto === item.id) {
+                  return {
+                      ...item,
+                      'quantity': item.quantity - 1
+                  }
+
+              }
+              return item
+          }))
+
+      } else {
+         setCart(cart.filter(item => idProduto !== item.id))
+         setCartProducts(cartProducts.filter(item => idProduto !== item.id))
+      }
+  }
 
 
 
@@ -50,6 +78,16 @@ export function CartPage() {
       cart &&
       cart.map((prod) => {
          return (
+            <>
+               <MainCard2>
+                  <figcaption>
+                  <h4>Bullguer Vila Madalena</h4>
+                  <ul>
+                     <li>R.fradique Coutinho, 1136 - Vila Madalena</li>
+                     <li>30 - 45 min</li>
+                  </ul>
+                  </figcaption>
+               </MainCard2>
             <SecondaryCard2 key={prod.id}>
                <img src={prod.photoUrl} />
                <figcaption>
@@ -62,14 +100,16 @@ export function CartPage() {
                      })}
                   </p>
                   <p className="view">{prod.quantity}</p>
-                  <button className="btn-remove">remover</button>
+                  <button className="btn-remove" onClick={()=>removeItem(prod.id,)}>remover</button>
                </figcaption>
             </SecondaryCard2>
+            </>
+           
          );
       });
 
    const checkCart =
-      cart.length > 0 ? <div>{mapCart}</div> : <p>Carrinho vazio</p>;
+      cart.length !== 0 ? <div>{mapCart}</div> : <p>Carrinho vazio</p>;
 
    useEffect(() => {
       GlobalRequests.getProfile();
@@ -89,15 +129,7 @@ export function CartPage() {
                </div>
             </Address2>
 
-            <MainCard2>
-               <figcaption>
-                  <h4>Bullguer Vila Madalena</h4>
-                  <ul>
-                     <li>R.fradique Coutinho, 1136 - Vila Madalena</li>
-                     <li>30 - 45 min</li>
-                  </ul>
-               </figcaption>
-            </MainCard2>
+            
             {/* Mapeamento cart */}
             {checkCart}
             {/* Mapeamento cart */}

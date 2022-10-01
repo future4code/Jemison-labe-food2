@@ -78,6 +78,14 @@ export function CardProductDetails({ product }) {
       handleClose();
    };
 
+   
+
+
+
+
+
+
+
    // Lógica Modal
    const handleOpen = () => {
       setOpen(true);
@@ -122,6 +130,7 @@ export function CardProductDetails({ product }) {
                   id="parent-modal-description"
                   name="quantity"
                   onChange={handleInputChange}>
+                  
                   <option name="quantity">1</option>
                   <option name="quantity">2</option>
                   <option name="quantity">3</option>
