@@ -11,6 +11,7 @@ import { RestaurantDetailsPage } from "../pages/RestaurantDetailsPage/Restaurant
 import { SignUpPage } from "../pages/SignUpPage/SignUpPage";
 import { ErrorPage } from "../pages/ErrorPage/ErrorPage";
 import { FeedPage } from "../pages/FeedPage/FeedPage";
+import { SearchPage } from "../pages/SearchPage/SearchPage";
 
 export const Router = () => {
     return (
@@ -23,6 +24,7 @@ export const Router = () => {
                 <Route path="feedpage" element={<FeedPage />} />
                 <Route path="cart" element={<CartPage />} />
                 <Route path="profile" element={<ProfilePage />} />
+                <Route path="search" element={<SearchPage />} />
                 <Route path="profile/edit/user" element={<ProfileEditUser />} />
                 <Route
                     path="profile/address"

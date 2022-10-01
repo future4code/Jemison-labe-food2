@@ -15,6 +15,25 @@ export const Search = styled.div`
     }
 `;
 
+export const SectionButtonSearch = styled.section`
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    p {
+        margin-left: 5px;
+    }
+
+    img {
+        margin-left: 10px;
+    }
+`
+
+export const SearchButton = styled.button`
+    color: grey;
+    border: 1px solid grey;
+    width: 100%;
+`;
+
 export const Categories = styled.ul`
     display: grid;
     gap: 0.5rem;
