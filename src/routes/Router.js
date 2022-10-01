@@ -14,28 +14,22 @@ import { FeedPage } from "../pages/FeedPage/FeedPage";
 import { SearchPage } from "../pages/SearchPage/SearchPage";
 
 export const Router = () => {
-    return (
-        <BrowserRouter>
-            <Routes>
-                <Route index element={<StartPage />} />
-                <Route path="login" element={<LoginPage />} />
-                <Route path="signup" element={<SignUpPage />} />
-                <Route path="address" element={<AddressPage />} />
-                <Route path="feedpage" element={<FeedPage />} />
-                <Route path="cart" element={<CartPage />} />
-                <Route path="profile" element={<ProfilePage />} />
-                <Route path="search" element={<SearchPage />} />
-                <Route path="profile/edit/user" element={<ProfileEditUser />} />
-                <Route
-                    path="profile/address"
-                    element={<ProfileEditAddress />}
-                />
-                <Route
-                    path="restaurants/:id"
-                    element={<RestaurantDetailsPage />}
-                />
-                <Route path="*" element={<ErrorPage />} />
-            </Routes>
-        </BrowserRouter>
-    );
+   return (
+      <BrowserRouter>
+         <Routes>
+            <Route index element={<StartPage />} />
+            <Route path="login" element={<LoginPage />} />
+            <Route path="signup" element={<SignUpPage />} />
+            <Route path="address" element={<AddressPage />} />
+            <Route path="feedpage" element={<FeedPage />} />
+            <Route path="cart" element={<CartPage />} />
+            <Route path="profile" element={<ProfilePage />} />
+            <Route path="search" element={<SearchPage />} />
+            <Route path="profile/edit/user" element={<ProfileEditUser />} />
+            <Route path="profile/address" element={<ProfileEditAddress />} />
+            <Route path="restaurants/:id" element={<RestaurantDetailsPage />} />
+            <Route path="*" element={<ErrorPage />} />
+         </Routes>
+      </BrowserRouter>
+   );
 };

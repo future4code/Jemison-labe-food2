@@ -3,12 +3,12 @@ import { useNavigate } from "react-router-dom";
 import { goToFeedPage } from "../routes/coordinator";
 
 export function useUnprotectedPage() {
-    const navigate = useNavigate();
+   const navigate = useNavigate();
 
-    useEffect(() => {
-        const token = localStorage.getItem("token");
-        if (token) {
-            goToFeedPage(navigate);
-        }
-    }, [navigate]);
+   useEffect(() => {
+      const token = localStorage.getItem("token");
+      if (token) {
+         goToFeedPage(navigate);
+      }
+   }, [navigate]);
 }

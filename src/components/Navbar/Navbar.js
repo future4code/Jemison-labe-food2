@@ -5,18 +5,18 @@ import { goToBackPage } from "../../routes/coordinator";
 import { NavbarContainer } from "./StyledNavbar";
 
 export const Navbar = (props) => {
-    const navigate = useNavigate();
+   const navigate = useNavigate();
 
-    return (
-        <NavbarContainer>
-            <button
-                onClick={() => {
-                    goToBackPage(navigate);
-                }}>
-                <img src={voltar} width="23.04" height="24" />
-            </button>
+   return (
+      <NavbarContainer>
+         <button
+            onClick={() => {
+               goToBackPage(navigate);
+            }}>
+            <img src={voltar} width="23.04" height="24" />
+         </button>
 
-            <p>{props.text}</p>
-        </NavbarContainer>
-    );
+         <p>{props.text}</p>
+      </NavbarContainer>
+   );
 };
