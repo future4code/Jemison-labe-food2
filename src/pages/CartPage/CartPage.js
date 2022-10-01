@@ -22,7 +22,8 @@ import { Button } from "../../components/RegistrationPages/StyledRegistrationPag
 import { GlobalContext } from "../../global/GlobalContext";
 
 export function CartPage() {
-   const { GlobalRequests, GlobalStates, GlobalSetStates } = useContext(GlobalContext);
+   const { GlobalRequests, GlobalStates, GlobalSetStates } =
+      useContext(GlobalContext);
    const navigate = useNavigate();
    const token = localStorage.getItem("token");
    const user = GlobalStates.profile;
@@ -33,46 +34,35 @@ export function CartPage() {
    const setCartProducts = GlobalSetStates.setCartProducts;
 
    const removeItem = (idProduto, quantidade) => {
-
       if (quantidade > 0) {
-          setCart(cart.map(item => {
-              if (idProduto === item.id) {
+         setCart(
+            cart.map((item) => {
+               if (idProduto === item.id) {
                   return {
-                      ...item,
-                      'quantity': item.quantity -1
-                  }
-              }
-              return item
-          }))
+                     ...item,
+                     quantity: item.quantity - 1,
+                  };
+               }
+               return item;
+            })
+         );
 
-          setCartProducts(cartProducts.map(item => {
-              if (idProduto === item.id) {
+         setCartProducts(
+            cartProducts.map((item) => {
+               if (idProduto === item.id) {
                   return {
-                      ...item,
-                      'quantity': item.quantity - 1
-                  }
-
-              }
-              return item
-          }))
-
+                     ...item,
+                     quantity: item.quantity - 1,
+                  };
+               }
+               return item;
+            })
+         );
       } else {
-         setCart(cart.filter(item => idProduto !== item.id))
-         setCartProducts(cartProducts.filter(item => idProduto !== item.id))
+         setCart(cart.filter((item) => idProduto !== item.id));
+         setCartProducts(cartProducts.filter((item) => idProduto !== item.id));
       }
-  }
-
-
-
-
-
-
-
-
-
-
-
-
+   };
 
    const mapCart =
       cart &&
@@ -81,36 +71,38 @@ export function CartPage() {
             <>
                <MainCard2>
                   <figcaption>
-                  <h4>Bullguer Vila Madalena</h4>
-                  <ul>
-                     <li>R.fradique Coutinho, 1136 - Vila Madalena</li>
-                     <li>30 - 45 min</li>
-                  </ul>
+                     <h4>Bullguer Vila Madalena</h4>
+                     <ul>
+                        <li>R.fradique Coutinho, 1136 - Vila Madalena</li>
+                        <li>30 - 45 min</li>
+                     </ul>
                   </figcaption>
                </MainCard2>
-            <SecondaryCard2 key={prod.id}>
-               <img src={prod.photoUrl} />
-               <figcaption>
-                  <p>{prod.name}</p>
-                  <p>{prod.description}</p>
-                  <p>
-                     {prod.price.toLocaleString("pt-br", {
-                        style: "currency",
-                        currency: "BRL",
-                     })}
-                  </p>
-                  <p className="view">{prod.quantity}</p>
-                  <button className="btn-remove" onClick={()=>removeItem(prod.id,)}>remover</button>
-               </figcaption>
-            </SecondaryCard2>
+               <SecondaryCard2 key={prod.id}>
+                  <img src={prod.photoUrl} />
+                  <figcaption>
+                     <p>{prod.name}</p>
+                     <p>{prod.description}</p>
+                     <p>
+                        {prod.price.toLocaleString("pt-br", {
+                           style: "currency",
+                           currency: "BRL",
+                        })}
+                     </p>
+                     <p className="view">{prod.quantity}</p>
+                     <button
+                        className="btn-remove"
+                        onClick={() => removeItem(prod.id)}>
+                        remover
+                     </button>
+                  </figcaption>
+               </SecondaryCard2>
             </>
          );
       });
 
    const checkCart =
-
       cart.length !== 0 ? <div>{mapCart}</div> : <p>Carrinho vazio</p>;
-
 
    useEffect(() => {
       GlobalRequests.getProfile();
@@ -129,9 +121,6 @@ export function CartPage() {
                   <p>{user.address}</p>
                </div>
             </Address2>
-
-
-            
 
             {checkCart}
 
