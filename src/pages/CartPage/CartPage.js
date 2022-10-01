@@ -59,7 +59,7 @@ export function CartPage() {
    return (
       <Container>
          <NavbarContainer>
-            <Title>Meu cart</Title>
+            <Title>Meu carrinho</Title>
          </NavbarContainer>
 
          <Contents>
