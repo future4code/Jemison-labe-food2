@@ -104,12 +104,13 @@ export function CartPage() {
                </figcaption>
             </SecondaryCard2>
             </>
-           
          );
       });
 
    const checkCart =
+
       cart.length !== 0 ? <div>{mapCart}</div> : <p>Carrinho vazio</p>;
+
 
    useEffect(() => {
       GlobalRequests.getProfile();
@@ -129,16 +130,16 @@ export function CartPage() {
                </div>
             </Address2>
 
-            
-            {/* Mapeamento cart */}
-            {checkCart}
-            {/* Mapeamento cart */}
 
-            <Shipping>Frete R$6,00</Shipping>
+            
+
+            {checkCart}
+
+            <Shipping>Frete R$0,00</Shipping>
 
             <Subtotal>
                <p>Subtotal</p>
-               <p>R$67,00</p>
+               <p>R$00,00</p>
             </Subtotal>
 
             <Form>
