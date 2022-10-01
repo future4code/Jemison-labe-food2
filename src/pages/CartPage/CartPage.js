@@ -31,26 +31,42 @@ export function CartPage() {
       cart &&
       cart.map((prod) => {
          return (
-            <SecondaryCard2 key={prod.id}>
-               <img src={prod.photoUrl} />
-               <figcaption>
-                  <p>{prod.name}</p>
-                  <p>{prod.description}</p>
-                  <p>
-                     {prod.price.toLocaleString("pt-br", {
-                        style: "currency",
-                        currency: "BRL",
-                     })}
-                  </p>
-                  <p className="view">{prod.quantity}</p>
-                  <button className="btn-remove">remover</button>
-               </figcaption>
-            </SecondaryCard2>
+            <>
+               <MainCard2>
+                  <figcaption>
+                     <h4>Bullguer Vila Madalena</h4>
+                     <ul>
+                        <li>R.fradique Coutinho, 1136 - Vila Madalena</li>
+                        <li>30 - 45 min</li>
+                     </ul>
+                  </figcaption>
+               </MainCard2>
+
+               <SecondaryCard2 key={prod.id}>
+                  <img src={prod.photoUrl} />
+                  <figcaption>
+                     <p>{prod.name}</p>
+                     <p>{prod.description}</p>
+                     <p>
+                        {prod.price.toLocaleString("pt-br", {
+                           style: "currency",
+                           currency: "BRL",
+                        })}
+                     </p>
+                     <p className="view">{prod.quantity}</p>
+                     <button className="btn-remove">remover</button>
+                  </figcaption>
+               </SecondaryCard2>
+            </>
          );
       });
 
    const checkCart =
-      cart.length > 0 ? <div>{mapCart}</div> : <p>Carrinho vazio</p>;
+      cart.length !== 0 ? (
+         <div>{mapCart}</div>
+      ) : (
+         <p className="emptyCart">Carrinho vazio</p>
+      );
 
    useEffect(() => {
       GlobalRequests.getProfile();
@@ -70,24 +86,13 @@ export function CartPage() {
                </div>
             </Address2>
 
-            <MainCard2>
-               <figcaption>
-                  <h4>Bullguer Vila Madalena</h4>
-                  <ul>
-                     <li>R.fradique Coutinho, 1136 - Vila Madalena</li>
-                     <li>30 - 45 min</li>
-                  </ul>
-               </figcaption>
-            </MainCard2>
-            {/* Mapeamento cart */}
             {checkCart}
-            {/* Mapeamento cart */}
 
-            <Shipping>Frete R$6,00</Shipping>
+            <Shipping>Frete R$0,00</Shipping>
 
             <Subtotal>
                <p>Subtotal</p>
-               <p>R$67,00</p>
+               <p>R$00,00</p>
             </Subtotal>
 
             <Form>

@@ -102,6 +102,13 @@ export const Contents = styled.div`
    @media screen and (max-width: 800px) {
       max-width: calc(100vw - 2rem);
    }
+
+   .emptyCart {
+      margin-top: 0.25rem;
+      margin-bottom: 2.063rem;
+      text-align: center;
+      padding: 0.75rem;
+   }
 `;
 
 export const Menu = styled.div`
