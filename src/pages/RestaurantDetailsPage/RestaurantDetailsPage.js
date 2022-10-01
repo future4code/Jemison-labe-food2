@@ -9,62 +9,60 @@ import { CardProductDetails } from "../../components/CardProductDetails/CardProd
 import { CircularProgress } from "@mui/material";
 
 export function RestaurantDetailsPage() {
-    useProtectedPage();
-    const id = useParams();
-    const { GlobalStates, GlobalRequests } = useContext(GlobalContext);
-    const productList = GlobalStates.products;
-    const productCondition = productList && productList.length > 0;
-    const categorys =
-        productList &&
-        productList.map((productInformation) => {
-            return productInformation.category;
-        });
-    const categorysNoRepeat = [...new Set(categorys)];
+   useProtectedPage();
+   const id = useParams();
+   const { GlobalStates, GlobalRequests } = useContext(GlobalContext);
+   const productList = GlobalStates.products;
+   const productCondition = productList && productList.length > 0;
+   const categorys =
+      productList &&
+      productList.map((productInformation) => {
+         return productInformation.category;
+      });
+   const categorysNoRepeat = [...new Set(categorys)];
 
-    // Lógica carrinho
+   useEffect(() => {
+      GlobalRequests.getRestaurantDetails(id.id);
+   }, []);
 
-    useEffect(() => {
-        GlobalRequests.getRestaurantDetails(id.id);
-    }, []);
+   return (
+      <Container>
+         <Navbar text="Restaurante" />
 
-    return (
-        <Container>
-            <Navbar text="Restaurante" />
+         {!productCondition ? (
+            <CircularProgress
+               size={64}
+               color={"inherit"}
+               className="CircularProgress"
+            />
+         ) : (
+            <Contents>
+               <CardRestaurantDetails />
 
-            {!productCondition ? (
-                <CircularProgress
-                    size={64}
-                    color={"inherit"}
-                    className="CircularProgress"
-                />
-            ) : (
-                <Contents>
-                    <CardRestaurantDetails />
+               {categorysNoRepeat.map((category) => {
+                  const products =
+                     productList &&
+                     productList.filter((product) => {
+                        return product.category === category;
+                     });
+                  return (
+                     <>
+                        <TitleCard>{category}</TitleCard>
 
-                    {categorysNoRepeat.map((category) => {
-                        const products =
-                            productList &&
-                            productList.filter((product) => {
-                                return product.category === category;
-                            });
-                        return (
-                            <>
-                                <TitleCard>{category}</TitleCard>
-
-                                {products &&
-                                    products.map((product) => {
-                                        return (
-                                            <CardProductDetails
-                                                key={product.id}
-                                                product={product}
-                                            />
-                                        );
-                                    })}
-                            </>
-                        );
-                    })}
-                </Contents>
-            )}
-        </Container>
-    );
+                        {products &&
+                           products.map((product) => {
+                              return (
+                                 <CardProductDetails
+                                    key={product.id}
+                                    product={product}
+                                 />
+                              );
+                           })}
+                     </>
+                  );
+               })}
+            </Contents>
+         )}
+      </Container>
+   );
 }

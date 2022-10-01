@@ -4,19 +4,19 @@ import { useNavigate } from "react-router-dom";
 import { goToLoginPage } from "../../routes/coordinator";
 
 export function StartPage() {
-    const navigate = useNavigate();
+   const navigate = useNavigate();
 
-    setTimeout(() => {
-        goToLoginPage(navigate);
-    }, 2500);
+   setTimeout(() => {
+      goToLoginPage(navigate);
+   }, 2500);
 
-    return (
-        <HomeContainer>
-            <button
-                onClick={() => {
-                    goToLoginPage(navigate);
-                }}
-            />
-        </HomeContainer>
-    );
+   return (
+      <HomeContainer>
+         <button
+            onClick={() => {
+               goToLoginPage(navigate);
+            }}
+         />
+      </HomeContainer>
+   );
 }

@@ -3,12 +3,12 @@ import { useNavigate } from "react-router-dom";
 import { goToLoginPage } from "../routes/coordinator";
 
 export function useProtectedPage() {
-    const navigate = useNavigate();
+   const navigate = useNavigate();
 
-    return useEffect(() => {
-        const token = localStorage.getItem("token");
-        if (!token) {
-            goToLoginPage(navigate);
-        }
-    }, [navigate]);
+   return useEffect(() => {
+      const token = localStorage.getItem("token");
+      if (!token) {
+         goToLoginPage(navigate);
+      }
+   }, [navigate]);
 }
