@@ -36,7 +36,12 @@ export function CartPage() {
                <figcaption>
                   <p>{prod.name}</p>
                   <p>{prod.description}</p>
-                  <p>{prod.price}</p>
+                  <p>
+                     {prod.price.toLocaleString("pt-br", {
+                        style: "currency",
+                        currency: "BRL",
+                     })}
+                  </p>
                   <p className="view">{prod.quantity}</p>
                   <button className="btn-remove">remover</button>
                </figcaption>
