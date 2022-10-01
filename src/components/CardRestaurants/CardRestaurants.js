@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useContext } from "react";
 import { GlobalContext } from "../../global/GlobalContext";
 import { Card } from "./StyledCardRestaurants";
 import { goToRestaurantDetailsPage } from "../../routes/coordinator";
@@ -8,7 +8,6 @@ import { CircularProgress } from "@mui/material";
 export function CardRestaurants({ categories, inputSearch }) {
     const navigate = useNavigate();
     const { GlobalStates } = useContext(GlobalContext);
-    const [isLoading, setIsLoading] = useState(false);
 
     const renderList = GlobalStates.restaurantList
         .filter((category) => {

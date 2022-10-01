@@ -48,7 +48,7 @@ export function LoginPage() {
 
                 <Form onSubmit={onSubmitForm}>
                     <legend>Entrar</legend>
-                    
+
                     <div>
                         <Label>E-mail*</Label>
                         <Input

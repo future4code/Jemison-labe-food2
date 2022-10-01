@@ -8,10 +8,6 @@ export function GlobalState(props) {
     const [restaurantDetail, setRestaurantDetail] = useState({});
     const [products, setProducts] = useState([]);
     const [perfil, setPerfil] = useState([]); // para o getProfile
-    
-    
-   
-
 
     // Este endpoint retorna uma lista de todos os restaurantes.
     const getRestaurants = () => {
@@ -51,32 +47,25 @@ export function GlobalState(props) {
     };
 
     const getProfile = () => {
-       const token = localStorage.getItem('token')
-       const endpointPerfil = {
+        const token = localStorage.getItem("token");
+        const endpointPerfil = {
             method: "get",
             url: `${BASE_URL}/profile`,
             headers: { auth: token },
         };
 
-       if(token) {
+        if (token) {
             axios(endpointPerfil)
                 .then((res) => {
                     setPerfil(res.data.user);
-                    console.log(res.data.user)
+                    console.log(res.data.user);
                 })
                 .catch((err) => {
                     // alert(err.response.data.message);
                     alert("Dados não encontrados");
-                });  
-       }
-
-    }
-
-
-
-
-
-
+                });
+        }
+    };
 
     const GlobalStates = {
         restaurantList,

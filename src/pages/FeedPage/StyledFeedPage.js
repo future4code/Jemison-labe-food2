@@ -4,6 +4,8 @@ export const ContentsHeader = styled.div``;
 
 export const Search = styled.div`
     position: relative;
+    margin-bottom: 1rem;
+
     img {
         position: absolute;
         top: 1rem;
@@ -15,23 +17,27 @@ export const Search = styled.div`
     }
 `;
 
-export const SectionButtonSearch = styled.section`
+export const SectionButtonSearch = styled.div`
     display: flex;
     align-items: center;
     padding: 1rem;
+    width: 360px;
+    height: 56px;
+
     p {
-        margin-left: 5px;
+        margin-left: 0.5rem;
     }
 
     img {
-        margin-left: 10px;
+        margin-left: 0.1063rem;
     }
-`
+`;
 
 export const SearchButton = styled.button`
     color: grey;
     border: 1px solid grey;
     width: 100%;
+    margin-top: -0.5rem;
 `;
 
 export const Categories = styled.ul`
@@ -92,9 +98,12 @@ export const Card = styled.figure`
     border: solid 1px #b8b8b8;
     margin-bottom: 0.5rem;
     cursor: pointer;
+    width: 100%;
 
     img {
-        border-radius: 8px;
+        border-radius: 8px 8px 0 0;
+        object-fit: cover;
+        width: 100%;
     }
 
     figcaption {

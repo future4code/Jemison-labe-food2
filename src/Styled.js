@@ -124,6 +124,7 @@ export const Menu = styled.div`
 `;
 
 export const Title = styled.h3`
+    font-size: 1rem;
     font-weight: normal;
     letter-spacing: -0.39px;
     padding: 0.675rem;
