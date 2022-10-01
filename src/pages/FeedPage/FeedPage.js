@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import search from "../../assets/img/search/search.svg";
-import { Categories, Cards, Search, ContentsHeader } from "./StyledFeedPage";
+import { Categories, Cards, SectionButtonSearch, SearchButton, ContentsHeader } from "./StyledFeedPage";
 import { Container, Contents, Menu, Title } from "../../Styled";
 import { NavbarContainer } from "../../components/Navbar/StyledNavbar";
 import { InputSearch } from "../../components/RegistrationPages/StyledRegistrationPages";
@@ -12,6 +12,7 @@ import {
     goToCartPage,
     goToFeedPage,
     goToProfilePage,
+    goToSearchPage
 } from "../../routes/coordinator";
 import house2 from "../../assets/img/icon/house2.svg";
 import cart1 from "../../assets/img/icon/cart1.svg";
@@ -81,7 +82,18 @@ export function FeedPage() {
 
             <Contents>
                 <ContentsHeader>
-                    <Search>
+                <SearchButton
+                        onClick={() => {
+                            goToSearchPage(navigate);
+                        }}>
+                        <SectionButtonSearch>
+                            <img src={search} />
+                            
+                            <p>Restaurante</p>
+
+                        </SectionButtonSearch>
+                    </SearchButton>
+                    {/* <Search>
                         <img src={search} />
                         <InputSearch
                             type="search"
@@ -90,7 +102,7 @@ export function FeedPage() {
                             onChange={onChangeInputSearch}
                             placeholder="Restaurante"
                         />
-                    </Search>
+                    </Search> */}
 
                     <Categories>
                         <li>
