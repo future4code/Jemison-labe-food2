@@ -2,8 +2,10 @@
 <div align="center">
   
 # Labefood
-
+  
 🚀 Projeto desenvolvido em React JS, simulando um aplicativo de delivery, baseado no Ifood.
+  
+  <img src="https://user-images.githubusercontent.com/70871620/193394398-3df5a2ef-a12c-4aca-85b1-b5bcee5845d8.gif" width="300px">
   
 <br>
   
@@ -16,7 +18,7 @@
 ---
 
 <details>
-<summary><h2>Autores</h2></summary>
+<summary><h2>🎓 Autores</h2></summary>
 
 <div align="center">
   
@@ -30,7 +32,7 @@
 --- 
 
 <details>
-<summary><h2>Documentação de cores</h2></summary>
+<summary><h2>🎨 Documentação de cores</h2></summary>
 <div align="center">
 
 | Cor               | Hexadecimal                                                |
@@ -82,25 +84,16 @@ Para concluir o projeto ainda falta permitir que o usuário:
  --- 
  
 <details>
-<summary><h2>Aprendizados</h2></summary>   
+<summary><h2>🎯 Aprendizados</h2></summary>   
 
 Com esse projeto, aprofundamos os conhecimentos adquiridos no React JS. Começamos vendo os hooks mais utilizados - useState e useEffect. Depois, vimos como implementar as funcionalidades mais comuns em aplicações de Frontend: formulários, autenticação, routers e estilizações. 
   
-</details>    
-
----
-
-<details>
-<summary><h2>Stack utilizada</h2></summary>   
-
-**Front-end:** React JS, Styled-Components
-
 </details>    
   
  --- 
 
 <details>
-<summary><h2>Rodando o projeto localmente</h2></summary>  
+<summary><h2>🔄 Rodando o projeto localmente</h2></summary>  
   
 Clone o projeto via HTTPS
 
@@ -149,7 +142,7 @@ Inicie o servidor
  --- 
  
 <details>
-<summary><h2>Screenshots</h2></summary>   
+<summary><h2>🔳 Screenshots</h2></summary>   
 
 <div>
 
