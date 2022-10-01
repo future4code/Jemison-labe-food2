@@ -1,13 +1,93 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import {
     Box,
     SecondaryCard,
 } from "../CardRestaurantDetails/StyledCardRestaurantsDetails";
 import Modal from "@mui/material/Modal";
+import { UseForm } from "../../hooks/useForm";
+import { GlobalContext } from "../../global/GlobalContext";
 
 export function CardProductDetails({ product }) {
+    const { GlobalStates, GlobalSetStates } = useContext(GlobalContext);
+
+    //Desestruturação das variaveis e funções dos estados: carrinho e produto
+    const carrinho = GlobalStates.carrinho;
+    const setCarrinho = GlobalSetStates.setCarrinho;
+
+    // const Quacarrinho = carrinho && carrinho;
+    
+    const produtos = GlobalStates.produtos;
+
+    // const quantidadeProdutos = produtos && produtos
+
+    // const listProdutos = produtos && produtos
+    const setProdutos = GlobalSetStates.setProdutos;
+
+    const productList = GlobalStates.products;
+
+    //  console.log(quantidadeProdutos)
+    //  console.log(carrinho)
+
+    const adicionaCarrinho = (id) => {
+        
+        const itemNoCarrinho = carrinho.find(item => id === item.id)
+        if (itemNoCarrinho) {
+            setProdutos(produtos.map(item => {
+                if (id === item.id) {
+                    return {
+                        ...item,
+                        'quantity': item.quantity + parseInt(form.quantity)
+                    }
+                }
+                return item
+            }))
+            setCarrinho(carrinho.map(item => {
+                if (id === item.id) {
+                    return {
+                        ...item,
+                        'quantity': item.quantity + parseInt(form.quantity)
+                    }
+                }
+                return item
+            }))
+        } else {
+
+            const itemAdicionado = productList && productList.find(item => id === item.id)
+            const novosItensCarrinho = [...carrinho, { ...itemAdicionado, 'quantity': parseInt(form.quantity) }]
+            setCarrinho(novosItensCarrinho)
+
+            const novosItem = [...produtos, { id: id, 'quantity': parseInt(Number(form.quantity)) }]
+            setProdutos(novosItem)
+
+            
+            
+        }
+
+        handleClose()
+    }
+
+
+
+
+
+
+
+
     const [open, setOpen] = useState(false);
-    const [value, setValue] = useState(0);
+    // const [value, setValue] = useState(0);
+
+    const [form, handleInputChange] = UseForm({
+        'quantity': ''
+    });
+
+    const limpaCampo = (e) =>{
+        e.preventDefailt()
+    }
+
+
+
+
+
 
     // Lógica Modal
     const handleOpen = () => {
@@ -18,9 +98,9 @@ export function CardProductDetails({ product }) {
     };
 
     // Lógica Form Modal
-    const onChangeValue = (e) => {
-        setValue(Number(e.target.value));
-    };
+    // const onChangeValue = (e) => {
+    //     setValue(Number(e.target.value));
+    // }; //mudar ára uma variavel com consigamos ver o carrinho
 
     // Lógica adicionar produto ao carrinho
 
@@ -38,13 +118,13 @@ export function CardProductDetails({ product }) {
                         currency: "BRL",
                     })}
                 </p>
-                {value > 0 ? (
-                    <p className="view">{value}</p>
+                {carrinho  > 0 ? (
+                    <p className="view">{carrinho.quantity}</p>
                 ) : (
                     <p className="null">{null}</p>
                 )}
 
-                {value > 0 ? (
+                {carrinho > 0 ? (
                     <button className="btn-remove">remover</button>
                 ) : (
                     <button onClick={handleOpen}>adicionar</button>
@@ -53,30 +133,31 @@ export function CardProductDetails({ product }) {
 
             <Modal
                 open={open}
-                onClose={handleClose}
+                // onClose={handleClose}
                 aria-labelledby="parent-modal-title"
                 aria-describedby="parent-modal-description">
-                <Box>
+                <Box onSubmit={limpaCampo}>
                     <h2 id="parent-modal-title">
                         Selecione a quantidade desejada
                     </h2>
                     <select
                         id="parent-modal-description"
-                        value={value}
-                        onChange={onChangeValue}>
-                        <option value={1}>1</option>
-                        <option value={2}>2</option>
-                        <option value={3}>3</option>
-                        <option value={4}>4</option>
-                        <option value={5}>5</option>
-                        <option value={6}>6</option>
-                        <option value={7}>7</option>
-                        <option value={8}>8</option>
-                        <option value={9}>9</option>
-                        <option value={10}>10</option>
+                        name='quantity'
+                        onChange={handleInputChange}>
+                        <option name='quantity'>1</option>
+                        <option name='quantity'>2</option>
+                        <option name='quantity'>3</option>
+                        <option name='quantity'>4</option>
+                        <option name='quantity'>5</option>
+                        <option name='quantity'>6</option>
+                        <option name='quantity'>7</option>
+                        <option name='quantity'>8</option>
+                        <option name='quantity'>9</option>
+                        <option name='quantity'>10</option>
+                        
                     </select>
 
-                    <button onClick={handleClose}>Adicionar ao carrinho</button>
+                    <button onClick={()=>adicionaCarrinho(product.id)}>Adicionar ao carrinho</button>
                 </Box>
             </Modal>
         </SecondaryCard>

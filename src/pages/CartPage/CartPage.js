@@ -28,6 +28,42 @@ export function CartPage() {
     const { GlobalRequests, GlobalStates } = useContext(GlobalContext);
 
     const user = GlobalStates.perfil;
+    
+    const carrinho = GlobalStates.carrinho;
+    
+    console.log(carrinho)
+
+    const mapCarrinho = carrinho && carrinho.map((prod)=>{
+        return (
+            <SecondaryCard2 key = {prod.id}>
+                    <img src={prod.photoUrl} />
+                    <figcaption>
+                        <p>{prod.name}</p>
+                        <p>{prod.description}</p>
+                        <p>{prod.price}</p>
+                        <p className="view">{prod.quantify}</p>
+                        <button className="btn-remove">remover</button>
+                    </figcaption>
+                   
+                </SecondaryCard2>
+        )
+    })
+    
+    const verificaCarrinho = (carrinho.length > 0) ? (<div>{mapCarrinho}</div>) : (<p>Carrinho Vazio</p>)
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
 
     useEffect(() => {
         GlobalRequests.getProfile();
@@ -46,7 +82,7 @@ export function CartPage() {
                         <p>{user.address}</p>
                     </div>
                 </Address2>
-
+              
                 <MainCard2>
                     <figcaption>
                         <h4>Bullguer Vila Madalena</h4>
@@ -55,35 +91,12 @@ export function CartPage() {
                             <li>30 - 45 min</li>
                         </ul>
                     </figcaption>
+
+                    
                 </MainCard2>
-
-                <SecondaryCard2>
-                    <img src={food} />
-                    <figcaption>
-                        <p>Stencil</p>
-                        <p>
-                            Pão, carne, queijo, cebola roxa, tomate, alface e
-                            molho.
-                        </p>
-                        <p>R$46,00</p>
-                        <p className="view">2</p>
-                        <button className="btn-remove">remover</button>
-                    </figcaption>
-                </SecondaryCard2>
-
-                <SecondaryCard2>
-                    <img src={food} />
-                    <figcaption>
-                        <p>Cheese Fries</p>
-                        <p>
-                            Porção de fritas temperada com páprica e queijo
-                            derretido.
-                        </p>
-                        <p>R$15,00</p>
-                        <p className="view">1</p>
-                        <button className="btn-remove">remover</button>
-                    </figcaption>
-                </SecondaryCard2>
+                {/* Mapeamento Carrinho */}
+                    {verificaCarrinho}
+                {/* Mapeamento Carrinho */}
 
                 <Shipping>Frete R$6,00</Shipping>
 
