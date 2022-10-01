@@ -22,11 +22,30 @@ import { Button } from "../../components/RegistrationPages/StyledRegistrationPag
 import { GlobalContext } from "../../global/GlobalContext";
 
 export function CartPage() {
-   const { GlobalRequests, GlobalStates } = useContext(GlobalContext);
+   const { GlobalRequests, GlobalStates, GlobalSetStates } = useContext(GlobalContext);
    const navigate = useNavigate();
    const token = localStorage.getItem("token");
    const user = GlobalStates.profile;
+
    const cart = GlobalStates.cart;
+   const setCart = GlobalSetStates.setCart;
+   const cartProducts = GlobalStates.cartProducts;
+   const setCartProducts = GlobalSetStates.setCartProducts;
+
+   
+
+
+
+
+
+
+
+
+
+
+
+
+
    const mapCart =
       cart &&
       cart.map((prod) => {
