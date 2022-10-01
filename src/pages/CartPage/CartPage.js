@@ -31,6 +31,7 @@ export function CartPage() {
    const setCart = GlobalSetStates.setCart;
    const cartProducts = GlobalStates.cartProducts;
    const setCartProducts = GlobalSetStates.setCartProducts;
+   const restaurantDetail = GlobalStates.restaurantDetail;
 
    const removeItem = (idProduto, quantidade) => {
       if (quantidade > 0) {
@@ -39,7 +40,7 @@ export function CartPage() {
                if (idProduto === item.id) {
                   return {
                      ...item,
-                     quantity: item.quantity - 1,
+                     quantity: item.quantity--,
                   };
                }
                return item;
@@ -64,46 +65,35 @@ export function CartPage() {
    };
 
    const mapCart =
+      restaurantDetail &&
       cart &&
       cart.map((prod) => {
          return (
-            <>
-               <MainCard2>
-                  <figcaption>
-                     <h4>Bullguer Vila Madalena</h4>
-                     <ul>
-                        <li>R.fradique Coutinho, 1136 - Vila Madalena</li>
-                        <li>30 - 45 min</li>
-                     </ul>
-                  </figcaption>
-               </MainCard2>
-
-               <SecondaryCard2 key={prod.id}>
-                  <img src={prod.photoUrl} />
-                  <figcaption>
-                     <p>{prod.name}</p>
-                     <p>{prod.description}</p>
-                     <p>
-                        {prod.price.toLocaleString("pt-br", {
-                           style: "currency",
-                           currency: "BRL",
-                        })}
-                     </p>
-                     <p className="view">{prod.quantity}</p>
-                     <button
-                        className="btn-remove"
-                        onClick={() => removeItem(prod.id)}>
-                        remover
-                     </button>
-                  </figcaption>
-               </SecondaryCard2>
-            </>
+            <SecondaryCard2 key={prod.id}>
+               <img src={prod.photoUrl} />
+               <figcaption>
+                  <p>{prod.name}</p>
+                  <p>{prod.description}</p>
+                  <p>
+                     {prod.price.toLocaleString("pt-br", {
+                        style: "currency",
+                        currency: "BRL",
+                     })}
+                  </p>
+                  <p className="view">{prod.quantity}</p>
+                  <button
+                     className="btn-remove"
+                     onClick={() => removeItem(prod.id)}>
+                     remover
+                  </button>
+               </figcaption>
+            </SecondaryCard2>
          );
       });
 
    const checkCart =
       cart.length !== 0 ? (
-         <div>{mapCart}</div>
+         <>{mapCart}</>
       ) : (
          <p className="emptyCart">Carrinho vazio</p>
       );
@@ -126,13 +116,44 @@ export function CartPage() {
                </div>
             </Address2>
 
-            {checkCart}
+            {cart.length > 0 ? (
+               <MainCard2>
+                  <figcaption>
+                     <h4>{restaurantDetail.name}</h4>
+                     <ul>
+                        <li>{restaurantDetail.address}</li>
+                        <li>
+                           {restaurantDetail.deliveryTime} -{" "}
+                           {Math.round(restaurantDetail.deliveryTime * 0.25) +
+                              restaurantDetail.deliveryTime}{" "}
+                           min
+                        </li>
+                     </ul>
+                  </figcaption>
+               </MainCard2>
+            ) : null}
 
-            <Shipping>Frete R$0,00</Shipping>
+            <div>{checkCart}</div>
+
+            {cart.length > 0 ? (
+               <Shipping>
+                  {cart.length !== 0 ? (
+                     <>
+                        Frete{" "}
+                        {restaurantDetail.shipping.toLocaleString("pt-br", {
+                           style: "currency",
+                           currency: "BRL",
+                        })}
+                     </>
+                  ) : (
+                     <>Frete R$ 0,00</>
+                  )}
+               </Shipping>
+            ) : null}
 
             <Subtotal>
                <p>Subtotal</p>
-               <p>R$00,00</p>
+               <p>R$00,00 </p>
             </Subtotal>
 
             <Form>

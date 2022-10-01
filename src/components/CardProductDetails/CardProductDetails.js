@@ -31,9 +31,6 @@ export function CardProductDetails({ product }) {
          setCartProducts(
             cartProducts.map((item) => {
                if (id === item.id) {
-                  // quantity é a quantidade de vezes que o produto é selecionado
-                  // colocar item.quantity * product.price
-
                   return {
                      ...item,
                      quantity: item.quantity + parseInt(Number(form.quantity)),
@@ -77,14 +74,6 @@ export function CardProductDetails({ product }) {
 
       handleClose();
    };
-
-   
-
-
-
-
-
-
 
    // Lógica Modal
    const handleOpen = () => {
@@ -130,7 +119,6 @@ export function CardProductDetails({ product }) {
                   id="parent-modal-description"
                   name="quantity"
                   onChange={handleInputChange}>
-                  
                   <option name="quantity">1</option>
                   <option name="quantity">2</option>
                   <option name="quantity">3</option>
