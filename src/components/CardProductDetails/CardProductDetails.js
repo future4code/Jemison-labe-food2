@@ -14,12 +14,18 @@ export function CardProductDetails({ product }) {
     const carrinho = GlobalStates.carrinho;
     const setCarrinho = GlobalSetStates.setCarrinho;
 
+    const Quacarrinho = carrinho && carrinho;
+    
     const produtos = GlobalStates.produtos;
+
+    const quantidadeProdutos = produtos && produtos
+
     // const listProdutos = produtos && produtos
     const setProdutos = GlobalSetStates.setProdutos;
 
     const productList = GlobalStates.products;
 
+    //  console.log(quantidadeProdutos)
      console.log(carrinho)
 
     const adicionaCarrinho = (id) => {
@@ -109,13 +115,14 @@ export function CardProductDetails({ product }) {
                         currency: "BRL",
                     })}
                 </p>
-                {produtos > 0 ? (
-                    <p className="view">{produtos}</p>
+                {Quacarrinho  > 0 ? (
+                    <p className="view">{Quacarrinho.length
+                    }</p>
                 ) : (
                     <p className="null">{null}</p>
                 )}
 
-                {produtos > 0 ? (
+                {Quacarrinho > 0 ? (
                     <button className="btn-remove">remover</button>
                 ) : (
                     <button onClick={handleOpen}>adicionar</button>

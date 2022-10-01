@@ -28,6 +28,33 @@ export function CartPage() {
     const { GlobalRequests, GlobalStates } = useContext(GlobalContext);
 
     const user = GlobalStates.perfil;
+    
+    const carrinho = GlobalStates.carrinho;
+    
+    console.log(carrinho)
+
+    // const renderizarCart = carrinho.map((item)=>{
+    //     return (
+    //         <div>
+    //             <p>{item.name}</p>
+    //         </div>
+    //     )
+    // })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     useEffect(() => {
         GlobalRequests.getProfile();
@@ -46,7 +73,7 @@ export function CartPage() {
                         <p>{user.address}</p>
                     </div>
                 </Address2>
-
+              
                 <MainCard2>
                     <figcaption>
                         <h4>Bullguer Vila Madalena</h4>
@@ -55,10 +82,13 @@ export function CartPage() {
                             <li>30 - 45 min</li>
                         </ul>
                     </figcaption>
+
+                    
                 </MainCard2>
 
+                {carrinho > 0 ? <p> carrinho fazio</p>: <>{carrinho.name}</>}
                 <SecondaryCard2>
-                    <img src={food} />
+                    {/* <img src={food} />
                     <figcaption>
                         <p>Stencil</p>
                         <p>
@@ -68,22 +98,11 @@ export function CartPage() {
                         <p>R$46,00</p>
                         <p className="view">2</p>
                         <button className="btn-remove">remover</button>
-                    </figcaption>
+                    </figcaption> */}
+                    
                 </SecondaryCard2>
 
-                <SecondaryCard2>
-                    <img src={food} />
-                    <figcaption>
-                        <p>Cheese Fries</p>
-                        <p>
-                            Porção de fritas temperada com páprica e queijo
-                            derretido.
-                        </p>
-                        <p>R$15,00</p>
-                        <p className="view">1</p>
-                        <button className="btn-remove">remover</button>
-                    </figcaption>
-                </SecondaryCard2>
+               
 
                 <Shipping>Frete R$6,00</Shipping>
 
